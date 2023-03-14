@@ -4,17 +4,17 @@ const toast = {
   state: {
     isFail: false
   },
-  toastStart(message) {
+  start(message: string) {
     Toast.loading({
       duration: 0,
       message: message || '加载中...',
       forbidClick: true
     })
   },
-  toastEnd() {
+  close() {
     !this.state.isFail && Toast.clear()
   },
-  success(message, callback) {
+  success(message: string, callback?: Function) {
     Toast.success({
       type: 'success',
       message,
@@ -24,7 +24,7 @@ const toast = {
       }
     })
   },
-  fail(message, callback) {
+  fail(message: string, callback?: Function) {
     this.state.isFail = true
     setTimeout(() => {
       this.state.isFail = false

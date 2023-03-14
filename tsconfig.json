@@ -3,7 +3,7 @@
     "baseUrl": ".",
     "types": ["miniprogram-api-typings"],
     "paths": {
-      "@vant/weapp/*": ["path/to/node_modules/@vant/weapp/dist/*"]
+      "@vant/weapp/*": ["node_modules/@vant/weapp/dist/*"]
     },
     "lib": ["ES2020"],
     "strictNullChecks": true,

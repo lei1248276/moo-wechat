@@ -1,5 +1,5 @@
 // ! 劫持Page再混入方法
-const originPage = Page;
+const originPage = Page
 Page = function(options) {
   const defaultOptions = {
     onShareAppMessage() {
@@ -7,20 +7,20 @@ Page = function(options) {
         setTimeout(() => {
           resolve({
             title: '????'
-          });
-        }, 2000);
-      });
+          })
+        }, 2000)
+      })
       return {
         title: '???',
         path: '/pages/index/index',
         promise
-      };
+      }
     },
     onShareTimeline() {
       return {
         title: '????'
-      };
+      }
     }
-  };
-  return originPage({ ...defaultOptions, ...options });
-};
+  }
+  return originPage({ ...defaultOptions, ...options })
+}
