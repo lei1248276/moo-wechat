@@ -1,0 +1,20 @@
+{
+  "printWidth": 80,
+  "semi": false,
+  "htmlWhitespaceSensitivity": "css",
+  "endOfLine": "lf",
+  "overrides": [
+    {
+      "files": "*.wxml",
+      "options": { "parser": "html" }
+    },
+    {
+      "files": "*.wxss",
+      "options": { "parser": "css" }
+    },
+    {
+      "files": "*.wxs",
+      "options": { "parser": "babel" }
+    }
+  ]
+}
