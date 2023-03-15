@@ -1,0 +1,17 @@
+<view class="navbar fixed">
+  <view class="flex justify-between item-center" style="height: 100%">
+    <text class="{{ currentPage === 1 ? 'opacity-1' : 'opacity-0' }}" style="transition: opacity 1s"
+      >{{ currentPage === 1 ? 'DISCOVER' : currentPage === 0 ? 'PLAY' : '' }}
+    </text>
+    <icon class="iconfont icon-user" />
+  </view>
+
+  <view class="flex">
+    <view
+      class="navbar__dot {{ index === currentPage ? 'navbar__dot--active' : '' }}"
+      wx:for="{{ 3 }}"
+      wx:key="index"
+    >
+    </view>
+  </view>
+</view>

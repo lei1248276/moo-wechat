@@ -1,0 +1,24 @@
+@import "miniprogram/styles/index";
+
+.navbar {
+  background-color: $bg-black;
+  @include font-color(70rpx, $font-color);
+  top: 0;
+  left: 0;
+  right: 0;
+  padding: 0 28rpx;
+
+  &__dot {
+    @include wh(18rpx, 18rpx);
+    border-radius: 50%;
+    background-color: #959292;
+    transition: width 0.5s ease-in-out;
+    margin-right: 8rpx;
+    &--active {
+      @include wh(36rpx, 18rpx);
+      border-radius: 20rpx;
+      background-color: $font-color;
+      margin-right: 8rpx;
+    }
+  }
+}
