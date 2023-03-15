@@ -30,27 +30,26 @@
 }
 
 // * 字体大小、行高、字体
-@mixin font($size, $line-height, $family: 'Microsoft YaHei') {
+@mixin font($size, $line-height, $family: "Microsoft YaHei") {
   font: #{$size}/#{$line-height} $family;
 }
 
 // * 字体大小、字体颜色、字体粗细
-@mixin fcw($size, $color, $weight: 400) {
+@mixin font-color($size, $color) {
   font-size: $size;
   color: $color;
-  font-weight: $weight;
 }
 
 // * 文字省略
-@mixin textSinOmit() {
+@mixin text-omit() {
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
 }
 
 // * 文字多行省略
-@mixin textMulOmit($col: 2) {
-  overflow : hidden;
+@mixin text-mul-omit($col: 2) {
+  overflow: hidden;
   text-overflow: ellipsis;
   display: -webkit-box;
   -webkit-line-clamp: $col;

@@ -1,4 +1,18 @@
 <!--index.wxml-->
-<view class="container">
-  <view> </view>
+<view class="app-container">
+  <Navbar currentPage="{{ currentPage }}"></Navbar>
+
+  <swiper class="app-swiper" current="{{ 1 }}" duration="200" bind:change="onSwiper">
+    <swiper-item skip-hidden-item-layout item-id="play">
+      <view style="color: #fff">world</view>
+    </swiper-item>
+
+    <swiper-item skip-hidden-item-layout item-id="home">
+      <Home></Home>
+    </swiper-item>
+
+    <swiper-item skip-hidden-item-layout item-id="profile">
+      <view style="color: #fff">world</view>
+    </swiper-item>
+  </swiper>
 </view>

@@ -1,3 +1,9 @@
 {
-  "usingComponents": {}
+  "navigationBarBackgroundColor": "#1a191b",
+  "navigationBarTitleText": "MOO",
+  "navigationBarTextStyle": "white",
+  "usingComponents": {
+    "Navbar": "./components/Navbar/Navbar",
+    "Home": "./components/Home/Home"
+  }
 }

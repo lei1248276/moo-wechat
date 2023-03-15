@@ -1,5 +1,146 @@
-/**app.wxss**/
+@import "styles/iconfont/iconfont.scss";
+
+.iconfont {
+  font-size: 60rpx;
+}
+
 .IOS_safe_area_bottom {
   padding-bottom: constant(safe-area-inset-bottom); /*兼容 IOS<11.2*/
   padding-bottom: env(safe-area-inset-bottom); /*兼容 IOS>11.2*/
+}
+
+.mid {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate3d(-50%, -50%, 0);
+}
+
+.text-omit {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.opacity-0 {
+  opacity: 0;
+}
+
+.opacity-1 {
+  opacity: 1;
+}
+
+.hidden {
+  display: none;
+}
+
+.block {
+  display: block;
+}
+
+.inline-block {
+  display: inline-block;
+}
+
+.flex {
+  display: flex;
+}
+
+.flex-1 {
+  flex: 1 1 0%;
+}
+
+.justify-start {
+  justify-content: flex-start;
+}
+
+.justify-center {
+  justify-content: center;
+}
+
+.justify-end {
+  justify-content: flex-end;
+}
+
+.justify-between {
+  justify-content: space-between;
+}
+
+.justify-around {
+  justify-content: space-around;
+}
+
+.justify-evenly {
+  justify-content: space-evenly;
+}
+
+.content-start {
+  align-content: start;
+}
+
+.content-center {
+  align-content: center;
+}
+
+.content-end {
+  align-content: flex-end;
+}
+
+.content-between {
+  align-content: space-between;
+}
+
+.content-around {
+  align-content: space-around;
+}
+
+.content-evenly {
+  align-content: space-evenly;
+}
+
+.item-start {
+  align-items: flex-start;
+}
+
+.item-center {
+  align-items: center;
+}
+
+.item-end {
+  align-items: flex-end;
+}
+
+.absolute {
+  position: absolute;
+}
+
+.relative {
+  position: relative;
+}
+
+.fixed {
+  position: fixed;
+}
+
+.box-border {
+  box-sizing: border-box;
+}
+
+.text-left {
+  text-align: left;
+}
+.text-center {
+  text-align: center;
+}
+.text-right {
+  text-align: right;
+}
+.text-justify {
+  text-align: justify;
+}
+.text-start {
+  text-align: start;
+}
+.text-end {
+  text-align: end;
 }
