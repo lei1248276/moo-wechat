@@ -5,6 +5,7 @@
       "@vant/weapp/*": ["node_modules/@vant/weapp/dist/*"]
     },
     "lib": ["ES2020"],
+    "moduleResolution": "Node",
     "strictNullChecks": true,
     "module": "ESNext",
     "target": "ES2020",
@@ -14,7 +15,7 @@
     "alwaysStrict": true,
     "noUnusedLocals": true,
     "strict": true,
-    "strictPropertyInitialization": true,
+    "strictPropertyInitialization": true
   },
   "include": [
     "./**/*.ts"

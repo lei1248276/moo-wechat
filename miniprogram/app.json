@@ -2,6 +2,9 @@
   "pages": [
     "pages/index/index"
   ],
+  "usingComponents": {
+    "van-toast": "@vant/weapp/toast/index"
+  },
   "window": {
     "navigationBarTextStyle": "black",
     "backgroundTextStyle": "dark",
