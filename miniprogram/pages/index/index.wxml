@@ -15,4 +15,6 @@
       <view style="color: #fff">world</view>
     </swiper-item>
   </swiper>
+
+  <van-toast id="van-toast" />
 </view>
