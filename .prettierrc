@@ -1,8 +1,6 @@
 {
-  "printWidth": 80,
+  "printWidth": 100,
   "semi": false,
-  "htmlWhitespaceSensitivity": "css",
-  "endOfLine": "lf",
   "overrides": [
     {
       "files": "*.wxml",
