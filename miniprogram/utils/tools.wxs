@@ -1,0 +1,8 @@
+var replaceHTTP = function(url) {
+  var reg = getRegExp('^http:')
+  return reg.test(url) ? url.replace(reg, 'https:') : url
+}
+
+module.exports = {
+  replaceHTTP: replaceHTTP
+}
