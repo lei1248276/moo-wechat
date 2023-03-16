@@ -11,5 +11,11 @@
     "navigationBarBackgroundColor": "#fff"
   },
   "lazyCodeLoading": "requiredComponents",
-  "sitemapLocation": "sitemap.json"
+  "sitemapLocation": "sitemap.json",
+  "requiredBackgroundModes": ["audio"],
+  "resolveAlias": {
+    "/*": "/*",
+    "@/utils/*": "utils/*",
+    "@/api/*": "api/*"
+  }
 }

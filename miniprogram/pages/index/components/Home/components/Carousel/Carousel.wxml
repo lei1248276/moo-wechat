@@ -1,0 +1,21 @@
+<wxs src="/utils/tools.wxs" module="tools" />
+
+<swiper
+  class="overflow-hidden"
+  style="border-radius: 14rpx"
+  indicator-dots
+  autoplay
+  circular
+  duration="200"
+  interval="2500"
+  indicator-color="#ABA8A8"
+  indicator-active-color="#fff"
+>
+  <swiper-item wx:for="{{ bannerList }}" wx:key="targetId" skip-hidden-item-layout>
+    <image
+      style="width: 100%; height: 100%; border-radius: 14rpx; object-fit: fill"
+      lazy-load
+      src="{{ tools.replaceHTTP(item.imageUrl) }}"
+    />
+  </swiper-item>
+</swiper>

@@ -1,32 +1,9 @@
-<wxs src="/utils/tools.wxs" module="tools" />
-
 <view class="home">
-  <search />
+  <Search />
 
   <scroll-view class="home-scroll-view" scroll-y enable-passive scroll-anchoring>
-    <swiper
-      indicator-dots
-      autoplay
-      circular
-      duration="200"
-      interval="2500"
-      indicator-color="#ABA8A8"
-      indicator-active-color="#fff"
-    >
-      <swiper-item
-        class="swiper_item"
-        wx:for="{{ bannerList }}"
-        wx:key="imageUrl"
-        skip-hidden-item-layout
-      >
-        <van-image
-          width="100%"
-          height="100%"
-          lazy-load
-          src="{{ tools.replaceHTTP(item.imageUrl) }}"
-        />
-      </swiper-item>
-    </swiper>
+    <Carousel />
+
     <view wx:for="{{ 100 }}" wx:key="index">{{ index }}</view>
   </scroll-view>
 </view>

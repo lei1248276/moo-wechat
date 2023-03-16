@@ -2,6 +2,7 @@
   "compilerOptions": {
     "baseUrl": ".",
     "paths": {
+      "@/*": ["miniprogram/*"],
       "@vant/weapp/*": ["node_modules/@vant/weapp/dist/*"]
     },
     "lib": ["ES2020"],

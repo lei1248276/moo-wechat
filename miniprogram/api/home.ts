@@ -1,4 +1,4 @@
-import simpleAxios from '../utils/request'
+import simpleAxios from '@/utils/request'
 
 export interface BannerResponse{
   banners: {

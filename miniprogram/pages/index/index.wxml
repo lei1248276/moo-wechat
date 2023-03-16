@@ -4,7 +4,7 @@
 
   <swiper class="app-swiper" current="{{ 1 }}" duration="200" bind:change="onSwiper">
     <swiper-item skip-hidden-item-layout item-id="play">
-      <view style="color: #fff">world</view>
+      <view style="color: #fff">hello</view>
     </swiper-item>
 
     <swiper-item skip-hidden-item-layout item-id="home">
