@@ -1,7 +1,6 @@
 {
   "component": true,
   "usingComponents": {
-    "van-image": "@vant/weapp/image/index",
     "Search": "/components/Search/Search",
     "Carousel": "./components/Carousel/Carousel"
   }

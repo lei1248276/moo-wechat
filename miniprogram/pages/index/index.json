@@ -4,6 +4,6 @@
   "navigationBarTextStyle": "white",
   "usingComponents": {
     "Navbar": "./components/Navbar/Navbar",
-    "Home": "./components/Home/Home"
+    "Home": "./subPages/Home/Home"
   }
 }
