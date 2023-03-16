@@ -3,6 +3,7 @@
     "pages/index/index"
   ],
   "usingComponents": {
+    "Subtitle": "/components/Subtitle/Subtitle",
     "van-toast": "@vant/weapp/toast/index"
   },
   "window": {
