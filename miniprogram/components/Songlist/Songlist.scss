@@ -1,0 +1,30 @@
+@import "miniprogram/styles/index";
+
+.songlist {
+  width: auto;
+  gap: 20rpx;
+
+  .songlist-item {
+    @include wh(48%, 420rpx);
+    border-radius: 20rpx;
+    color: $font-white;
+    font-weight: bold;
+    @include text-mul-omit();
+
+    &__img {
+      @include wh(100%, 322rpx);
+      border-radius: 20rpx;
+    }
+
+    &__icon {
+      position: absolute;
+      right: 3%;
+      top: 60%;
+      @include wh(54rpx, 54rpx);
+      @include font-color(42rpx, #666);
+      text-align: center;
+      border-radius: 50%;
+      background-color: $font-white;
+    }
+  }
+}

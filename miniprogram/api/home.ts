@@ -36,3 +36,23 @@ export interface RecommendResponse{
 export function getRecommend() {
   return simpleAxios.get<RecommendResponse>('/personalized?limit=3')
 }
+
+export interface SonglistResponse<T = Record<string, any>>{
+  code: number
+  cat: string
+  playlists: {
+    coverImgUrl: string
+    createTime: number
+    updateTime: number
+    creator: T
+    description: string
+    name: string
+    playCount: number
+    subscribedCount: number
+    tags: string[]
+  }[]
+  total: number
+}
+export function getSonglist(offset: number, limit: number) {
+  return simpleAxios.get<SonglistResponse>(`/top/playlist?limit=${limit}&order=all&offset=${offset}`)
+}

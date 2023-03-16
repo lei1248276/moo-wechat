@@ -5,5 +5,8 @@
     <Carousel />
 
     <Recommend />
+
+    <Subtitle title="MOO Playlist_歌单" />
+    <Songlist Songlist="{{ Songlist }}" />
   </scroll-view>
 </view>
