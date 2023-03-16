@@ -1,0 +1,47 @@
+@import "miniprogram/styles/index";
+
+.recommend {
+  @include wh(auto, 140rpx);
+  background-color: $primary-black;
+  border-radius: 60rpx;
+  margin: 50rpx auto 0;
+
+  &__img {
+    @include wh(180rpx, 100%);
+    border-radius: 8rpx;
+    position: absolute;
+    bottom: 0;
+    &__1 {
+      left: 0%;
+    }
+    &__2 {
+      height: 120%;
+      left: 20%;
+      z-index: 999;
+    }
+    &__3 {
+      left: 40%;
+    }
+  }
+
+  &-play {
+    color: $primary-yellow;
+    &__content {
+      & view {
+        color: $font-white;
+        font-weight: bold;
+        font-size: 38rpx;
+      }
+      & text {
+        color: $font-grey;
+        font-size: 30rpx;
+        letter-spacing: 8rpx;
+      }
+    }
+
+    & icon {
+      font-size: 80rpx;
+      color: $primary-yellow;
+    }
+  }
+}

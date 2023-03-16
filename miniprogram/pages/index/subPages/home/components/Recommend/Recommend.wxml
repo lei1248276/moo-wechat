@@ -1,0 +1,20 @@
+<view class="recommend flex item-center">
+  <view class="flex-1 relative flex justify-start" style="height: 100%">
+    <image
+      wx:for="{{ recommendList }}"
+      wx:key="id"
+      class="recommend__img recommend__img__{{ index + 1 }}"
+      src="{{ item.picUrl + '?param=100y100' }}"
+      mode="aspectFill"
+      lazy-load
+    />
+  </view>
+
+  <view class="recommend-play flex-1 flex justify-evenly item-center" style="margin-right: 10rpx">
+    <view class="recommend-play__content">
+      <view>MOO Radio</view>
+      <text>个性好歌推荐</text>
+    </view>
+    <icon class="iconfont {{ isPlay ? 'icon-pause' : 'icon-play' }}" bind:tap="onPlay" />
+  </view>
+</view>

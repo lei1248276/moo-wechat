@@ -4,6 +4,6 @@
   <scroll-view class="home-scroll-view" scroll-y enable-passive scroll-anchoring>
     <Carousel />
 
-    <view wx:for="{{ 100 }}" wx:key="index">{{ index }}</view>
+    <Recommend />
   </scroll-view>
 </view>

@@ -1,0 +1,8 @@
+{
+  "component": true,
+  "usingComponents": {
+    "Search": "/components/Search/Search",
+    "Carousel": "./components/Carousel/Carousel",
+    "Recommend": "./components/Recommend/Recommend"
+  }
+}
