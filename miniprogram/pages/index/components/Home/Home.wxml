@@ -1,10 +1,7 @@
-<wxs src="../../../../utils/tools.wxs" module="tools" />
+<wxs src="/utils/tools.wxs" module="tools" />
 
 <view class="home">
-  <view class="relative">
-    <input class="home__search box-border" type="text" />
-    <icon class="iconfont icon-search mid" style="color: #fce939; left: 40rpx" />
-  </view>
+  <search />
 
   <scroll-view class="home-scroll-view" scroll-y enable-passive scroll-anchoring>
     <swiper

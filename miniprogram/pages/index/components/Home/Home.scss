@@ -4,16 +4,6 @@
   margin: 130rpx 28rpx 0;
   background-color: $bg-black;
 
-  &__search {
-    @include wh(100%, 66rpx);
-    border-radius: 30rpx;
-    color: $font-color;
-    caret-color: #fce939;
-    background-color: #010001;
-    margin: 0 auto;
-    padding-left: 74rpx;
-  }
-
   &-scroll-view {
     height: calc(100vh - 220rpx);
     margin-top: 20rpx;

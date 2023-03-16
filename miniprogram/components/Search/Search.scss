@@ -1,0 +1,11 @@
+@import "miniprogram/styles/index";
+
+.search {
+  @include wh(auto, 66rpx);
+  border-radius: 30rpx;
+  color: $font-color;
+  caret-color: #fce939;
+  background-color: #010001;
+  margin: 0 auto;
+  padding-left: 74rpx;
+}
