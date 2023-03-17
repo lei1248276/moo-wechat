@@ -1,25 +1,29 @@
 @import "miniprogram/styles/index";
 
-.playlist {
-  @include wh(100%, 140rpx);
+.song {
+  @include wh(auto, 140rpx);
   margin-bottom: 40rpx;
 
   &__img {
     @include wh(140rpx, 100%);
     border-radius: 12rpx;
+    flex-shrink: 0;
     margin-right: 40rpx;
   }
 
   &-name {
+    width: 100%;
     @include font-color(38rpx, $font-white);
     font-weight: bold;
   }
   &-singer {
+    width: 100%;
     @include font-color(32rpx, $font-grey);
   }
 
   &__icon {
     @include font-color(38rpx, $font-grey);
+    margin-left: 40rpx;
   }
 
   .run {
