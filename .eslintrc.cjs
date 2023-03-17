@@ -18,7 +18,11 @@ module.exports = {
     sourceType: 'module',
     ecmaVersion: 2018
   },
-  extends: ['eslint:recommended'],
+  plugins: ['@typescript-eslint'],
+  extends: [
+    'eslint:recommended',
+    'plugin:@typescript-eslint/recommended'
+  ],
   globals: {
     wx: true,
     App: true,
