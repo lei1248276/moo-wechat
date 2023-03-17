@@ -5,6 +5,7 @@
     "Carousel": "./components/Carousel/index",
     "Recommend": "./components/Recommend/index",
     "NewSonglist": "./components/NewSonglist/index",
-    "NewSong": "./components/NewSong/index"
+    "NewSong": "./components/NewSong/index",
+    "NewAlbum": "./components/NewAlbum/index"
   }
 }

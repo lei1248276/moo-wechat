@@ -1,0 +1,28 @@
+@import "miniprogram/styles/index";
+
+.new-album {
+  @include wh(100%, 100%);
+  gap: 30rpx;
+
+  &__img {
+    @include wh(300rpx, 300rpx);
+    border-radius: 12rpx;
+  }
+  &__icon {
+    @include wh(50rpx, 200rpx);
+  }
+
+  &-name {
+    @include font-color(38rpx, $font-white);
+    font-weight: bold;
+  }
+  &-artist {
+    @include font-color(32rpx, $font-grey);
+  }
+  &__btn {
+    background-color: $primary-yellow;
+    color: $primary-black;
+    font-weight: bold;
+    border: none;
+  }
+}

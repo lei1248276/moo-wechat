@@ -10,7 +10,6 @@
     border-radius: 20rpx;
     color: $font-white;
     font-weight: bold;
-    @include text-mul-omit();
 
     &__img {
       @include wh(100%, 322rpx);

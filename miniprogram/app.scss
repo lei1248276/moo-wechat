@@ -16,10 +16,24 @@
   transform: translate3d(-50%, -50%, 0);
 }
 
+.y-mid {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
 .text-omit {
   overflow: hidden;
   text-overflow: ellipsis;
   white-space: nowrap;
+}
+
+.text-omit2 {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
 }
 
 .opacity-0 {
@@ -124,6 +138,10 @@
 
 .item-end {
   align-items: flex-end;
+}
+
+.items-stretch {
+  align-items: stretch;
 }
 
 .absolute {

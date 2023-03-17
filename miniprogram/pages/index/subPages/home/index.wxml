@@ -12,6 +12,9 @@
 
       <Subtitle title="MOO Track_新歌" />
       <NewSong />
+
+      <Subtitle title="MOO Album_专辑" />
+      <NewAlbum />
     </view>
   </scroll-view>
 </view>

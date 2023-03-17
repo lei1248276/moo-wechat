@@ -56,3 +56,14 @@ export interface Playlist {
   trackUpdateTime: number
   tracks: Song[]
 }
+
+export interface Album {
+  albumId: number
+  albumName: string
+  albumType: number
+  artistName: string
+  coverUrl: string
+  price: number
+  productId: number
+  pubTime: number
+}
