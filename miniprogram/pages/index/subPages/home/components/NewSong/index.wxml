@@ -1,0 +1,1 @@
+<Song wx:for="{{ newSongs }}" wx:key="id" song="{{ item }}" />
