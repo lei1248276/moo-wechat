@@ -8,7 +8,7 @@
       <Recommend />
 
       <Subtitle title="MOO Songlist_歌单" />
-      <Songlist Songlist="{{ Songlist }}" />
+      <NewSonglist />
 
       <Subtitle title="MOO Track_新歌" />
       <NewSong />

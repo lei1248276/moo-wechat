@@ -4,7 +4,7 @@
     "Search": "/components/Search/index",
     "Carousel": "./components/Carousel/index",
     "Recommend": "./components/Recommend/index",
-    "Songlist": "/components/Songlist/index",
+    "NewSonglist": "./components/NewSonglist/index",
     "NewSong": "./components/NewSong/index"
   }
 }

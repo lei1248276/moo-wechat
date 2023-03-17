@@ -19,8 +19,8 @@ export function getRecommend(limit = 3) {
   }>(`/personalized?limit=${limit}`)
 }
 
-// * 获取所有歌单
-export function getSonglist(offset: number, limit: number) {
+// * 获取新歌单
+export function getNewSonglist(offset: number, limit: number) {
   return simpleAxios.get<{
     code: number
     cat: string

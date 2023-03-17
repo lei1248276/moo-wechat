@@ -12,12 +12,13 @@
   }
 
   &-name {
-    width: 100%;
+    width: 420rpx;
+    flex-grow: 0;
     @include font-color(38rpx, $font-white);
     font-weight: bold;
   }
   &-singer {
-    width: 100%;
+    width: 420rpx;
     @include font-color(32rpx, $font-grey);
   }
 
