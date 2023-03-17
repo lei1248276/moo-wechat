@@ -2,14 +2,16 @@
   <Search />
 
   <scroll-view class="home-scroll-view" scroll-y enable-passive scroll-anchoring>
-    <Carousel />
+    <view style="margin: 0 28rpx">
+      <Carousel />
 
-    <Recommend />
+      <Recommend />
 
-    <Subtitle title="MOO Songlist_歌单" />
-    <Songlist Songlist="{{ Songlist }}" />
+      <Subtitle title="MOO Songlist_歌单" />
+      <Songlist Songlist="{{ Songlist }}" />
 
-    <Subtitle title="MOO Track_新歌" />
-    <NewSong />
+      <Subtitle title="MOO Track_新歌" />
+      <NewSong />
+    </view>
   </scroll-view>
 </view>

@@ -4,7 +4,7 @@
       wx:for="{{ recommendList }}"
       wx:key="id"
       class="recommend__img recommend__img__{{ index + 1 }}"
-      src="{{ item.picUrl + '?param=100y100' }}"
+      src="{{ item.picUrl }}"
       mode="aspectFill"
       lazy-load
     />
