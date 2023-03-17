@@ -3,6 +3,7 @@
 .new-album {
   @include wh(100%, 100%);
   gap: 30rpx;
+  margin-bottom: 40rpx;
 
   &__img {
     @include wh(300rpx, 300rpx);

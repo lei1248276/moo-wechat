@@ -7,13 +7,10 @@
 
       <Recommend />
 
-      <Subtitle title="MOO Songlist_歌单" />
       <NewSonglist />
 
-      <Subtitle title="MOO Track_新歌" />
       <NewSong />
 
-      <Subtitle title="MOO Album_专辑" />
       <NewAlbum />
 
       <SearchTags />

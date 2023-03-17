@@ -1,3 +1,5 @@
+<Subtitle title="MOO Album_专辑" />
+
 <view wx:for="{{ newAlbum }}" wx:key="albumId" class="new-album flex items-stretch">
   <view class="relative flex-1">
     <image src="{{ item.coverUrl }}" class="new-album__img" lazy-load />

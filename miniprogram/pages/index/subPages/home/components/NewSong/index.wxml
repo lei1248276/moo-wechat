@@ -1,1 +1,3 @@
+<Subtitle title="MOO Track_新歌" />
+
 <Song wx:for="{{ newSongs }}" wx:key="id" song="{{ item }}" />
