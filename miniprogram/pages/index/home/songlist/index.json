@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "歌单列表",
+  "onReachBottomDistance": 100,
+  "usingComponents": {
+    "Songlist": "/components/Songlist/index"
+  }
+}

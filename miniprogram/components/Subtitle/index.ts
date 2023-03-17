@@ -29,7 +29,10 @@ Component({
   methods: {
     onSubtitle() {
       this.triggerEvent('click')
-      this.data.url && wx.navigateTo({ url: this.data.url })
+      this.data.url && wx.navigateTo({
+        url: this.data.url,
+        fail: err => { console.error(err) }
+      })
     }
   }
 })

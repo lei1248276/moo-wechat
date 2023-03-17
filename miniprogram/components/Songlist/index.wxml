@@ -1,7 +1,7 @@
 <wxs src="/utils/tools.wxs" module="tools"></wxs>
 
 <view class="songlist flex justify-between flex-wrap overflow-hidden">
-  <view wx:for="{{ Songlist }}" wx:key="index" class="songlist-item relative">
+  <view wx:for="{{ songlist }}" wx:key="index" class="songlist-item relative">
     <image src="{{ tools.replaceHTTP(item.coverImgUrl) }}" lazy-load class="songlist-item__img" />
     <icon class="iconfont icon-music songlist-item__icon"></icon>
     <text>{{ item.name }}</text>
