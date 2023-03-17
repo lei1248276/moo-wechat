@@ -1,0 +1,11 @@
+@import "miniprogram/styles/index";
+
+.search-tags {
+  .search-tags__btn {
+    background-color: $primary-yellow;
+    color: $primary-black;
+    font-weight: bold;
+    border: none;
+    margin: 0 20rpx 20rpx 0;
+  }
+}

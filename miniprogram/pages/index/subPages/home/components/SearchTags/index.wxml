@@ -1,0 +1,13 @@
+<view class="search-tags">
+  <Subtitle title="MOO Tag_探索标签" icon="icon-fresh" />
+  <van-button
+    wx:for="{{ tags }}"
+    wx:key="item"
+    type="default"
+    size="small"
+    round
+    custom-class="search-tags__btn"
+  >
+    {{ item }}
+  </van-button>
+</view>

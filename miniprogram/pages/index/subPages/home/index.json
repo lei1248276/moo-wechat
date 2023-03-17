@@ -6,6 +6,7 @@
     "Recommend": "./components/Recommend/index",
     "NewSonglist": "./components/NewSonglist/index",
     "NewSong": "./components/NewSong/index",
-    "NewAlbum": "./components/NewAlbum/index"
+    "NewAlbum": "./components/NewAlbum/index",
+    "SearchTags": "./components/SearchTags/index"
   }
 }
