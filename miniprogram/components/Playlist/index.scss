@@ -1,0 +1,59 @@
+@import "miniprogram/styles/index";
+
+.playlist {
+  @include wh(100%, 140rpx);
+  margin-bottom: 40rpx;
+
+  &__img {
+    @include wh(140rpx, 100%);
+    border-radius: 12rpx;
+    margin-right: 40rpx;
+  }
+
+  &-name {
+    @include font-color(38rpx, $font-white);
+    font-weight: bold;
+  }
+  &-singer {
+    @include font-color(32rpx, $font-grey);
+  }
+
+  &__icon {
+    @include font-color(38rpx, $font-grey);
+  }
+
+  .run {
+    animation-play-state: running;
+  }
+  .paused {
+    animation-play-state: paused;
+  }
+
+  .sound-wave {
+    @include wh(44rpx, 70rpx);
+
+    @for $i from 1 through 4 {
+      .wave#{$i} {
+        width: 25%;
+        margin-right: 2rpx;
+        background: $font-white;
+        animation: sequence#{$i} 1s ease-in-out infinite;
+        animation-delay: #{0.2 * ($i)}s;
+      }
+    }
+
+    @for $i from 1 through 4 {
+      @keyframes sequence#{$i} {
+        0% {
+          height: 10%;
+        }
+        50% {
+          height: 80%;
+        }
+        100% {
+          height: 0%;
+        }
+      }
+    }
+  }
+}

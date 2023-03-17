@@ -6,7 +6,10 @@
 
     <Recommend />
 
-    <Subtitle title="MOO Playlist_歌单" />
+    <Subtitle title="MOO Songlist_歌单" />
     <Songlist Songlist="{{ Songlist }}" />
+
+    <Subtitle title="MOO Track_新歌" />
+    <NewSong />
   </scroll-view>
 </view>

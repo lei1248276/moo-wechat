@@ -1,4 +1,5 @@
-import { getBanner, BannerResponse } from '@/api/home'
+import { getBanner } from '@/api/home'
+import { Banners } from '@/api/interface'
 
 Component({
   options: {
@@ -8,7 +9,7 @@ Component({
 
   },
   data: {
-    bannerList: [] as BannerResponse['banners']
+    bannerList: [] as Banners[]
   },
   lifetimes: {
     attached() {

@@ -1,4 +1,5 @@
-import { getRecommend, RecommendResponse } from '@/api/home'
+import { getRecommend } from '@/api/home'
+import type { Recommend } from '@/api/interface'
 
 Component({
   options: {
@@ -9,7 +10,7 @@ Component({
   },
   data: {
     isPlay: false,
-    recommendList: [] as RecommendResponse['result']
+    recommendList: [] as Recommend[]
   },
   lifetimes: {
     attached() {

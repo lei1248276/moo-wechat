@@ -3,7 +3,7 @@
   "navigationBarTitleText": "MOO",
   "navigationBarTextStyle": "white",
   "usingComponents": {
-    "Navbar": "./components/Navbar/Navbar",
-    "Home": "./subPages/home/home"
+    "Navbar": "./components/Navbar/index",
+    "Home": "./subPages/home/index"
   }
 }
