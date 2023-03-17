@@ -1,15 +1,16 @@
 {
   "pages": [
-    "pages/index/index"
+    "pages/index/index",
+    "pages/index/home/songlist/index"
   ],
   "usingComponents": {
     "Subtitle": "/components/Subtitle/index",
     "van-toast": "@vant/weapp/toast/index"
   },
   "window": {
-    "navigationBarTextStyle": "black",
-    "backgroundTextStyle": "dark",
-    "navigationBarBackgroundColor": "#fff"
+    "navigationBarBackgroundColor": "#1a191b",
+    "navigationBarTitleText": "MOO",
+    "navigationBarTextStyle": "white"
   },
   "lazyCodeLoading": "requiredComponents",
   "sitemapLocation": "sitemap.json",

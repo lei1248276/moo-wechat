@@ -5,8 +5,6 @@
       wx:key="id"
       class="recommend__img recommend__img__{{ index + 1 }}"
       src="{{ item.picUrl }}"
-      mode="aspectFill"
-      lazy-load
     />
   </view>
 

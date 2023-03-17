@@ -1,9 +1,6 @@
 {
-  "navigationBarBackgroundColor": "#1a191b",
-  "navigationBarTitleText": "MOO",
-  "navigationBarTextStyle": "white",
   "usingComponents": {
     "Navbar": "./components/Navbar/index",
-    "Home": "./subPages/home/index"
+    "Home": "./home/index"
   }
 }

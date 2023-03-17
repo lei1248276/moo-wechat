@@ -1,3 +1,0 @@
-<Subtitle title="MOO Songlist_歌单" />
-
-<Songlist Songlist="{{ newSonglist }}" />
