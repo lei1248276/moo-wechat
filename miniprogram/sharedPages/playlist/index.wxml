@@ -1,0 +1,65 @@
+<view class="playlist-page">
+  <swiper class="bg-black-2" style="height: 100vh" duration="200">
+    <swiper-item skip-hidden-item-layout item-id="playlist">
+      <scroll-view
+        class="playlist-page__scroll-view"
+        scroll-y
+        enable-passive
+        scroll-anchoring
+        bind:scrolltolower="onScrollMore"
+      >
+        <view style="padding: 0 28rpx 200rpx">
+          <image src="{{ playlist.coverImgUrl }}" class="playlist-page__img" />
+
+          <view class="flex justify-between item-center" style="margin-bottom: 20rpx">
+            <view class="playlist-page__desc text-white-1">{{ playlist.description }}</view>
+            <icon
+              class="iconfont icon-heart {{ isCollect ? 'text-red-1' : 'text-grey-1' }}"
+              bind:tap="onCollect"
+            />
+          </view>
+
+          <view class="text-grey-1" style="margin-bottom: 20rpx">
+            <view class="flex item-center" style="margin-bottom: 20rpx">
+              <image src="{{ playlist.creator.avatarUrl }}" class="playlist-page__avatar" />
+              <text>{{ playlist.creator.nickname }}</text>
+            </view>
+            <view>{{ playlist.creator.signature }}</view>
+          </view>
+
+          <van-button
+            wx:for="{{ playlist.tags }}"
+            wx:key="item"
+            type="default"
+            size="small"
+            round
+            custom-class="playlist-page__btn"
+          >
+            {{ item }}
+          </van-button>
+
+          <Subtitle title-slot icon="icon-menu">
+            <view slot="title">
+              <van-button custom-class="playlist-page__play-btn" round type="default" size="small">
+                <icon class="iconfont icon-play" style="font-size: 42rpx !important" />
+              </van-button>
+              <text
+                class="text-grey-1 inline-block align-middle"
+                style="margin-left: 40rpx; font-size: 38rpx"
+                >{{ playlist.trackCount }}</text
+              >
+            </view>
+          </Subtitle>
+
+          <Song wx:for="{{ songs }}" wx:key="id" song="{{ item }}" />
+        </view>
+      </scroll-view>
+    </swiper-item>
+
+    <swiper-item skip-hidden-item-layout item-id="play">
+      <view style="color: #fff">world</view>
+    </swiper-item>
+  </swiper>
+</view>
+
+<van-toast id="van-toast" />

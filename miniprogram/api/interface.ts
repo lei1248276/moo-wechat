@@ -55,7 +55,7 @@ export interface Playlist {
   trackIds: { id: number }[]
   trackNumberUpdateTime: number
   trackUpdateTime: number
-  tracks: Song[]
+  tracks: Song[] | null
 }
 
 export interface Album {

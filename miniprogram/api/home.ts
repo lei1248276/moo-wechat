@@ -1,5 +1,5 @@
 import simpleAxios from '@/utils/request'
-import type { Banners, Recommend, Playlist, Song, Album } from '@/api/interface'
+import type { Banners, Recommend, Playlist, Album } from '@/api/interface'
 
 // * 获取轮播图
 export function getBanner() {
@@ -43,12 +43,4 @@ export function getNewAlbum(limit = 3) {
     code: number
     products: Album[]
   }>(`/album/list?limit=${limit}`)
-}
-
-// * 获取歌曲（可以是多首）详情数据
-export function getSongs(ids: string | number) {
-  return simpleAxios.get<{
-    code: number
-    songs: Song
-  }>(`/song/detail?ids=${ids}`)
 }

@@ -1,0 +1,39 @@
+@import "miniprogram/styles/index";
+
+.playlist-page {
+  &__scroll-view {
+    height: 100%;
+    overflow-anchor: none;
+  }
+
+  &__img {
+    display: block;
+    @include wh(500rpx, 450rpx);
+    border-radius: 20rpx;
+    margin: 0 auto 40rpx;
+  }
+
+  &__desc {
+    font-size: 42rpx;
+    font-weight: bold;
+    flex: 0.9;
+  }
+
+  &__avatar {
+    @include wh(80rpx, 80rpx);
+    border-radius: 50%;
+    margin-right: 16rpx;
+  }
+
+  .playlist-page__btn {
+    font-weight: bold;
+    border: none;
+    margin: 0 20rpx 20rpx 0;
+    background: $yellow-1;
+    color: $black-1;
+  }
+  .playlist-page__play-btn {
+    @extend .playlist-page__btn;
+    margin: 0;
+  }
+}
