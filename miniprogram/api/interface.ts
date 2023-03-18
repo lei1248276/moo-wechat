@@ -46,6 +46,7 @@ export interface Playlist {
     signature: string
   }
   description: string
+  id: number
   name: string
   playCount: number
   subscribedCount: number
