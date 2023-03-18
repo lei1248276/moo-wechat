@@ -1,9 +1,14 @@
 <wxs src="/utils/tools.wxs" module="tools"></wxs>
 
 <view class="songlist flex justify-between flex-wrap overflow-hidden" bind:tap="onPlaylist">
-  <view wx:for="{{ songlist }}" wx:key="id" class="songlist-item relative" mark:index="{{ index }}">
+  <view
+    wx:for="{{ songlist }}"
+    wx:key="id"
+    class="songlist-item text-white-1 relative"
+    mark:index="{{ index }}"
+  >
     <image src="{{ tools.replaceHTTP(item.coverImgUrl) }}" lazy-load class="songlist-item__img" />
-    <icon class="iconfont icon-music songlist-item__icon"></icon>
+    <icon class="iconfont icon-music songlist-item__icon bg-white-1 text-grey-2"></icon>
     <text class="text-omit-2">{{ item.name }}</text>
   </view>
 </view>

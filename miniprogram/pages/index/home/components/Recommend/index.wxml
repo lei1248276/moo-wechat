@@ -1,4 +1,4 @@
-<view class="recommend flex item-center">
+<view class="recommend flex item-center bg-black-1">
   <view class="flex-1 relative flex justify-start" style="height: 100%">
     <image
       wx:for="{{ recommendList }}"
@@ -8,11 +8,15 @@
     />
   </view>
 
-  <view class="recommend-play flex-1 flex justify-evenly item-center" style="margin-right: 10rpx">
-    <view class="recommend-play__content">
-      <view>MOO Radio</view>
-      <text>个性好歌推荐</text>
+  <view class="text-yellow-1 flex-1 flex justify-evenly item-center" style="margin-right: 10rpx">
+    <view>
+      <view class="text-white-1" style="font-weight: bold; font-size: 38rpx">MOO Radio</view>
+      <text class="text-grey-1" style="font-size: 30rpx; letter-spacing: 8rpx">个性好歌推荐</text>
     </view>
-    <icon class="iconfont {{ isPlay ? 'icon-pause' : 'icon-play' }}" bind:tap="onPlay" />
+    <icon
+      class="text-yellow-1 iconfont {{ isPlay ? 'icon-pause' : 'icon-play' }}"
+      style="font-size: 80rpx"
+      bind:tap="onPlay"
+    />
   </view>
 </view>

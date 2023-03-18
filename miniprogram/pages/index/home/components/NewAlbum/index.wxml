@@ -6,8 +6,8 @@
     <image src="/assets/cd.png" class="new-album__icon y-mid" lazy-load />
   </view>
   <view class="flex-1 flex flex-col justify-evenly item-start text-left">
-    <text class="new-album-name text-omit-2">{{item.albumName}}</text>
-    <text class="new-album-artist">{{item.artistName}}</text>
+    <text class="new-album-name text-white-1 text-omit-2">{{item.albumName}}</text>
+    <text class="new-album-artist text-grey-1">{{item.artistName}}</text>
     <van-button type="default" size="small" round custom-class="new-album__btn">#Hot</van-button>
   </view>
 </view>

@@ -2,10 +2,6 @@
 
 .subtitle {
   margin: 40rpx auto;
-  @include font-color(34rpx, $font-white);
+  font-size: 34rpx;
   font-weight: bold;
-
-  .icon {
-    @include font-color(40rpx, $font-grey);
-  }
 }

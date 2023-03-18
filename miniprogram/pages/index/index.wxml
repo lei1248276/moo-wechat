@@ -1,8 +1,14 @@
 <!--index.wxml-->
-<view class="app-container">
+<view>
   <Navbar currentPage="{{ currentPage }}"></Navbar>
 
-  <swiper class="app-swiper" current="{{ 1 }}" duration="200" bind:change="onSwiper">
+  <swiper
+    class="bg-black-2"
+    style="height: 100vh"
+    current="{{ 1 }}"
+    duration="200"
+    bind:change="onSwiper"
+  >
     <swiper-item skip-hidden-item-layout item-id="play">
       <view style="color: #fff">hello</view>
     </swiper-item>

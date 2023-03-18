@@ -3,9 +3,6 @@
 .search {
   @include wh(auto, 66rpx);
   border-radius: 30rpx;
-  color: $font-white;
-  caret-color: $primary-yellow;
-  background-color: $primary-black;
   margin: 0 28rpx;
   padding-left: 74rpx;
 }

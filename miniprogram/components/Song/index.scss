@@ -14,16 +14,16 @@
   &-name {
     width: 420rpx;
     flex-grow: 0;
-    @include font-color(38rpx, $font-white);
+    font-size: 38rpx;
     font-weight: bold;
   }
   &-singer {
     width: 420rpx;
-    @include font-color(32rpx, $font-grey);
+    font-size: 32rpx;
   }
 
   &__icon {
-    @include font-color(38rpx, $font-grey);
+    font-size: 38rpx;
     margin-left: 40rpx;
   }
 
@@ -41,7 +41,7 @@
       .wave#{$i} {
         width: 25%;
         margin-right: 2rpx;
-        background: $font-white;
+        background: $white-1;
         animation: sequence#{$i} 1s ease-in-out infinite;
         animation-delay: #{0.2 * ($i)}s;
       }

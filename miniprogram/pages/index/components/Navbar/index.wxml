@@ -1,4 +1,4 @@
-<view class="navbar fixed">
+<view class="navbar fixed bg-black-2 text-white-1">
   <view class="flex justify-between item-center" style="height: 100%">
     <text class="{{ currentPage === 1 ? 'opacity-1' : 'opacity-0' }}" style="transition: opacity 1s"
       >{{ currentPage === 1 ? 'DISCOVER' : currentPage === 0 ? 'PLAY' : '' }}

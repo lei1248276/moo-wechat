@@ -14,16 +14,16 @@
   }
 
   &-name {
-    @include font-color(38rpx, $font-white);
+    font-size: 38rpx;
     font-weight: bold;
   }
   &-artist {
-    @include font-color(32rpx, $font-grey);
+    font-size: 32rpx;
   }
   &__btn {
-    background-color: $primary-yellow;
-    color: $primary-black;
     font-weight: bold;
     border: none;
+    background: $yellow-1;
+    color: $black-1;
   }
 }

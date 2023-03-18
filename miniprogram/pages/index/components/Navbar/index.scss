@@ -1,8 +1,7 @@
 @import "miniprogram/styles/index";
 
 .navbar {
-  background-color: $bg-black;
-  @include font-color(70rpx, $font-white);
+  font-size: 70rpx;
   top: 0;
   left: 0;
   right: 0;
@@ -17,7 +16,7 @@
     &--active {
       @include wh(36rpx, 18rpx);
       border-radius: 20rpx;
-      background-color: $font-white;
+      background-color: $white-1;
       margin-right: 8rpx;
     }
   }

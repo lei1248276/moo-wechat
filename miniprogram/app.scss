@@ -1,3 +1,4 @@
+@import "styles/index";
 @import "styles/iconfont/iconfont.scss";
 
 .iconfont {
@@ -22,6 +23,12 @@
   transform: translateY(-50%);
 }
 
+.x-mid {
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+}
+
 .text-omit {
   overflow: hidden;
   text-overflow: ellipsis;
@@ -35,10 +42,55 @@
   -webkit-box-orient: vertical;
 }
 
+.bg-black-1 {
+  background-color: $black-1;
+}
+.bg-black-2 {
+  background-color: $black-2;
+}
+.bg-white-1 {
+  background-color: $white-1;
+}
+.bg-grey-1 {
+  background-color: $grey-1;
+}
+.bg-grey-2 {
+  background-color: $grey-2;
+}
+.bg-yellow-1 {
+  background-color: $yellow-1;
+}
+.bg-red-1 {
+  background-color: $red-1;
+}
+.text-black-1 {
+  color: $black-1;
+}
+.text-black-2 {
+  color: $black-2;
+}
+.text-white-1 {
+  color: $white-1;
+}
+.text-grey-1 {
+  color: $grey-1;
+}
+.text-grey-2 {
+  color: $grey-2;
+}
+.text-yellow-1 {
+  color: $yellow-1;
+}
+.text-red-1 {
+  color: $red-1;
+}
+.caret-yellow-1 {
+  color: $yellow-1;
+}
+
 .opacity-0 {
   opacity: 0;
 }
-
 .opacity-1 {
   opacity: 1;
 }
@@ -50,15 +102,12 @@
 .hidden {
   display: none;
 }
-
 .block {
   display: block;
 }
-
 .inline-block {
   display: inline-block;
 }
-
 .flex {
   display: flex;
 }
@@ -66,15 +115,12 @@
 .flex-1 {
   flex: 1 1 0%;
 }
-
 .flex-wrap {
   flex-wrap: wrap;
 }
-
 .flex-row {
   flex-direction: row;
 }
-
 .flex-col {
   flex-direction: column;
 }
@@ -82,23 +128,18 @@
 .justify-start {
   justify-content: flex-start;
 }
-
 .justify-center {
   justify-content: center;
 }
-
 .justify-end {
   justify-content: flex-end;
 }
-
 .justify-between {
   justify-content: space-between;
 }
-
 .justify-around {
   justify-content: space-around;
 }
-
 .justify-evenly {
   justify-content: space-evenly;
 }
@@ -106,23 +147,18 @@
 .content-start {
   align-content: start;
 }
-
 .content-center {
   align-content: center;
 }
-
 .content-end {
   align-content: flex-end;
 }
-
 .content-between {
   align-content: space-between;
 }
-
 .content-around {
   align-content: space-around;
 }
-
 .content-evenly {
   align-content: space-evenly;
 }
@@ -130,15 +166,12 @@
 .item-start {
   align-items: flex-start;
 }
-
 .item-center {
   align-items: center;
 }
-
 .item-end {
   align-items: flex-end;
 }
-
 .items-stretch {
   align-items: stretch;
 }
@@ -146,11 +179,9 @@
 .absolute {
   position: absolute;
 }
-
 .relative {
   position: relative;
 }
-
 .fixed {
   position: fixed;
 }

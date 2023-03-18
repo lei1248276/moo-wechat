@@ -8,7 +8,6 @@
   .songlist-item {
     @include wh(48%, 420rpx);
     border-radius: 20rpx;
-    color: $font-white;
     font-weight: bold;
 
     &__img {
@@ -21,10 +20,9 @@
       right: 3%;
       top: 60%;
       @include wh(54rpx, 54rpx);
-      @include font-color(42rpx, #666);
+      font-size: 42rpx;
       text-align: center;
       border-radius: 50%;
-      background-color: $font-white;
     }
   }
 }

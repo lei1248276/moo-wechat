@@ -1,4 +1,4 @@
-<view class="home-page">
+<view class="home-page bg-black-2">
   <Search />
 
   <scroll-view class="home-page-scroll-view" scroll-y enable-passive scroll-anchoring>

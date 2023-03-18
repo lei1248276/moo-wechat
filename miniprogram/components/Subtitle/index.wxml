@@ -1,7 +1,7 @@
-<view class="subtitle flex justify-between item-center" bind:tap="onSubtitle">
+<view class="subtitle text-white-1 flex justify-between item-center" bind:tap="onSubtitle">
   <text wx:if="{{ !titleSlot }}" class="title">{{ title }}</text>
   <slot name="title"></slot>
 
-  <icon wx:if="{{ !iconSlot }}" class="icon iconfont {{ icon }}" />
+  <icon wx:if="{{ !iconSlot }}" class="iconfont text-grey-1 {{ icon }}" style="font-size: 40rpx" />
   <slot name="icon"></slot>
 </view>
