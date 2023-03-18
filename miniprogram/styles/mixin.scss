@@ -50,7 +50,6 @@
 // * 文字多行省略
 @mixin text-mul-omit($col: 2) {
   overflow: hidden;
-  text-overflow: ellipsis;
   display: -webkit-box;
   -webkit-line-clamp: $col;
   -webkit-box-orient: vertical;

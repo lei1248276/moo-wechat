@@ -1,4 +1,4 @@
 <view class="search relative">
-  <input class="box-border" type="text" />
+  <input class="box-border" type="text" style="height: 100%" />
   <icon class="iconfont icon-search mid" style="color: #fce939; left: 40rpx" />
 </view>

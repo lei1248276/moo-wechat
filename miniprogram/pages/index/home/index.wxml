@@ -1,7 +1,7 @@
-<view class="home">
+<view class="home-page">
   <Search />
 
-  <scroll-view class="home-scroll-view" scroll-y enable-passive scroll-anchoring>
+  <scroll-view class="home-page-scroll-view" scroll-y enable-passive scroll-anchoring>
     <view style="margin: 0 28rpx">
       <Carousel />
 

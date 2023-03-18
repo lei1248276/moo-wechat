@@ -4,6 +4,6 @@
   <view wx:for="{{ songlist }}" wx:key="index" class="songlist-item relative">
     <image src="{{ tools.replaceHTTP(item.coverImgUrl) }}" lazy-load class="songlist-item__img" />
     <icon class="iconfont icon-music songlist-item__icon"></icon>
-    <text>{{ item.name }}</text>
+    <text class="text-omit-2">{{ item.name }}</text>
   </view>
 </view>
