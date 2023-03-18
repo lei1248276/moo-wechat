@@ -8,7 +8,7 @@
   "license": "",
   "dependencies": {
     "@vant/weapp": "^1.10.14",
-    "simple-axios-wechat": "^0.1.5"
+    "simple-axios-wechat": "^0.1.6"
   },
   "devDependencies": {
     "@typescript-eslint/eslint-plugin": "^5.55.0",

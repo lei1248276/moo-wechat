@@ -813,10 +813,10 @@ shebang-regex@^3.0.0:
   resolved "https://registry.yarnpkg.com/shebang-regex/-/shebang-regex-3.0.0.tgz#ae16f1644d873ecad843b0307b143362d4c42172"
   integrity sha512-7++dFhtcx3353uBaq8DDR4NuxBetBzC7ZQOhmTQInHEd6bSrXdiEyzCvG07Z44UYdLShWUyXt5M/yhz8ekcb1A==
 
-simple-axios-wechat@^0.1.5:
-  version "0.1.5"
-  resolved "https://registry.yarnpkg.com/simple-axios-wechat/-/simple-axios-wechat-0.1.5.tgz#5becadf92ccd85f4a4ca51d919c2874d0af20954"
-  integrity sha512-QAy0VfN5EuyIyclKEwYI+H0kwnvwl4Re/5UpL7ey//hH8/sCKh64OZLiGoR3JO/beQGl2np3f68A6KhbRbmg7A==
+simple-axios-wechat@^0.1.6:
+  version "0.1.6"
+  resolved "https://registry.yarnpkg.com/simple-axios-wechat/-/simple-axios-wechat-0.1.6.tgz#ba9c96bd3c82b6b04a2aa1c4c92f57f1b2beb1f1"
+  integrity sha512-tVhlnnoEVKerXYCVmgEIQOE1oVwv5P9lb/8F/1NFLqFKzfGU1qkte4C1pep+gyMfAqCLnR6MCD2+ztFz/bHnpg==
   dependencies:
     miniprogram-api-typings "^3.9.0"
 

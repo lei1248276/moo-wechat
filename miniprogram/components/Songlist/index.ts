@@ -3,7 +3,7 @@ Component({
     styleIsolation: 'shared'
   },
   properties: {
-    Songlist: {
+    songlist: {
       type: Array,
       value: []
     }
