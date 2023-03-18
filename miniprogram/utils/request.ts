@@ -17,16 +17,17 @@ simpleAxios.interceptors.request.use(
 
 simpleAxios.interceptors.response.use(
   (response) => {
-    const { data, statusCode } = response
     // console.log('%c🚀 ~ method: response ~', 'color: #F25F5C;font-weight: bold;', response)
-    if (statusCode !== 200 || (data as Record<string, any>).code !== 200) {
-      toast.fail()
-      return Promise.reject(new Error((data as Record<string, any>).message))
+    const { data, statusCode } = response
+    if (typeof data === 'string' || data instanceof ArrayBuffer) return (toast.fail(), data)
+
+    if (data.code !== 200 || statusCode !== 200) {
+      return (toast.fail(), Promise.reject(new Error(data.message || '请求失败')))
     }
 
-    toast.close()
-    return data
+    return (toast.close(), data)
   }, (err) => {
+    console.error(err)
     toast.fail()
     return Promise.reject(err)
   })

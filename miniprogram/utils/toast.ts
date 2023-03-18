@@ -2,19 +2,26 @@ import Toast from '@vant/weapp/toast/toast'
 
 const toast = {
   state: {
-    isFail: false
+    isFail: false,
+    count: 0
   },
-  start(message?: string) {
+  start(message?: string): number | void {
+    if (this.state.count === 0) return ++this.state.count
+
     Toast.loading({
       duration: 0,
       message: message || '加载中...',
       forbidClick: true
     })
+    ++this.state.count
   },
-  close() {
-    !this.state.isFail && Toast.clear()
+  close(): number | void {
+    if (this.state.count > 1) return --this.state.count
+
+    Toast.clear()
+    --this.state.count
   },
-  success(message: string, callback?: Function) {
+  success(message: string, callback?: () => void) {
     Toast.success({
       type: 'success',
       message,
@@ -24,12 +31,8 @@ const toast = {
       }
     })
   },
-  fail(message?: string, callback?: Function) {
-    this.state.isFail = true
-    setTimeout(() => {
-      this.state.isFail = false
-      Toast.clear()
-    }, 2000)
+  fail(message?: string, callback?: () => void) {
+    this.state.count = 0
 
     Toast.fail({
       type: 'fail',
@@ -41,6 +44,8 @@ const toast = {
     })
   },
   loading() {
+    this.state.count = 0
+
     Toast.loading({
       message: '加载中...',
       duration: 1000,
