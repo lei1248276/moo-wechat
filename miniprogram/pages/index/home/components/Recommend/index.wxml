@@ -1,8 +1,11 @@
 <view class="recommend flex item-center bg-black-1">
   <view class="flex-1 relative flex justify-start" style="height: 100%">
-    <image
+    <van-image
       wx:for="{{ recommendList }}"
       wx:key="id"
+      width="180rpx"
+      height="100%"
+      radius="8rpx"
       class="recommend__img recommend__img__{{ index + 1 }}"
       src="{{ item.picUrl }}"
     />

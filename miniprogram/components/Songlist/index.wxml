@@ -7,7 +7,7 @@
     class="songlist-item text-white-1 relative"
     mark:index="{{ index }}"
   >
-    <image src="{{ tools.replaceHTTP(item.coverImgUrl) }}" lazy-load class="songlist-item__img" />
+    <van-image src="{{ item.coverImgUrl }}" width="100%" height="322rpx" radius="20rpx" lazy-load />
     <icon class="iconfont icon-music songlist-item__icon bg-white-1 text-grey-2"></icon>
     <text class="text-omit-2">{{ item.name }}</text>
   </view>

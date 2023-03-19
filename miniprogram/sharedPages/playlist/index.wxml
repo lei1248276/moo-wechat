@@ -9,7 +9,14 @@
         bind:scrolltolower="onScrollMore"
       >
         <view style="padding: 0 28rpx 200rpx">
-          <image src="{{ playlist.coverImgUrl }}" class="playlist-page__img" />
+          <van-image
+            src="{{ playlist.coverImgUrl }}"
+            width="500rpx"
+            height="450rpx"
+            radius="20rpx"
+            class="flex justify-center"
+            style="margin-bottom: 40rpx"
+          />
 
           <view class="flex justify-between item-center" style="margin-bottom: 20rpx">
             <view class="playlist-page__desc text-white-1">{{ playlist.description }}</view>
@@ -21,7 +28,13 @@
 
           <view class="text-grey-1" style="margin-bottom: 20rpx">
             <view class="flex item-center" style="margin-bottom: 20rpx">
-              <image src="{{ playlist.creator.avatarUrl }}" class="playlist-page__avatar" />
+              <van-image
+                src="{{ playlist.creator.avatarUrl }}"
+                width="80rpx"
+                height="80rpx"
+                radius="50%"
+                style="margin-right: 16rpx"
+              />
               <text>{{ playlist.creator.nickname }}</text>
             </view>
             <view>{{ playlist.creator.signature }}</view>

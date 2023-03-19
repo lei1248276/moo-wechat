@@ -13,16 +13,17 @@ Page({
     this.getOpenerEventChannel().on('acceptPlaylist', async(playlist: Playlist) => {
       console.log('%c🚀 ~ method: acceptPlaylist ~', 'color: #F25F5C;font-weight: bold;', playlist)
       const { name, id } = playlist
-      let { tracks } = playlist
+      // * （tracks === songs）歌单歌曲列表，每个歌单会额外携带前20首歌曲
+      let { tracks: songs = [] } = playlist
       wx.setNavigationBarTitle({ title: name })
 
       // ! 歌单有可能为null，需要重新请求歌单
-      if (!tracks) {
+      if (!songs) {
         playlist = await this.fetchPlaylist(id)
-        tracks = playlist.tracks
+        songs = playlist.tracks || []
       }
 
-      this.setData({ playlist, songs: tracks || [] })
+      this.setData({ playlist, songs })
     })
     // const { playlist } = await getPlaylist(Number(id))
     // console.log('%c🚀 ~ method: acceptPlaylist ~', 'color: #F25F5C;font-weight: bold;', playlist)

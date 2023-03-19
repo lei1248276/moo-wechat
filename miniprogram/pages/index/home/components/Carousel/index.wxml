@@ -16,11 +16,6 @@
     skip-hidden-item-layout
     class="radius--hidden"
   >
-    <image
-      class="radius--hidden"
-      style="width: 100%; height: 100%"
-      lazy-load
-      src="{{ tools.replaceHTTP(item.imageUrl) }}"
-    />
+    <van-image width="100%" height="100%" radius="14rpx" lazy-load src="{{ item.imageUrl }}" />
   </swiper-item>
 </swiper>

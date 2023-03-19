@@ -5,8 +5,6 @@
   margin-bottom: 40rpx;
 
   &__img {
-    @include wh(140rpx, 100%);
-    border-radius: 12rpx;
     flex-shrink: 0;
     margin-right: 40rpx;
   }
@@ -23,8 +21,7 @@
   }
 
   &__icon {
-    font-size: 38rpx;
-    margin-left: 40rpx;
+    font-size: 44rpx !important;
   }
 
   .run {

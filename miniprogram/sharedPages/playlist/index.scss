@@ -6,23 +6,10 @@
     overflow-anchor: none;
   }
 
-  &__img {
-    display: block;
-    @include wh(500rpx, 450rpx);
-    border-radius: 20rpx;
-    margin: 0 auto 40rpx;
-  }
-
   &__desc {
     font-size: 42rpx;
     font-weight: bold;
     flex: 0.9;
-  }
-
-  &__avatar {
-    @include wh(80rpx, 80rpx);
-    border-radius: 50%;
-    margin-right: 16rpx;
   }
 
   .playlist-page__btn {

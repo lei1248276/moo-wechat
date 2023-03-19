@@ -2,8 +2,8 @@
 
 <view wx:for="{{ newAlbum }}" wx:key="albumId" class="new-album flex items-stretch">
   <view class="relative flex-1">
-    <image src="{{ item.coverUrl }}" class="new-album__img" lazy-load />
-    <image src="/assets/cd.png" class="new-album__icon y-mid" lazy-load />
+    <van-image src="{{ item.coverUrl }}" width="300rpx" height="300rpx" radius="12rpx" lazy-load />
+    <van-image src="/assets/cd.png" width="50rpx" height="200rpx" class="y-mid" lazy-load />
   </view>
   <view class="flex-1 flex flex-col justify-evenly item-start text-left">
     <text class="new-album-name text-white-1 text-omit-2">{{item.albumName}}</text>

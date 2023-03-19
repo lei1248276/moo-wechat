@@ -1,7 +1,13 @@
 <wxs src="/utils/tools.wxs" module="tools"></wxs>
 
 <view class="song flex justify-center item-center" bind:tap="onSong">
-  <image src="{{ tools.replaceHTTP(song.al.picUrl) }}" class="song__img" />
+  <van-image
+    src="{{ song.al.picUrl }}"
+    width="140rpx"
+    height="140rpx"
+    radius="12rpx"
+    class="song__img"
+  />
 
   <view class="flex-1 flex flex-col justify-around" style="height: 100%">
     <text class="song-name text-omit text-white-1">{{ song.al.name }}</text>
@@ -13,5 +19,5 @@
   <view wx:if="{{ run }}" class="sound-wave flex item-end">
     <i wx:for="{{ 4 }}" wx:key="index" class="wave{{ index + 1 }} {{ run ? 'run' : 'paused' }}"></i>
   </view>
-  <icon wx:else class="song__icon iconfont icon-more text-grey-1" />
+  <icon wx:else class="iconfont icon-more song__icon text-grey-1" />
 </view>

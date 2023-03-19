@@ -1,11 +1,14 @@
 {
   "pages": [
     "pages/index/index",
-    "pages/index/home/songlist/index"
+    "pages/index/home/songlist/index",
+    "sharedPages/playlist/index"
   ],
   "usingComponents": {
     "Subtitle": "/components/Subtitle/index",
-    "van-toast": "@vant/weapp/toast/index"
+    "van-toast": "@vant/weapp/toast/index",
+    "van-button": "@vant/weapp/button/index",
+    "van-image": "@vant/weapp/image/index"
   },
   "window": {
     "navigationBarBackgroundColor": "#1a191b",

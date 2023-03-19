@@ -22,6 +22,11 @@
   transform: translateX(-50%);
 }
 
+.x-mid-margin {
+  display: block;
+  margin: 0 auto;
+}
+
 .text-omit {
   overflow: hidden;
   text-overflow: ellipsis;
