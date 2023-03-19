@@ -1,9 +1,16 @@
 // * 获取歌曲（可以是多首）详情数据
 import simpleAxios from '@/utils/request'
-import { Song } from '@/api/interface'
+import { Playlist, Song } from '@/api/interface'
 
-export { getPlaylist } from '@/api/home'
+// * 获取指定歌单歌曲列表
+export function getPlaylist(id: number) {
+  return simpleAxios.get<{
+    code: number
+    playlist: Playlist
+  }>(`/playlist/detail?id=${id}`)
+}
 
+// * 查询歌曲信息（可以是多首以 "," 分割）
 export function getSongs(ids: string | number) {
   return simpleAxios.get<{
     code: number

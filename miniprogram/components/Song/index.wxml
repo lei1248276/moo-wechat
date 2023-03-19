@@ -6,6 +6,7 @@
     width="140rpx"
     height="140rpx"
     radius="12rpx"
+    lazy-load
     class="song__img"
   />
 

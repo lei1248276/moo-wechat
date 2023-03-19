@@ -1,6 +1,8 @@
 import simpleAxios from '@/utils/request'
 import type { Banners, Recommend, Playlist, Album } from '@/api/interface'
 
+export { getPlaylist } from '@/api/playlist'
+
 // * 获取轮播图
 export function getBanner() {
   return simpleAxios.get<{
@@ -27,14 +29,6 @@ export function getNewSonglist(offset: number, limit: number) {
     total: number
     playlists: Playlist[]
   }>(`/top/playlist?limit=${limit}&order=all&offset=${offset}`)
-}
-
-// * 获取指定歌单歌曲列表
-export function getPlaylist(id: number) {
-  return simpleAxios.get<{
-    code: number
-    playlist: Playlist
-  }>(`/playlist/detail?id=${id}`)
 }
 
 // * 获取新专辑
