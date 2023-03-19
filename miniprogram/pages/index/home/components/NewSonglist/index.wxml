@@ -1,3 +1,3 @@
-<Subtitle title="MOO Songlist_歌单" url="./home/songlist/index" />
+<Subtitle title="MOO Songlist_歌单" clickable url="./home/songlist/index" />
 
 <Songlist songlist="{{ newSonglist }}" />

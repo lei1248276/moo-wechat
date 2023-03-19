@@ -1,4 +1,4 @@
-<Subtitle title="MOO Album_专辑" />
+<Subtitle title="MOO Album_专辑" clickable />
 
 <view wx:for="{{ newAlbum }}" wx:key="albumId" class="new-album flex items-stretch">
   <view class="relative flex-1">

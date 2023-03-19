@@ -1,5 +1,5 @@
 <view class="search-tags">
-  <Subtitle title="MOO Tag_探索标签" icon="icon-fresh" />
+  <Subtitle title="MOO Tag_探索标签" clickable icon="icon-fresh" />
   <van-button
     wx:for="{{ tags }}"
     wx:key="item"

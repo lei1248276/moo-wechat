@@ -21,6 +21,10 @@ Component({
     },
     url: {
       type: String
+    },
+    clickable: {
+      type: Boolean,
+      value: false
     }
   },
   data: {
