@@ -5,7 +5,7 @@
   padding: 0 30rpx;
   border-radius: 60rpx;
   position: fixed;
-  bottom: 2%;
+  bottom: calc(2% + env(safe-area-inset-bottom));
   left: 6%;
   z-index: 999;
 

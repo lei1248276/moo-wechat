@@ -34,7 +34,7 @@ Component({
       console.log('%c🚀 ~ method: fetchNewSong ~', 'color: #F25F5C;font-weight: bold;', songs)
 
       this.data._playlist = playlist
-      this.setData({ newSongs: songs?.slice(0, 4) || [] })
+      this.setData({ newSongs: songs ? songs.slice(0, 4) : [] })
     }
   }
 })
