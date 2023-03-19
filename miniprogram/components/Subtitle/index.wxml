@@ -1,7 +1,11 @@
-<view class="subtitle text-white-1 flex justify-between item-center" bind:tap="onSubtitle">
+<view
+  class="subtitle text-white-1 flex justify-between item-center"
+  hover-stay-time="50"
+  hover-class="hover-class"
+>
   <text wx:if="{{ !titleSlot }}" class="title">{{ title }}</text>
-  <slot name="title"></slot>
+  <slot wx:else name="title"></slot>
 
   <icon wx:if="{{ !iconSlot }}" class="iconfont text-grey-1 {{ icon }}" style="font-size: 40rpx" />
-  <slot name="icon"></slot>
+  <slot wx:else name="icon"></slot>
 </view>
