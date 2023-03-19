@@ -1,0 +1,33 @@
+<view class="play-controller box-border flex justify-between item-center bg-black-1">
+  <view class="text-grey-1 font-bold" style="font-size: 48rpx">00:00</view>
+
+  <movable-area class="absolute" style="width: 450rpx; height: 110rpx; left: 0; top: 0">
+    <movable-view
+      direction="horizontal"
+      style="width: 130rpx; height: 110rpx"
+      damping="{{ 33 }}"
+      friction="{{ 3 }}"
+      inertia
+      x="{{ pivot }}rpx"
+      bind:change="onMoveChange"
+      bind:touchend="onMoveEnd"
+    >
+      <van-image
+        src="/assets/record.png"
+        width="130rpx"
+        height="130rpx"
+        class="mid"
+        image-class="{{ isPlay ? 'play-controller--pause' : 'play-controller--play' }}"
+      />
+    </movable-view>
+  </movable-area>
+
+  <icon class="iconfont {{ isPlay ? 'icon-audioPause' : 'icon-audioPlay'}} text-white-1" />
+
+  <!-- ! 隐形的占位事件触发元素，因为icon图层被movable区域覆盖 -->
+  <view
+    class="absolute bg-yellow-1 opacity-0"
+    style="width: 100rpx; height: 100%; right: 0; z-index: 999"
+    bind:tap="onPlay"
+  ></view>
+</view>

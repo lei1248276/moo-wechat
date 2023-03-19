@@ -6,6 +6,7 @@
   ],
   "usingComponents": {
     "Subtitle": "/components/Subtitle/index",
+    "PlayController": "/components/PlayController/index",
     "van-toast": "@vant/weapp/toast/index",
     "van-button": "@vant/weapp/button/index",
     "van-image": "@vant/weapp/image/index"

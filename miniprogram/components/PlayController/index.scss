@@ -1,0 +1,29 @@
+@import "miniprogram/styles/index";
+
+.play-controller {
+  @include wh(450rpx, 110rpx);
+  padding: 0 30rpx;
+  border-radius: 60rpx;
+  position: fixed;
+  bottom: 2%;
+  left: 6%;
+  z-index: 999;
+
+  &--play {
+    animation: audioPlay 5s linear infinite;
+    animation-play-state: running;
+  }
+  &--pause {
+    animation: audioPlay 5s linear infinite;
+    animation-play-state: paused;
+  }
+
+  @keyframes audioPlay {
+    0% {
+      transform: rotate(0);
+    }
+    100% {
+      transform: rotate(360deg);
+    }
+  }
+}
