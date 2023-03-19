@@ -1,3 +1,3 @@
-<Subtitle title="MOO Track_新歌" />
+<Subtitle title="MOO Track_新歌" bind:click="toPlaylist" />
 
 <Song wx:for="{{ newSongs }}" wx:key="id" song="{{ item }}" />

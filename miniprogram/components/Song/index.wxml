@@ -2,7 +2,7 @@
 
 <view class="song flex justify-center item-center" bind:tap="onSong">
   <van-image
-    src="{{ song.al.picUrl }}"
+    src="{{ song.al.picUrl || '' }}"
     width="140rpx"
     height="140rpx"
     radius="12rpx"

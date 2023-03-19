@@ -1,5 +1,5 @@
 import { getRecommend, getPlaylist } from '@/api/home'
-import type { Song } from '@/api/interface'
+import type { Song, Playlist } from '@/api/interface'
 
 Component({
   options: {
@@ -9,7 +9,8 @@ Component({
 
   },
   data: {
-    newSongs: [] as Song[]
+    newSongs: [] as Song[],
+    _playlist: {} as Playlist
   },
   lifetimes: {
     attached() {
@@ -17,12 +18,23 @@ Component({
     }
   },
   methods: {
+    toPlaylist() {
+      wx.navigateTo({
+        url: `/sharedPages/playlist/index`,
+        success: (res) => {
+          res.eventChannel.emit('acceptPlaylist', this.data._playlist)
+        },
+        fail: (err) => { console.error(err) }
+      })
+    },
     async fetchNewSong() {
       const { result: [{ id }] } = await getRecommend(1)
-      const { playlist: { tracks }} = await getPlaylist(id)
-      console.log('%c🚀 ~ method: fetchNewSong ~', 'color: #F25F5C;font-weight: bold;', tracks)
+      const { playlist } = await getPlaylist(id)
+      const { tracks: songs } = playlist
+      console.log('%c🚀 ~ method: fetchNewSong ~', 'color: #F25F5C;font-weight: bold;', songs)
 
-      this.setData({ newSongs: tracks.slice(0, 4) })
+      this.data._playlist = playlist
+      this.setData({ newSongs: songs?.slice(0, 4) || [] })
     }
   }
 })
