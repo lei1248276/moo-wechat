@@ -1,4 +1,6 @@
-import { Playlist, Song } from '@/api/interface'
+import type { Songlist } from '@/api/interface/Songlist'
+import type { Playlist } from '@/api/interface/Playlist'
+import type { Song } from '@/api/interface/Song'
 import { getSongs, getPlaylist } from '@/api/playlist'
 import { spreadArray } from '@/utils/util'
 import Toast from '@/utils/toast'
@@ -10,20 +12,22 @@ Page({
     isCollect: false
   },
   async onLoad({ id }) {
-    this.getOpenerEventChannel().on('acceptPlaylist', async(playlist: Playlist) => {
-      console.log('%c🚀 ~ method: acceptPlaylist ~', 'color: #F25F5C;font-weight: bold;', playlist)
-      const { name, id } = playlist
-      // * （tracks === songs）歌单歌曲列表，每个歌单会额外携带前20首歌曲
-      let { tracks: songs = [] } = playlist
+    this.getOpenerEventChannel().on('acceptSonglist', async(songlist: Songlist) => {
+      console.log('%c🚀 ~ method: acceptSonglist ~', 'color: #F25F5C;font-weight: bold;', songlist)
+      const { name, id } = songlist
       wx.setNavigationBarTitle({ title: name })
 
-      // ! 歌单有可能为null，需要重新请求歌单
-      if (!songs) {
-        playlist = await this.fetchPlaylist(id)
-        songs = playlist.tracks || []
+      // *（tracks === songs）歌单歌曲列表，每个歌单会额外携带前20首歌曲
+      // ! 歌单播放列表有可能为null，需要重新请求歌单
+      if (!songlist.tracks) {
+        const playlist = await this.fetchPlaylist(id)
+        const songs = playlist.tracks
+        this.setData({ playlist, songs })
+        return
       }
 
-      this.setData({ playlist, songs })
+      // ! songlist少了一些playlist属性，不过暂时用不到，所以断言逃逸掉（避免多发一次请求）
+      this.setData({ playlist: songlist as Playlist, songs: songlist.tracks })
     })
     // const { playlist } = await getPlaylist(Number(id))
     // console.log('%c🚀 ~ method: acceptPlaylist ~', 'color: #F25F5C;font-weight: bold;', playlist)
@@ -50,7 +54,7 @@ Page({
 
     this.setData(spreadArray(newSongs, songs, 'songs'))
   },
-  async fetchPlaylist(id: number) {
+  async fetchPlaylist(id: number): Promise<Playlist> {
     const { playlist } = await getPlaylist(id)
     console.log('%c🚀 ~ method: fetchPlaylist ~', 'color: #F25F5C;font-weight: bold;', playlist)
     this.setData({ playlist: playlist || [] })

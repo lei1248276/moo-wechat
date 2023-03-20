@@ -1,5 +1,5 @@
 import { getBanner } from '@/api/home'
-import { Banners } from '@/api/interface'
+import type { Banner } from '@/api/interface/Banner'
 
 Component({
   options: {
@@ -9,7 +9,7 @@ Component({
 
   },
   data: {
-    bannerList: [] as Banners[]
+    bannerList: [] as Banner[]
   },
   lifetimes: {
     attached() {

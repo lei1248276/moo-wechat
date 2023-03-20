@@ -34,6 +34,7 @@ module.exports = {
     requireMiniProgram: true
   },
   rules: {
+    "@typescript-eslint/no-explicit-any": 0,
     'accessor-pairs': 2,
     'arrow-spacing': [2, {
       'before': true,

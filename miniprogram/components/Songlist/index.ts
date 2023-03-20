@@ -1,7 +1,7 @@
-import { Playlist } from '@/api/interface'
+import type { Songlist } from '@/api/interface/Songlist'
 
 interface Props {
-  songlist: Playlist[]
+  songlist: Songlist[]
 }
 
 Component({
@@ -18,14 +18,14 @@ Component({
 
   } as Props,
   methods: {
-    onPlaylist({ mark }: WechatMiniprogram.BaseEvent) {
+    onSonglist({ mark }: WechatMiniprogram.BaseEvent) {
       const index = (mark as { index: number }).index
-      const playlist = this.data.songlist[index]
+      const Songlist = this.data.songlist[index]
 
       wx.navigateTo({
         url: `/sharedPages/playlist/index`,
         success: (res) => {
-          res.eventChannel.emit('acceptPlaylist', playlist)
+          res.eventChannel.emit('acceptSonglist', Songlist)
         },
         fail: (err) => { console.error(err) }
       })

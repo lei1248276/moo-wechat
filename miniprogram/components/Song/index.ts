@@ -1,4 +1,4 @@
-import { Song } from '@/api/interface'
+import type { Song } from '@/api/interface/Song'
 
 interface Data {
   run: boolean

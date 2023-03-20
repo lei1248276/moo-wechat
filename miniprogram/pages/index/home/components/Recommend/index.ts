@@ -1,5 +1,5 @@
 import { getRecommend } from '@/api/home'
-import type { Recommend } from '@/api/interface'
+import type { Recommend } from '@/api/interface/Recommend'
 
 Component({
   options: {

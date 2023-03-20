@@ -1,40 +1,27 @@
 import simpleAxios from '@/utils/request'
-import type { Banners, Recommend, Playlist, Album } from '@/api/interface'
+import type { BannerResponse } from '@/api/interface/Banner'
+import type { RecommendResponse } from '@/api/interface/Recommend'
+import type { AlbumResponse } from '@/api/interface/Album'
+import type { SonglistResponse } from '@/api/interface/Songlist'
 
 export { getPlaylist } from '@/api/playlist'
 
 // * 获取轮播图
 export function getBanner() {
-  return simpleAxios.get<{
-    code: number
-    banners: Banners[]
-  }>('/banner')
+  return simpleAxios.get<BannerResponse>('/banner')
 }
 
 // * 获取推荐歌单
 export function getRecommend(limit = 3) {
-  return simpleAxios.get<{
-    code: number
-    category: number
-    hasTaste: boolean
-    result: Recommend[]
-  }>(`/personalized?limit=${limit}`)
+  return simpleAxios.get<RecommendResponse>(`/personalized?limit=${limit}`)
 }
 
 // * 获取新歌单
 export function getNewSonglist(offset: number, limit: number) {
-  return simpleAxios.get<{
-    code: number
-    cat: string
-    total: number
-    playlists: Playlist[]
-  }>(`/top/playlist?limit=${limit}&order=all&offset=${offset}`)
+  return simpleAxios.get<SonglistResponse>(`/top/playlist?limit=${limit}&order=all&offset=${offset}`)
 }
 
 // * 获取新专辑
 export function getNewAlbum(limit = 3) {
-  return simpleAxios.get<{
-    code: number
-    products: Album[]
-  }>(`/album/list?limit=${limit}`)
+  return simpleAxios.get<AlbumResponse>(`/album/list?limit=${limit}`)
 }

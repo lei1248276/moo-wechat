@@ -1,12 +1,12 @@
 import { getSonglist } from '@/api/songlist'
-import { Playlist } from '@/api/interface'
+import type { Songlist } from '@/api/interface/Songlist'
 import { spreadArray } from '@/utils/util'
 import Toast from '@/utils/toast'
 
 Page({
   total: 0,
   data: {
-    songlist: [] as Playlist[]
+    songlist: [] as Songlist[]
   },
   onLoad() {
     this.fetchSonglist()

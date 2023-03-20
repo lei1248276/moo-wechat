@@ -1,5 +1,5 @@
 import { getNewAlbum } from '@/api/home'
-import { Album } from '@/api/interface'
+import type { Album } from '@/api/interface/Album'
 
 Component({
   options: {

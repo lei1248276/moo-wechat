@@ -1,5 +1,5 @@
 import { getNewSonglist } from '@/api/home'
-import type { Playlist } from '@/api/interface'
+import type { Songlist } from '@/api/interface/Songlist'
 
 Component({
   options: {
@@ -9,7 +9,7 @@ Component({
 
   },
   data: {
-    newSonglist: [] as Playlist[]
+    newSonglist: [] as Songlist[]
   },
   lifetimes: {
     attached() {
