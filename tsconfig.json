@@ -5,7 +5,6 @@
       "@/*": ["miniprogram/*"],
       "@vant/weapp/*": ["node_modules/@vant/weapp/dist/*"]
     },
-    "lib": ["ES2020"],
     "moduleResolution": "Node",
     "strictNullChecks": true,
     "module": "ESNext",
@@ -16,7 +15,11 @@
     "alwaysStrict": true,
     "noUnusedLocals": true,
     "strict": true,
-    "strictPropertyInitialization": true
+    "strictPropertyInitialization": true,
+    "lib": ["ES2020"],
+    "typeRoots": [
+      "./typings"
+    ]
   },
   "include": [
     "./**/*.ts"

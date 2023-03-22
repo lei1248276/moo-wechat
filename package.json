@@ -8,6 +8,8 @@
   "license": "",
   "dependencies": {
     "@vant/weapp": "^1.10.14",
+    "mobx-miniprogram": "^4.13.2",
+    "mobx-miniprogram-bindings": "^2.1.5",
     "simple-axios-wechat": "^0.1.6"
   },
   "devDependencies": {
