@@ -9,3 +9,7 @@ export function spreadArray<T>(newArr: T[], oldArr: T[], oldArrName: string): Re
     return acc
   }, {} as Record<string, T>)
 }
+
+export async function sleep(ms = 1000): Promise<void> {
+  return new Promise(resolve => setTimeout(resolve, ms))
+}

@@ -9,22 +9,28 @@ interface SongInfo {
 
 export interface AudioStore {
   audio: WechatMiniprogram.InnerAudioContext
-  songInfo?: SongInfo
   isPlay: boolean
+  songInfo?: SongInfo
+  duration: number
 
-  setSongInfo(songInfo: SongInfo): void
   setIsPlay(isPlay: boolean): void
+  setSongInfo(songInfo: SongInfo): void
+  setDuration(time: number): void
 }
 
 export const audioStore = observable<AudioStore>({
   audio: wx.createInnerAudioContext(),
-  songInfo: undefined,
   isPlay: false,
+  songInfo: undefined,
+  duration: 0,
 
+  setIsPlay: action(function(this: AudioStore, isPlay: boolean) {
+    this.isPlay = isPlay
+  }),
   setSongInfo: action(function(this: AudioStore, songInfo: SongInfo) {
     this.songInfo = songInfo
   }),
-  setIsPlay: action(function(this: AudioStore, isPlay: boolean) {
-    this.isPlay = isPlay
+  setDuration: action(function(this: AudioStore, time: number) {
+    this.duration = time
   })
 })

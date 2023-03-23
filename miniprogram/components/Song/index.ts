@@ -24,11 +24,11 @@ Component({
   methods: {
     onSong() {
       const { song } = this.data
-      const { audio, songInfo } = audioStore
+      const { songInfo, audio } = audioStore
       console.log('%c🚀 ~ method: onSong ~', 'color: #F25F5C;font-weight: bold;', song.id, songInfo?.song.id, audioStore)
 
       if (song.id === songInfo?.song.id) {
-        return audioStore.isPlay ? audio.pause() : audio.play()
+        return (audio.seek(0), audio.play())
       }
 
       this.fetchSongInfo(song)
