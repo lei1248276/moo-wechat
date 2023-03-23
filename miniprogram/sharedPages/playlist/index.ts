@@ -12,7 +12,8 @@ Page({
     isCollect: false
   },
   async onLoad({ id }) {
-    this.getOpenerEventChannel().on('acceptSonglist', async(songlist: Songlist) => {
+    const opener = this.getOpenerEventChannel()
+    opener.on('acceptSonglist', async(songlist: Songlist) => {
       console.log('%c🚀 ~ method: acceptSonglist ~', 'color: #F25F5C;font-weight: bold;', songlist)
       const { name, id } = songlist
       wx.setNavigationBarTitle({ title: name })
@@ -29,6 +30,14 @@ Page({
       // ! songlist少了一些playlist属性，不过暂时用不到，所以断言逃逸掉（避免多发一次请求）
       this.setData({ playlist: songlist as Playlist, songs: songlist.tracks })
     })
+
+    opener.on('acceptPlaylist', (playlist: Playlist) => {
+      console.log('%c🚀 ~ method: acceptPlaylist ~', 'color: #F25F5C;font-weight: bold;', playlist)
+      const { name, tracks: songs } = playlist
+      wx.setNavigationBarTitle({ title: name })
+      this.setData({ playlist, songs })
+    })
+
     // const { playlist } = await getPlaylist(Number(id))
     // console.log('%c🚀 ~ method: acceptPlaylist ~', 'color: #F25F5C;font-weight: bold;', playlist)
     // wx.setNavigationBarTitle({ title: playlist.name })
