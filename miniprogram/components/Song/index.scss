@@ -24,13 +24,6 @@
     font-size: 44rpx !important;
   }
 
-  .run {
-    animation-play-state: running;
-  }
-  .paused {
-    animation-play-state: paused;
-  }
-
   .sound-wave {
     @include wh(44rpx, 70rpx);
 
@@ -56,6 +49,13 @@
           height: 0%;
         }
       }
+    }
+
+    .run {
+      animation-play-state: running;
+    }
+    .paused {
+      animation-play-state: paused;
     }
   }
 }

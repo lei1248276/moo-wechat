@@ -17,8 +17,15 @@
     </view>
   </view>
 
-  <view wx:if="{{ run }}" class="sound-wave flex item-end">
-    <i wx:for="{{ 4 }}" wx:key="index" class="wave{{ index + 1 }} {{ run ? 'run' : 'paused' }}"></i>
+  <view
+    wx:if="{{ audioStore.songInfo && audioStore.songInfo.song.id === song.id }}"
+    class="sound-wave flex item-end"
+  >
+    <i
+      wx:for="{{ 4 }}"
+      wx:key="index"
+      class="wave{{ index + 1 }} {{ audioStore.isPlay ? 'run' : 'paused' }}"
+    ></i>
   </view>
   <icon wx:else class="iconfont icon-more song__icon text-grey-1" />
 </view>

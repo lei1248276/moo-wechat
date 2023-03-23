@@ -20,8 +20,9 @@
   "sitemapLocation": "sitemap.json",
   "requiredBackgroundModes": ["audio"],
   "resolveAlias": {
-    "/*": "/*",
+    "@/*": "/*",
     "@/utils/*": "utils/*",
-    "@/api/*": "api/*"
+    "@/api/*": "api/*",
+    "@/store/*": "store/*"
   }
 }
