@@ -5,7 +5,7 @@ export const audioStoreBehavior = BehaviorWithStore({
   storeBindings: [{
     namespace: 'audioStore',
     store: audioStore,
-    fields: ['songInfo', 'isPlay', 'duration'],
+    fields: ['currentSongInfo', 'isPlay', 'duration'],
     actions: []
   }]
 })

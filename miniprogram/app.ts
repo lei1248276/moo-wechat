@@ -30,7 +30,7 @@ App({
 
     audio.onEnded(() => {
       console.log('onEnded: ')
-      audioStore.setIsPlay(false)
+      audioStore.setNextSong()
     })
 
     /* audio.onTimeUpdate(() => {

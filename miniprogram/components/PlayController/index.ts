@@ -8,7 +8,7 @@ Component({
   data: {
     pivot: (450 / 2) - (130 / 2), // * 中心点
 
-    _moved: 0 // * 最终滑动的距离
+    _moved: -1 // * 最终滑动的距离
   },
   behaviors: [audioStoreBehavior],
   lifetimes: {
@@ -20,14 +20,14 @@ Component({
   },
   methods: {
     onPlay() {
-      if (!audioStore.songInfo) return
+      if (!audioStore.currentSongInfo) return
 
       if (audioStore.isPlay) {
         audioStore.audio.pause()
         this.selectComponent('.control-count-down').pause()
       } else {
         audioStore.audio.play()
-        this.selectComponent('.control-count-down').play()
+        this.selectComponent('.control-count-down').start()
       }
     },
     onMoveChange({ detail: { x, source }}: WechatMiniprogram.MovableViewChange) {
@@ -36,8 +36,9 @@ Component({
     },
     onMoveEnd() {
       const { pivot, _moved } = this.data
-      if (!_moved) return
       this.setData({ pivot }) // * 滑动结束后手动归位
+      // ! 误触直接退出
+      if (_moved === -1 || !audioStore.currentSongInfo) return
 
       const distance = pivot / 2 // * 可移动距离
       const limit = distance * 3 / 4 // * 触发的阈值
@@ -47,10 +48,10 @@ Component({
 
       if (_moved > next) {
         console.log('next: ')
-        return
+        audioStore.setNextSong()
       } else if (_moved < pre) {
         console.log('pre: ')
-        return
+        audioStore.setPreSong()
       }
     }
   }

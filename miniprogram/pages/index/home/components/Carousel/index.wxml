@@ -6,7 +6,7 @@
   autoplay
   circular
   duration="200"
-  interval="2500"
+  interval="3000"
   indicator-color="#ABA8A8"
   indicator-active-color="#fff"
 >
