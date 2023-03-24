@@ -2,4 +2,6 @@
   <Songlist songlist="{{ songlist }}" />
 </view>
 
+<PlayController />
+
 <van-toast id="van-toast" />

@@ -1,5 +1,5 @@
 <view class="playlist-page">
-  <swiper class="bg-black-2" style="height: 100vh" duration="200">
+  <swiper class="bg-black-2" style="height: 100vh" duration="200" bind:change="onSwiper">
     <swiper-item skip-hidden-item-layout item-id="playlist">
       <scroll-view
         class="playlist-page__scroll-view"
@@ -44,6 +44,6 @@
   </swiper>
 </view>
 
-<PlayController />
+<PlayController class="{{ currentPage ? 'hidden' : '' }}" />
 
 <van-toast id="van-toast" />

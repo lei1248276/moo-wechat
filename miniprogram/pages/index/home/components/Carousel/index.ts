@@ -9,11 +9,20 @@ Component({
 
   },
   data: {
+    autoplay: true,
     bannerList: [] as Banner[]
   },
   lifetimes: {
     attached() {
       this.fetchBanner()
+    }
+  },
+  pageLifetimes: {
+    show() {
+      this.setData({ autoplay: true })
+    },
+    hide() {
+      this.setData({ autoplay: false })
     }
   },
   methods: {

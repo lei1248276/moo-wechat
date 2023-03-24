@@ -7,6 +7,7 @@ import Toast from '@/utils/toast'
 
 Page({
   data: {
+    currentPage: 0,
     playlist: {} as Playlist,
     songs: [] as Song[],
     isCollect: false
@@ -41,6 +42,9 @@ Page({
     console.log('%c🚀 ~ method: acceptPlaylist ~', 'color: #F25F5C;font-weight: bold;', playlist)
     wx.setNavigationBarTitle({ title: playlist.name })
     this.setData({ playlist, songs: playlist.tracks || [] })*/
+  },
+  onSwiper(page: WechatMiniprogram.SwiperChange) {
+    this.setData({ currentPage: page.detail.current })
   },
   async onScrollMore() {
     const { playlist: { trackCount }, songs } = this.data
