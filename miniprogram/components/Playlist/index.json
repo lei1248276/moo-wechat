@@ -1,6 +1,6 @@
 {
   "component": true,
   "usingComponents": {
-    "Playlist": "/components/Playlist/index"
+    "Song": "/components/Song/index"
   }
 }

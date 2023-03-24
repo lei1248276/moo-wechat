@@ -1,6 +1,6 @@
 <wxs src="/utils/tools.wxs" module="tools"></wxs>
 
-<view class="song flex justify-center item-center" bind:tap="onSong">
+<view class="song flex justify-center item-center" hover-stay-time="100" hover-class="hover-class">
   <van-image
     src="{{ song.al.picUrl || '' }}"
     width="140rpx"
@@ -18,7 +18,7 @@
   </view>
 
   <view
-    wx:if="{{ audioStore.songInfo && audioStore.songInfo.song.id === song.id }}"
+    wx:if="{{ audioStore.currentSongInfo && audioStore.currentSongInfo.song.id === song.id }}"
     class="sound-wave flex item-end"
   >
     <i

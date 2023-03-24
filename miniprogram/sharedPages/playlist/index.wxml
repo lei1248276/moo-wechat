@@ -64,7 +64,7 @@
             </view>
           </Subtitle>
 
-          <Song wx:for="{{ songs }}" wx:key="id" song="{{ item }}" />
+          <Playlist playlist="{{ songs }}" />
         </view>
       </scroll-view>
     </swiper-item>

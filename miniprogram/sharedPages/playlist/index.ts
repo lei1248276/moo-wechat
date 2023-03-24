@@ -15,13 +15,12 @@ Page({
     const opener = this.getOpenerEventChannel()
     opener.on('acceptSonglist', async(songlist: Songlist) => {
       console.log('%c🚀 ~ method: acceptSonglist ~', 'color: #F25F5C;font-weight: bold;', songlist)
-      const { name, id } = songlist
-      wx.setNavigationBarTitle({ title: name })
+      wx.setNavigationBarTitle({ title: songlist.name })
 
       // *（tracks === songs）歌单歌曲列表，每个歌单会额外携带前20首歌曲
       // ! 歌单播放列表有可能为null，需要重新请求歌单
       if (!songlist.tracks) {
-        const playlist = await this.fetchPlaylist(id)
+        const playlist = await this.fetchPlaylist(songlist.id)
         const songs = playlist.tracks
         this.setData({ playlist, songs })
         return
@@ -66,7 +65,7 @@ Page({
   async fetchPlaylist(id: number): Promise<Playlist> {
     const { playlist } = await getPlaylist(id)
     console.log('%c🚀 ~ method: fetchPlaylist ~', 'color: #F25F5C;font-weight: bold;', playlist)
-    this.setData({ playlist: playlist || [] })
+    this.setData({ playlist })
 
     return playlist
   }
