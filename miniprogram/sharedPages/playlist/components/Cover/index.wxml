@@ -1,0 +1,16 @@
+<van-image
+  src="{{ image }}"
+  width="500rpx"
+  height="450rpx"
+  radius="20rpx"
+  class="flex justify-center"
+  style="margin-bottom: 40rpx"
+/>
+
+<view class="flex justify-between item-center" style="margin-bottom: 20rpx">
+  <view class="cover__description text-white-1">{{ description }}</view>
+  <icon
+    class="iconfont icon-heart {{ isCollect ? 'text-red-1' : 'text-grey-1' }}"
+    bind:tap="onCollect"
+  />
+</view>

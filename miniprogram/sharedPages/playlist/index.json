@@ -1,5 +1,8 @@
 {
   "usingComponents": {
-    "Playlist": "/components/Playlist/index"
+    "Cover": "./components/Cover/index",
+    "Creator": "./components/Creator/index",
+    "Playlist": "/components/Playlist/index",
+    "PlayController": "/components/PlayController/index"
   }
 }

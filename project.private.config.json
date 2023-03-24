@@ -25,11 +25,7 @@
           "pathName": "sharedPages/playlist/index",
           "query": "id=581405341",
           "launchMode": "default",
-          "scene": null,
-          "partialCompile": {
-            "enabled": true,
-            "pages": []
-          }
+          "scene": null
         }
       ]
     }

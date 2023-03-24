@@ -1,0 +1,13 @@
+<view class="text-grey-1" style="margin-bottom: 20rpx">
+  <view class="flex item-center" style="margin-bottom: 20rpx">
+    <van-image
+      src="{{ userinfo.avatarUrl }}"
+      width="80rpx"
+      height="80rpx"
+      radius="50%"
+      style="margin-right: 16rpx"
+    />
+    <text>{{ userinfo.nickname }}</text>
+  </view>
+  <view>{{ userinfo.signature }}</view>
+</view>

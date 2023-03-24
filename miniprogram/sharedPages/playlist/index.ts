@@ -37,13 +37,10 @@ Page({
       this.setData({ playlist, songs })
     })
 
-    // const { playlist } = await getPlaylist(Number(id))
-    // console.log('%c🚀 ~ method: acceptPlaylist ~', 'color: #F25F5C;font-weight: bold;', playlist)
-    // wx.setNavigationBarTitle({ title: playlist.name })
-    // this.setData({ playlist, songs: playlist.tracks || [] })
-  },
-  onCollect() {
-    this.setData({ isCollect: !this.data.isCollect })
+    /* const { playlist } = await getPlaylist(Number(id))
+    console.log('%c🚀 ~ method: acceptPlaylist ~', 'color: #F25F5C;font-weight: bold;', playlist)
+    wx.setNavigationBarTitle({ title: playlist.name })
+    this.setData({ playlist, songs: playlist.tracks || [] })*/
   },
   async onScrollMore() {
     const { playlist: { trackCount }, songs } = this.data

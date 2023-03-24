@@ -9,49 +9,17 @@
         bind:scrolltolower="onScrollMore"
       >
         <view style="padding: 0 28rpx 200rpx">
-          <van-image
-            src="{{ playlist.coverImgUrl }}"
-            width="500rpx"
-            height="450rpx"
-            radius="20rpx"
-            class="flex justify-center"
-            style="margin-bottom: 40rpx"
-          />
+          <Cover image="{{ playlist.coverImgUrl }}" description="{{ playlist.description }}" />
 
-          <view class="flex justify-between item-center" style="margin-bottom: 20rpx">
-            <view class="playlist-page__desc text-white-1">{{ playlist.description }}</view>
-            <icon
-              class="iconfont icon-heart {{ isCollect ? 'text-red-1' : 'text-grey-1' }}"
-              bind:tap="onCollect"
-            />
-          </view>
+          <Creator userinfo="{{ playlist.creator }}" />
 
-          <view class="text-grey-1" style="margin-bottom: 20rpx">
-            <view class="flex item-center" style="margin-bottom: 20rpx">
-              <van-image
-                src="{{ playlist.creator.avatarUrl }}"
-                width="80rpx"
-                height="80rpx"
-                radius="50%"
-                style="margin-right: 16rpx"
-              />
-              <text>{{ playlist.creator.nickname }}</text>
-            </view>
-            <view>{{ playlist.creator.signature }}</view>
-          </view>
+          <block wx:for="{{ playlist.tags }}" wx:key="item">
+            <van-button type="default" size="small" round custom-class="playlist-page__btn">
+              {{ item }}
+            </van-button>
+          </block>
 
-          <van-button
-            wx:for="{{ playlist.tags }}"
-            wx:key="item"
-            type="default"
-            size="small"
-            round
-            custom-class="playlist-page__btn"
-          >
-            {{ item }}
-          </van-button>
-
-          <Subtitle title-slot icon="icon-menu">
+          <Subtitle title-slot icon-slot>
             <view slot="title">
               <van-button custom-class="playlist-page__play-btn" round type="default" size="small">
                 <icon class="iconfont icon-play" style="font-size: 42rpx !important" />
@@ -62,6 +30,7 @@
                 >{{ playlist.trackCount }}</text
               >
             </view>
+            <icon slot="icon" class="iconfont icon-menu" />
           </Subtitle>
 
           <Playlist playlist="{{ songs }}" />
@@ -74,5 +43,7 @@
     </swiper-item>
   </swiper>
 </view>
+
+<PlayController />
 
 <van-toast id="van-toast" />
