@@ -1,3 +1,3 @@
 <view bind:tap="onPlaylist">
-  <Song wx:for="{{ playlist }}" wx:key="id" mark:index="{{ index }}" song="{{ item }}" />
+  <Song wx:for="{{ songs }}" wx:key="id" mark:index="{{ index }}" song="{{ item }}" />
 </view>

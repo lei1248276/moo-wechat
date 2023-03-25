@@ -33,7 +33,7 @@
             <icon slot="icon" class="iconfont icon-menu" />
           </Subtitle>
 
-          <Playlist playlist="{{ songs }}" />
+          <Playlist playlist="{{ playlist }}" songs="{{ songs }}" />
         </view>
       </scroll-view>
     </swiper-item>

@@ -1,4 +1,5 @@
 import { observable, action } from 'mobx-miniprogram'
+import { Playlist } from '@/api/interface/Playlist'
 import { Song } from '@/api/interface/Song'
 import { SongUrl } from '@/api/interface/SongUrl'
 import { getSongUrl } from '@/api/play'
@@ -14,11 +15,13 @@ export interface AudioStore {
   isPlay: boolean
   duration: number
 
-  playlist?: Song[]
+  playlist?: Playlist
+  songs?: Song[]
   currentSongIndex: number
   currentSongInfo?: SongInfo
 
-  setPlaylist(playlist: Song[]): void
+  setPlaylist(playlist: Playlist): void
+  setSongs(songs: Song[]): void
   setIsPlay(isPlay: boolean): void
   setDuration(time: number): void
 
@@ -30,10 +33,11 @@ export interface AudioStore {
 export const audioStore = observable<AudioStore>({
   audio: wx.createInnerAudioContext(),
   playlist: undefined,
+  songs: undefined,
   isPlay: false,
   duration: 0,
 
-  currentSongIndex: 0,
+  currentSongIndex: -1,
   currentSongInfo: undefined,
 
   setIsPlay: action(function(this: AudioStore, isPlay: boolean) {
@@ -43,28 +47,31 @@ export const audioStore = observable<AudioStore>({
     // * 因为音源问题duration可能相同，值相同会导致倒计时不会刷新
     this.duration = time === this.duration ? time + Math.random() : time
   }),
-  setPlaylist: action(function(this: AudioStore, playlist: Song[]) {
+  setPlaylist: action(function(this: AudioStore, playlist: Playlist) {
     this.playlist = playlist
+  }),
+  setSongs: action(function(this: AudioStore, songs: Song[]) {
+    this.songs = songs
   }),
 
   setPreSong: action(function(this: AudioStore) {
-    if (!this.currentSongInfo || !this.playlist) return
+    if (!this.songs) return
 
-    const last = this.playlist.length - 1
+    const last = this.songs.length - 1
     const currentIndex = this.currentSongIndex
     const preIndex = currentIndex === 0 ? last : currentIndex - 1
-    this.setCurrentSong(this.playlist[preIndex], preIndex)
+    this.setCurrentSong(this.songs[preIndex], preIndex)
   }),
   setNextSong: action(function(this: AudioStore) {
-    if (!this.currentSongInfo || !this.playlist) return
+    if (!this.songs) return
 
-    const last = this.playlist.length - 1
+    const last = this.songs.length - 1
     const currentIndex = this.currentSongIndex
     const nextIndex = currentIndex === last ? 0 : currentIndex + 1
-    this.setCurrentSong(this.playlist[nextIndex], nextIndex)
+    this.setCurrentSong(this.songs[nextIndex], nextIndex)
   }),
   setCurrentSong: action(async function(this: AudioStore, song: Song, songIndex: number) {
-    if (song.id === this.currentSongInfo?.song.id) {
+    if (this.currentSongInfo && song.id === this.currentSongInfo.song.id) {
       return (this.audio.seek(0), this.audio.play())
     }
 

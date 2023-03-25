@@ -11,7 +11,7 @@ Component({
   },
   data: {
     newSongs: [] as Song[],
-    _playlist: {} as Playlist
+    playlist: {} as Playlist
   },
   lifetimes: {
     attached() {
@@ -23,7 +23,7 @@ Component({
       wx.navigateTo({
         url: `/sharedPages/playlist/index`,
         success: (res) => {
-          res.eventChannel.emit('acceptPlaylist', this.data._playlist)
+          res.eventChannel.emit('acceptPlaylist', this.data.playlist)
         },
         fail: (err) => { console.error(err) }
       })
@@ -34,8 +34,7 @@ Component({
       const songs = playlist.tracks ? playlist.tracks.slice(0, 4) : []
       console.log('%c🚀 ~ method: fetchNewSong ~', 'color: #F25F5C;font-weight: bold;', songs)
 
-      this.data._playlist = playlist
-      this.setData({ newSongs: songs })
+      this.setData({ playlist, newSongs: songs })
     }
   }
 })
