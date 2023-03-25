@@ -1,4 +1,6 @@
-<view class="play-controller box-border flex justify-between item-center bg-black-1">
+<view
+  class="{{ hidden ? 'hidden' : '' }} play-controller box-border flex justify-between item-center bg-black-1"
+>
   <van-count-down
     class="control-count-down"
     time="{{ audioStore.duration ? audioStore.duration * 1000 : 1000 }}"
