@@ -4,14 +4,10 @@
 <swiper
   class="bg-black-2"
   style="height: 100vh"
-  current="{{ 1 }}"
+  current="{{ currentPage }}"
   duration="200"
   bind:change="onSwiper"
 >
-  <swiper-item skip-hidden-item-layout item-id="play">
-    <view style="color: #fff">hello</view>
-  </swiper-item>
-
   <swiper-item skip-hidden-item-layout item-id="home">
     <Home />
   </swiper-item>
@@ -21,6 +17,6 @@
   </swiper-item>
 </swiper>
 
-<PlayController class="{{ currentPage === 0 ? 'hidden' : '' }}" />
+<PlayController />
 
 <van-toast id="van-toast" />

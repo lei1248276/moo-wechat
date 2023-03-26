@@ -1,0 +1,7 @@
+{
+  "navigationStyle": "custom",
+  "backgroundColor": "#1a191b",
+  "usingComponents": {
+    "van-nav-bar": "@vant/weapp/nav-bar/index"
+  }
+}

@@ -1,6 +1,6 @@
 Page({
   data: {
-    currentPage: 1
+    currentPage: 0
   },
   onSwiper(page: WechatMiniprogram.SwiperChange) {
     this.setData({ currentPage: page.detail.current })

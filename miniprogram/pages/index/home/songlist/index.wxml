@@ -1,4 +1,4 @@
-<view class="bg-black-1" style="padding: 0 28rpx">
+<view class="bg-black-2" style="padding: 0 28rpx">
   <Songlist songlist="{{ songlist }}" />
 </view>
 

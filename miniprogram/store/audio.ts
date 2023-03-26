@@ -75,12 +75,12 @@ export const audioStore = observable<AudioStore>({
       return (this.audio.seek(0), this.audio.play())
     }
 
+    this.currentSongIndex = songIndex
     const { data: [urlInfo] } = await getSongUrl(song.id)
     console.log('%c🚀 ~ method: setCurrentSong ~', 'color: #F25F5C;font-weight: bold;', urlInfo)
     if (!urlInfo.url) return Toast.fail('播放地址失效')
 
     this.audio.src = urlInfo.url
-    this.currentSongIndex = songIndex
     this.currentSongInfo = { song, urlInfo }
   })
 })

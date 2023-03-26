@@ -24,6 +24,7 @@
         height="130rpx"
         class="mid"
         image-class="{{ audioStore.isPlay ? 'play-controller--play' : 'play-controller--pause' }}"
+        bind:click="onRecord"
       />
     </movable-view>
   </movable-area>

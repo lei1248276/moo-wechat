@@ -1,0 +1,29 @@
+<view class="play relative bg-black-2" bind:tap="onPlay">
+  <swiper
+    class="bg-black-2"
+    style="height: 100%"
+    vertical
+    circular
+    duration="200"
+    current="{{ currentView }}"
+    bind:animationfinish="onChangeView"
+    bind:longpress="onBack"
+  >
+    <swiper-item wx:for="{{ playView }}" wx:key="id" skip-hidden-item-layout>
+      <view class="play__view mid">
+        <van-image
+          src="{{ item.al.picUrl }}"
+          width="100%"
+          height="100%"
+          show-error="{{ false }}"
+          show-loading="{{ false }}"
+          lazy-load
+        />
+      </view>
+    </swiper-item>
+  </swiper>
+
+  <icon hidden="{{ audioStore.isPlay }}" class="iconfont icon-audioPlay mid play__icon--play" />
+</view>
+
+<van-toast id="van-toast" />

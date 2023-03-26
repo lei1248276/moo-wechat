@@ -2,7 +2,8 @@
   "pages": [
     "pages/index/index",
     "pages/index/home/songlist/index",
-    "sharedPages/playlist/index"
+    "sharedPages/playlist/index",
+    "sharedPages/play/index"
   ],
   "usingComponents": {
     "Subtitle": "/components/Subtitle/index",
@@ -14,7 +15,8 @@
   "window": {
     "navigationBarBackgroundColor": "#1a191b",
     "navigationBarTitleText": "MOO",
-    "navigationBarTextStyle": "white"
+    "navigationBarTextStyle": "white",
+    "backgroundColor": "#1a191b"
   },
   "lazyCodeLoading": "requiredComponents",
   "sitemapLocation": "sitemap.json",

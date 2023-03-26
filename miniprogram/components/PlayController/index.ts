@@ -16,13 +16,10 @@ Component({
     attached() {
       // eslint-disable-next-line @typescript-eslint/ban-ts-comment
       // @ts-ignore
-      this.onResetControlCount = () => {
+      audioStore.audio.onSeeked((this.onResetControlCount = () => {
         console.log('%c🚀 ~ method: ??? ~', 'color: #F25F5C;font-weight: bold;', 'onSeeked')
         this.selectComponent('.control-count-down').reset()
-      }
-      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-      // @ts-ignore
-      audioStore.audio.onSeeked(this.onResetControlCount)
+      }))
     },
     detached() {
       // eslint-disable-next-line @typescript-eslint/ban-ts-comment
@@ -39,6 +36,9 @@ Component({
     }
   },
   methods: {
+    onRecord() {
+      audioStore.currentSongInfo && wx.navigateTo({ url: '/sharedPages/play/index' })
+    },
     onPlay() {
       if (!audioStore.currentSongInfo) return
 

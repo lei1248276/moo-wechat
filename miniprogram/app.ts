@@ -1,5 +1,6 @@
 import { audioStore } from '@/store/audio'
 import { sleep } from '@/utils/util'
+import Toast from '@/utils/toast'
 
 App({
   onLaunch() {
@@ -38,7 +39,8 @@ App({
     })*/
 
     audio.onError((err) => {
-      console.error(err.errMsg)
+      Toast.fail('链接无效')
+      console.error(err)
     })
   }
 })
