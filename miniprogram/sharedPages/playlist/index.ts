@@ -7,12 +7,11 @@ import Toast from '@/utils/toast'
 
 Page({
   data: {
-    currentPage: 0,
     playlist: {} as Playlist,
     songs: [] as Song[],
     isCollect: false
   },
-  async onLoad({ id }) {
+  async onLoad() {
     const opener = this.getOpenerEventChannel()
     opener.on('acceptSonglist', async(songlist: Songlist) => {
       console.log('%c🚀 ~ method: acceptSonglist ~', 'color: #F25F5C;font-weight: bold;', songlist)
@@ -37,16 +36,8 @@ Page({
       wx.setNavigationBarTitle({ title: name })
       this.setData({ playlist, songs })
     })
-
-    /* const { playlist } = await getPlaylist(Number(id))
-    console.log('%c🚀 ~ method: acceptPlaylist ~', 'color: #F25F5C;font-weight: bold;', playlist)
-    wx.setNavigationBarTitle({ title: playlist.name })
-    this.setData({ playlist, songs: playlist.tracks || [] })*/
   },
-  onSwiper(page: WechatMiniprogram.SwiperChange) {
-    this.setData({ currentPage: page.detail.current })
-  },
-  async onScrollMore() {
+  async onReachBottom() {
     const { playlist: { trackCount }, songs } = this.data
     if (songs.length >= trackCount) return Toast.fail('没有更多了')
 

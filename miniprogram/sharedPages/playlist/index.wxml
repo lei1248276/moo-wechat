@@ -1,47 +1,29 @@
-<view class="playlist-page">
-  <swiper class="bg-black-2" style="height: 100vh" duration="200" bind:change="onSwiper">
-    <swiper-item skip-hidden-item-layout item-id="playlist">
-      <scroll-view
-        class="playlist-page__scroll-view"
-        scroll-y
-        enable-passive
-        scroll-anchoring
-        bind:scrolltolower="onScrollMore"
+<view class="playlist-page bg-black-2">
+  <Cover image="{{ playlist.coverImgUrl }}" description="{{ playlist.description }}" />
+
+  <Creator userinfo="{{ playlist.creator }}" />
+
+  <block wx:for="{{ playlist.tags }}" wx:key="item">
+    <van-button type="default" size="small" round custom-class="playlist-page__btn">
+      {{ item }}
+    </van-button>
+  </block>
+
+  <Subtitle title-slot icon-slot>
+    <view slot="title">
+      <van-button custom-class="playlist-page__play-btn" round type="default" size="small">
+        <icon class="iconfont icon-play" style="font-size: 42rpx !important" />
+      </van-button>
+      <text
+        class="text-grey-1 inline-block align-middle"
+        style="margin-left: 40rpx; font-size: 38rpx"
+        >{{ playlist.trackCount }}</text
       >
-        <view style="padding: 0 28rpx 200rpx">
-          <Cover image="{{ playlist.coverImgUrl }}" description="{{ playlist.description }}" />
+    </view>
+    <icon slot="icon" class="iconfont icon-menu" />
+  </Subtitle>
 
-          <Creator userinfo="{{ playlist.creator }}" />
-
-          <block wx:for="{{ playlist.tags }}" wx:key="item">
-            <van-button type="default" size="small" round custom-class="playlist-page__btn">
-              {{ item }}
-            </van-button>
-          </block>
-
-          <Subtitle title-slot icon-slot>
-            <view slot="title">
-              <van-button custom-class="playlist-page__play-btn" round type="default" size="small">
-                <icon class="iconfont icon-play" style="font-size: 42rpx !important" />
-              </van-button>
-              <text
-                class="text-grey-1 inline-block align-middle"
-                style="margin-left: 40rpx; font-size: 38rpx"
-                >{{ playlist.trackCount }}</text
-              >
-            </view>
-            <icon slot="icon" class="iconfont icon-menu" />
-          </Subtitle>
-
-          <Playlist playlist="{{ playlist }}" songs="{{ songs }}" />
-        </view>
-      </scroll-view>
-    </swiper-item>
-
-    <swiper-item skip-hidden-item-layout item-id="play">
-      <view style="color: #fff">world</view>
-    </swiper-item>
-  </swiper>
+  <Playlist playlist="{{ playlist }}" songs="{{ songs }}" />
 </view>
 
 <PlayController class="{{ currentPage ? 'hidden' : '' }}" />

@@ -1,16 +1,9 @@
 @import "miniprogram/styles/index";
 
 .playlist-page {
-  &__scroll-view {
-    height: 100%;
-    overflow-anchor: none;
-  }
-
-  &__desc {
-    font-size: 42rpx;
-    font-weight: bold;
-    flex: 0.9;
-  }
+  height: 100%;
+  overflow-anchor: none;
+  padding: 0 28rpx 200rpx;
 
   .playlist-page__btn {
     font-weight: bold;
