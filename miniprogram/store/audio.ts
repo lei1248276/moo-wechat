@@ -1,16 +1,14 @@
-import { observable, action, runInAction } from 'mobx-miniprogram'
+import { observable, action } from 'mobx-miniprogram'
 import { Playlist } from '@/api/interface/Playlist'
 import { Song } from '@/api/interface/Song'
 import { SongUrl } from '@/api/interface/SongUrl'
-import { Lrc } from '@/api/interface/Lyric'
-import { getSongUrl, getLyric } from '@/api/play'
+import { getSongUrl } from '@/api/play'
 import Toast from '@/utils/toast'
 import Hooks from '@/utils/hooks'
 
 interface SongInfo {
   song: Song
   urlInfo: SongUrl
-  lrc: Lrc
 }
 
 export interface AudioStore {
@@ -87,13 +85,15 @@ export const audioStore = observable<AudioStore>({
     }
 
     this.currentSongIndex = songIndex
-    const [{ data: [urlInfo] }, { lrc }] = await Promise.all([getSongUrl(song.id), getLyric(song.id)])
-    console.log('%c🚀 ~ method: setCurrentSong ~', 'color: #F25F5C;font-weight: bold;', urlInfo, lrc)
-    if (!urlInfo.url) return Toast.fail('播放地址失效')
+    const { data: [urlInfo] } = await getSongUrl(song.id)
+    console.log('%c🚀 ~ method: setCurrentSong ~', 'color: #F25F5C;font-weight: bold;', urlInfo)
+    if (!urlInfo.url) {
+      Toast.fail('播放地址失效')
+      this.currentSongInfo = undefined
+      return
+    }
 
     this.audio.src = urlInfo.url
-    runInAction(() => {
-      this.currentSongInfo = { song, urlInfo, lrc }
-    })
+    this.currentSongInfo = { song, urlInfo }
   })
 })

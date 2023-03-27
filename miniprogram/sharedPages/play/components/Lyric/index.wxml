@@ -1,0 +1,3 @@
+<view class="lyric text-white-1 mid text-center" style="top: 30%; font-size: 60rpx; width: 80%">
+  {{ lyric }}
+</view>

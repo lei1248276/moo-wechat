@@ -34,6 +34,7 @@ module.exports = {
     requireMiniProgram: true
   },
   rules: {
+    '@typescript-eslint/no-empty-function': 'off',
     '@typescript-eslint/ban-types': 'off',
     "@typescript-eslint/no-explicit-any": 0,
     'accessor-pairs': 2,

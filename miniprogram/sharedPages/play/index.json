@@ -1,6 +1,7 @@
 {
   "navigationStyle": "custom",
   "backgroundColor": "#1a191b",
+  "pureDataPattern": "^_",
   "usingComponents": {
     "SongInfo": "./components/SongInfo/index",
     "Lyric": "./components/Lyric/index"

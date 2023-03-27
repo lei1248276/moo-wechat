@@ -5,35 +5,32 @@ import { Song } from '@/api/interface/Song'
 Page({
   data: {
     currentView: 1, // * 当前显示的view索引
-    playView: [] as Song[] // * 播放view对应playlist中的指针
+    playView: [] as Song[], // * 播放view对应playlist中的指针
+
+    _onNextSong: () => {}
   },
   behaviors: [audioStoreBehavior],
   onBack() {
     wx.navigateBack()
   },
-  onLoad(this: any) {
+  onLoad() {
     // * 初始化view
     this.updateView()
 
-    this.onNextSong = () => {
+    this.data._onNextSong = () => {
       const oldView = this.data.currentView
       const currentView = oldView === 2 ? 0 : oldView + 1
       this.updateView(oldView, currentView, true)
       this.setData({ currentView })
     }
-
-    this.TimeUpdate = () => {
-      console.log(audioStore.audio.currentTime)
-    }
-
-    // audioStore.audio.onTimeUpdate(this.TimeUpdate)
-    audioStore.nextHooks.on(this.onNextSong)
+    audioStore.nextHooks.on(this.data._onNextSong)
   },
-  onUnload(this: any) {
-    // audioStore.audio.offTimeUpdate(this.TimeUpdate)
-    audioStore.nextHooks.off(this.onNextSong)
+  onUnload() {
+    audioStore.nextHooks.off(this.data._onNextSong)
   },
   onPlay() {
+    if (!audioStore.currentSongInfo) return
+
     audioStore.isPlay ? audioStore.audio.pause() : audioStore.audio.play()
   },
   onChangeView({ detail: { current: currentView, source }}: WechatMiniprogram.SwiperAnimationFinish) {
