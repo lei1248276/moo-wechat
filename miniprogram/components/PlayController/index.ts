@@ -5,26 +5,24 @@ Component({
   options: {
     styleIsolation: 'shared'
   },
+  behaviors: [audioStoreBehavior],
   data: {
     hidden: false,
     pivot: (450 / 2) - (130 / 2), // * 中心点
 
     _moved: -1 // * 最终滑动的距离
   },
-  behaviors: [audioStoreBehavior],
+  observers: {
+    'audioStore.isPlay'(this: any, isPlay) {
+      if (!audioStore.currentSongInfo) return
+
+      const countDown = this.countDown || (this.countDown = this.selectComponent('.control-count-down'))
+      isPlay ? countDown.start() : countDown.pause()
+    }
+  },
   lifetimes: {
-    attached() {
-      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-      // @ts-ignore
-      audioStore.audio.onSeeked((this.onResetControlCount = () => {
-        console.log('%c🚀 ~ method: ??? ~', 'color: #F25F5C;font-weight: bold;', 'onSeeked')
-        this.selectComponent('.control-count-down').reset()
-      }))
-    },
-    detached() {
-      // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-      // @ts-ignore
-      audioStore.audio.offSeeked(this.onResetControlCount)
+    detached(this: any) {
+      this.countDown = null
     }
   },
   pageLifetimes: {
@@ -42,13 +40,7 @@ Component({
     onPlay() {
       if (!audioStore.currentSongInfo) return
 
-      if (audioStore.isPlay) {
-        audioStore.audio.pause()
-        this.selectComponent('.control-count-down').pause()
-      } else {
-        audioStore.audio.play()
-        this.selectComponent('.control-count-down').start()
-      }
+      audioStore.isPlay ? audioStore.audio.pause() : audioStore.audio.play()
     },
     onMoveChange({ detail: { x, source }}: WechatMiniprogram.MovableViewChange) {
       if (!source) return

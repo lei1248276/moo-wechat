@@ -34,10 +34,6 @@ App({
       audioStore.setNextSong()
     })
 
-    /* audio.onTimeUpdate(() => {
-
-    })*/
-
     audio.onError((err) => {
       Toast.fail('链接无效')
       console.error(err)

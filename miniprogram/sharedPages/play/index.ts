@@ -11,22 +11,27 @@ Page({
   onBack() {
     wx.navigateBack()
   },
-  onLoad() {
+  onLoad(this: any) {
+    // * 初始化view
     this.updateView()
 
-    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-    // @ts-ignore
-    audioStore.audio.onEnded((this.nextSong = () => {
+    this.onNextSong = () => {
       const oldView = this.data.currentView
       const currentView = oldView === 2 ? 0 : oldView + 1
       this.updateView(oldView, currentView, true)
       this.setData({ currentView })
-    }))
+    }
+
+    this.TimeUpdate = () => {
+      console.log(audioStore.audio.currentTime)
+    }
+
+    // audioStore.audio.onTimeUpdate(this.TimeUpdate)
+    audioStore.nextHooks.on(this.onNextSong)
   },
-  onUnload() {
-    // eslint-disable-next-line @typescript-eslint/ban-ts-comment
-    // @ts-ignore
-    audioStore.audio.offEnded(this.nextSong)
+  onUnload(this: any) {
+    // audioStore.audio.offTimeUpdate(this.TimeUpdate)
+    audioStore.nextHooks.off(this.onNextSong)
   },
   onPlay() {
     audioStore.isPlay ? audioStore.audio.pause() : audioStore.audio.play()

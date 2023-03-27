@@ -1,13 +1,16 @@
-import { observable, action } from 'mobx-miniprogram'
+import { observable, action, runInAction } from 'mobx-miniprogram'
 import { Playlist } from '@/api/interface/Playlist'
 import { Song } from '@/api/interface/Song'
 import { SongUrl } from '@/api/interface/SongUrl'
-import { getSongUrl } from '@/api/play'
+import { Lrc } from '@/api/interface/Lyric'
+import { getSongUrl, getLyric } from '@/api/play'
 import Toast from '@/utils/toast'
+import Hooks from '@/utils/hooks'
 
 interface SongInfo {
   song: Song
   urlInfo: SongUrl
+  lrc: Lrc
 }
 
 export interface AudioStore {
@@ -19,6 +22,9 @@ export interface AudioStore {
   songs?: Song[]
   currentSongIndex: number
   currentSongInfo?: SongInfo
+
+  previousHooks: Hooks<Function>,
+  nextHooks: Hooks<Function>,
 
   setPlaylist(playlist: Playlist): void
   setSongs(songs: Song[]): void
@@ -32,13 +38,16 @@ export interface AudioStore {
 
 export const audioStore = observable<AudioStore>({
   audio: wx.createInnerAudioContext(),
-  playlist: undefined,
-  songs: undefined,
   isPlay: false,
   duration: 0,
 
+  playlist: undefined,
+  songs: undefined,
   currentSongIndex: -1,
   currentSongInfo: undefined,
+
+  previousHooks: new Hooks(), // * 监听播放上一首的事件回调
+  nextHooks: new Hooks(), // * 监听播放下一首的事件回调
 
   setIsPlay: action(function(this: AudioStore, isPlay: boolean) {
     this.isPlay = isPlay
@@ -61,6 +70,7 @@ export const audioStore = observable<AudioStore>({
     const currentIndex = this.currentSongIndex
     const preIndex = currentIndex === 0 ? last : currentIndex - 1
     this.setCurrentSong(this.songs[preIndex], preIndex)
+    this.previousHooks.emit()
   }),
   setNextSong: action(function(this: AudioStore) {
     if (!this.songs) return
@@ -69,6 +79,7 @@ export const audioStore = observable<AudioStore>({
     const currentIndex = this.currentSongIndex
     const nextIndex = currentIndex === last ? 0 : currentIndex + 1
     this.setCurrentSong(this.songs[nextIndex], nextIndex)
+    this.nextHooks.emit()
   }),
   setCurrentSong: action(async function(this: AudioStore, song: Song, songIndex: number) {
     if (this.currentSongInfo && song.id === this.currentSongInfo.song.id) {
@@ -76,11 +87,13 @@ export const audioStore = observable<AudioStore>({
     }
 
     this.currentSongIndex = songIndex
-    const { data: [urlInfo] } = await getSongUrl(song.id)
-    console.log('%c🚀 ~ method: setCurrentSong ~', 'color: #F25F5C;font-weight: bold;', urlInfo)
+    const [{ data: [urlInfo] }, { lrc }] = await Promise.all([getSongUrl(song.id), getLyric(song.id)])
+    console.log('%c🚀 ~ method: setCurrentSong ~', 'color: #F25F5C;font-weight: bold;', urlInfo, lrc)
     if (!urlInfo.url) return Toast.fail('播放地址失效')
 
     this.audio.src = urlInfo.url
-    this.currentSongInfo = { song, urlInfo }
+    runInAction(() => {
+      this.currentSongInfo = { song, urlInfo, lrc }
+    })
   })
 })

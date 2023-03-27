@@ -1,7 +1,6 @@
 {
   "navigationBarTitleText": "歌单列表",
   "usingComponents": {
-    "Songlist": "/components/Songlist/index",
-    "PlayController": "/components/PlayController/index"
+    "Songlist": "/components/Songlist/index"
   }
 }

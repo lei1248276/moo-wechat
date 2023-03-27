@@ -9,6 +9,31 @@
       no-repeat center;
   }
 
+  &__pic::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.22);
+  }
+
+  &-song-info {
+    width: 80%;
+    bottom: 18%;
+    left: 50%;
+    transform: translate3d(-50%, -10%, 0);
+
+    .play-song--tag {
+      font-weight: bold;
+      border: none;
+      margin: 0 20rpx 20rpx 0;
+      background: $yellow-1;
+      color: $black-1;
+    }
+  }
+
   &__icon--play {
     font-size: 100rpx !important;
     color: $white-1;

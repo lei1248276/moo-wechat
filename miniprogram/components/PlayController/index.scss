@@ -17,6 +17,7 @@
   &--play {
     animation: audioPlay 5s linear infinite;
     animation-play-state: running;
+    will-change: "transform";
   }
   &--pause {
     animation: audioPlay 5s linear infinite;
