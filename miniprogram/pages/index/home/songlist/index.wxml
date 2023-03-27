@@ -1,6 +1,13 @@
-<view class="bg-black-2" style="padding: 0 28rpx">
-  <Songlist songlist="{{ songlist }}" />
-</view>
+<scroll-view
+  class="songlist-page bg-black-2"
+  scroll-y
+  enable-passive
+  scroll-anchoring
+  lower-threshold="100"
+  catch:scrolltolower="onScrollMore"
+>
+  <Songlist songlist="{{ songlist }}" custom-style="padding: 0 28rpx" />
+</scroll-view>
 
 <PlayController />
 

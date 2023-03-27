@@ -5,6 +5,7 @@ interface Props {
 }
 
 Component({
+  externalClasses: ['custom-class'],
   options: {
     styleIsolation: 'shared'
   },
@@ -12,6 +13,10 @@ Component({
     songlist: {
       type: Array,
       value: []
+    },
+    customStyle: {
+      type: String,
+      value: ''
     }
   },
   data: {

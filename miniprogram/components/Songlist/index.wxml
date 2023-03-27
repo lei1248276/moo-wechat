@@ -1,6 +1,10 @@
 <wxs src="/utils/tools.wxs" module="tools"></wxs>
 
-<view class="songlist flex justify-between flex-wrap overflow-hidden" bind:tap="onSonglist">
+<view
+  class="songlist custom-class flex justify-between flex-wrap overflow-hidden"
+  style="{{ customStyle }}"
+  bind:tap="onSonglist"
+>
   <view
     wx:for="{{ songlist }}"
     wx:key="id"

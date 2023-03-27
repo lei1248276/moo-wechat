@@ -11,7 +11,7 @@ Page({
   onLoad() {
     this.fetchSonglist()
   },
-  onReachBottom() {
+  onScrollMore() {
     if (this.data.songlist.length >= this.total) return Toast.fail('没有更多了。。。')
 
     this.fetchSonglist()
