@@ -37,7 +37,7 @@ Page({
       this.setData({ playlist, songs })
     })
   },
-  async onReachBottom() {
+  async onScrollMore() {
     const { playlist: { trackCount }, songs } = this.data
     if (songs.length >= trackCount) return Toast.fail('没有更多了')
 

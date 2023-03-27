@@ -1,9 +1,8 @@
 @import "miniprogram/styles/index";
 
 .playlist-page {
-  height: 100%;
+  height: 100vh;
   overflow-anchor: none;
-  padding: 0 28rpx 200rpx;
 
   .playlist-page__btn {
     font-weight: bold;

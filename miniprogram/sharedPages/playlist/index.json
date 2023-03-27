@@ -1,5 +1,4 @@
 {
-  "onReachBottomDistance": 100,
   "usingComponents": {
     "Cover": "./components/Cover/index",
     "Creator": "./components/Creator/index",
