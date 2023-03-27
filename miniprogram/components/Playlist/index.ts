@@ -1,3 +1,4 @@
+import { audioStoreBehavior } from '@/behavior/audioStore'
 import { audioStore } from '@/store/audio'
 import { Playlist } from '@/api/interface/Playlist'
 import { Song } from '@/api/interface/Song'
@@ -21,6 +22,7 @@ Component({
       value: []
     }
   },
+  behaviors: [audioStoreBehavior],
   data: <Props>{
 
   },
