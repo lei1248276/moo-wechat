@@ -28,11 +28,6 @@ Page({
   onUnload() {
     audioStore.nextHooks.off(this.data._onNextSong)
   },
-  onPlay() {
-    if (!audioStore.currentSongInfo) return
-
-    audioStore.isPlay ? audioStore.audio.pause() : audioStore.audio.play()
-  },
   onChangeView({ detail: { current: currentView, source }}: WechatMiniprogram.SwiperAnimationFinish) {
     const oldView = this.data.currentView
     if (!source || oldView === currentView) return

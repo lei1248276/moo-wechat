@@ -32,6 +32,8 @@ export interface AudioStore {
   setPreSong(): void
   setNextSong(): void
   setCurrentSong(song: Song, songIndex: number): void
+
+  toggle(): void
 }
 
 export const audioStore = observable<AudioStore>({
@@ -89,11 +91,18 @@ export const audioStore = observable<AudioStore>({
     console.log('%c🚀 ~ method: setCurrentSong ~', 'color: #F25F5C;font-weight: bold;', urlInfo)
     if (!urlInfo.url) {
       Toast.fail('播放地址失效')
+      this.audio.pause()
       this.currentSongInfo = undefined
       return
     }
 
     this.audio.src = urlInfo.url
     this.currentSongInfo = { song, urlInfo }
-  })
+  }),
+
+  toggle(this: AudioStore) {
+    if (!this.currentSongInfo) return
+
+    this.isPlay ? this.audio.pause() : this.audio.play()
+  }
 })

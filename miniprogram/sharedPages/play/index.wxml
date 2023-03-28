@@ -1,4 +1,4 @@
-<view class="play relative bg-black-2" bind:tap="onPlay">
+<view class="play relative bg-black-2" bind:tap="toggle">
   <swiper
     class="bg-black-2"
     style="height: 100%"
@@ -9,7 +9,7 @@
     bind:animationfinish="onChangeView"
     bind:longpress="onBack"
   >
-    <swiper-item wx:for="{{ playView }}" wx:key="id" skip-hidden-item-layout>
+    <swiper-item wx:for="{{ playView }}" wx:key="index" skip-hidden-item-layout>
       <view class="play__view mid">
         <van-image
           image-class="play__pic relative"
@@ -19,7 +19,14 @@
           show-error="{{ false }}"
           show-loading="{{ false }}"
           lazy-load
-        />
+          use-loading-slot
+        >
+          <image
+            slot="loading"
+            src="/assets/alt.svg"
+            style="width: 100%; height: 100%; background: #010001"
+          />
+        </van-image>
 
         <block wx:if="{{ currentView === index }}">
           <Lyric songId="{{ item.id }}" />

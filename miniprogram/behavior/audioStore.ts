@@ -6,6 +6,6 @@ export const audioStoreBehavior = BehaviorWithStore({
     namespace: 'audioStore',
     store: audioStore,
     fields: ['currentSongInfo', 'currentSongIndex', 'isPlay', 'duration', 'songs', 'playlist'],
-    actions: []
+    actions: ['toggle']
   }]
 })
