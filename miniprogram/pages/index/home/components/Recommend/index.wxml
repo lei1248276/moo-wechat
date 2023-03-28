@@ -8,7 +8,14 @@
       radius="8rpx"
       class="recommend__img recommend__img__{{ index + 1 }}"
       src="{{ item.picUrl }}"
-    />
+      use-loading-slot
+    >
+      <image
+        slot="loading"
+        src="/assets/alt.svg"
+        style="width: 100%; height: 100%; background: #010001"
+      />
+    </van-image>
   </view>
 
   <view class="text-yellow-1 flex-1 flex justify-evenly item-center" style="margin-right: 10rpx">

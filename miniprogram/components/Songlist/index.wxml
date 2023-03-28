@@ -11,7 +11,20 @@
     class="songlist-item text-white-1 relative"
     mark:index="{{ index }}"
   >
-    <van-image src="{{ item.coverImgUrl }}" width="100%" height="322rpx" radius="20rpx" lazy-load />
+    <van-image
+      src="{{ item.coverImgUrl }}"
+      width="100%"
+      height="322rpx"
+      radius="20rpx"
+      lazy-load
+      use-loading-slot
+    >
+      <image
+        slot="loading"
+        src="/assets/alt.svg"
+        style="width: 100%; height: 100%; background: #010001"
+      />
+    </van-image>
     <icon class="iconfont icon-music songlist-item__icon bg-white-1 text-grey-2"></icon>
     <text class="text-omit-2">{{ item.name }}</text>
   </view>

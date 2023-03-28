@@ -2,7 +2,20 @@
 
 <view wx:for="{{ newAlbum }}" wx:key="albumId" class="new-album flex items-stretch">
   <view class="relative flex-1">
-    <van-image src="{{ item.coverUrl }}" width="300rpx" height="300rpx" radius="12rpx" lazy-load />
+    <van-image
+      src="{{ item.coverUrl }}"
+      width="300rpx"
+      height="300rpx"
+      radius="12rpx"
+      lazy-load
+      use-loading-slot
+    >
+      <image
+        slot="loading"
+        src="/assets/alt.svg"
+        style="width: 100%; height: 100%; background: #010001"
+      />
+    </van-image>
     <van-image src="/assets/cd.png" width="50rpx" height="200rpx" class="y-mid" lazy-load />
   </view>
   <view class="flex-1 flex flex-col justify-evenly item-start text-left">

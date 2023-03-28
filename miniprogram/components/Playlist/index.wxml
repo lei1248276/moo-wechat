@@ -13,8 +13,15 @@
       height="140rpx"
       radius="12rpx"
       lazy-load
+      use-loading-slog
       class="song__img"
-    />
+    >
+      <image
+        slot="loading"
+        src="/assets/alt.svg"
+        style="width: 100%; height: 100%; background: #010001"
+      />
+    </van-image>
 
     <view class="flex-1 flex flex-col justify-around" style="height: 100%">
       <text class="song-name text-omit text-white-1">{{ item.al.name }}</text>

@@ -37,11 +37,6 @@ Component({
     onRecord() {
       audioStore.currentSongInfo && wx.navigateTo({ url: '/sharedPages/play/index' })
     },
-    onPlay() {
-      if (!audioStore.currentSongInfo) return
-
-      audioStore.isPlay ? audioStore.audio.pause() : audioStore.audio.play()
-    },
     onMoveChange({ detail: { x, source }}: WechatMiniprogram.MovableViewChange) {
       if (!source) return
       this.data._moved = x
