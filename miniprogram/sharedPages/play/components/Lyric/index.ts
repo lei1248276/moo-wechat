@@ -13,17 +13,17 @@ Component({
   data: {
     lyric: '',
 
-    _matches: [] as { time: number, lyric: string }[],
-    _timeUpdate: () => {}
+    _matches: [] as { time: number, lyric: string }[]
   },
-  lifetimes: {
-    async attached() {
+  observers: {
+    async songId() {
+      audioStore.audio.offTimeUpdate()
       await this.fetchLyric()
 
       const audio = audioStore.audio
       const _matches = this.data._matches
       let index = 0
-      this.data._timeUpdate = () => {
+      audio.onTimeUpdate(() => {
         while (index < _matches.length) {
           if (_matches[index].time > audio.currentTime) return
 
@@ -35,11 +35,12 @@ Component({
 
           this.setData({ lyric: _matches[index++].lyric })
         }
-      }
-      audio.onTimeUpdate(this.data._timeUpdate)
-    },
+      })
+    }
+  },
+  lifetimes: {
     detached() {
-      audioStore.audio.offTimeUpdate(this.data._timeUpdate)
+      audioStore.audio.offTimeUpdate()
     }
   },
   methods: {
