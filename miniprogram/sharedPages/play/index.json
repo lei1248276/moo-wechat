@@ -4,6 +4,7 @@
   "pureDataPattern": "^_",
   "usingComponents": {
     "SongInfo": "./components/SongInfo/index",
-    "Lyric": "./components/Lyric/index"
+    "Lyric": "./components/Lyric/index",
+    "PlaylistPopup": "./components/PlaylistPopup/index"
   }
 }

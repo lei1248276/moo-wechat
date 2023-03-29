@@ -15,7 +15,7 @@
     </view>
     <view class="flex justify-between item-center">
       <view class="flex-1 text-omit" style="font-size: 38rpx">
-        <text wx:for="{{ singers }}" wx:key="name">{{ item.name }}. </text>
+        <block wx:for="{{ singers }}" wx:key="name">{{ item.name }}. </block>
       </view>
       <icon class="iconfont icon-menu" style="font-size: 66rpx" catch:tap="onMenu" />
     </view>

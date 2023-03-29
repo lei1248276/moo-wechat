@@ -6,6 +6,7 @@ Page({
   data: {
     currentView: 1, // * 当前显示的view索引
     playView: [] as Song[], // * 播放view对应playlist中的指针
+    isShowPlaylist: false,
 
     _onNextSong: () => {}
   },
@@ -27,6 +28,10 @@ Page({
   },
   onUnload() {
     audioStore.nextHooks.off(this.data._onNextSong)
+  },
+  onShowPlaylist() {
+    console.log('Menu')
+    this.setData({ isShowPlaylist: !this.data.isShowPlaylist })
   },
   onChangeView({ detail: { current: currentView, source }}: WechatMiniprogram.SwiperAnimationFinish) {
     const oldView = this.data.currentView

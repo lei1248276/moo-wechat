@@ -22,11 +22,9 @@ Component({
   methods: {
     onCollect() {
       this.triggerEvent('collect')
-      console.log('collect')
     },
     onMenu() {
       this.triggerEvent('menu')
-      console.log('menu')
     }
   }
 })

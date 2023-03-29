@@ -1,4 +1,4 @@
-<view class="play relative bg-black-2" bind:tap="toggle">
+<view class="play relative bg-black-2">
   <swiper
     class="bg-black-2"
     style="height: 100%"
@@ -7,6 +7,7 @@
     duration="200"
     current="{{ currentView }}"
     bind:animationfinish="onChangeView"
+    bind:tap="toggle"
     bind:longpress="onBack"
   >
     <swiper-item wx:for="{{ playView }}" wx:key="index" skip-hidden-item-layout>
@@ -35,13 +36,28 @@
             tags="{{ audioStore.playlist.tags }}"
             name="{{ item.al.name }}"
             singers="{{ item.ar }}"
+            bind:menu="onShowPlaylist"
           />
         </block>
       </view>
     </swiper-item>
   </swiper>
 
-  <icon hidden="{{ audioStore.isPlay }}" class="iconfont icon-audioPlay mid play__icon--play" />
+  <PlaylistPopup
+    wx:if="{{ audioStore.playlist && audioStore.songs }}"
+    isShow="{{ isShowPlaylist }}"
+    playlist="{{ audioStore.playlist }}"
+    songs="{{ audioStore.songs }}"
+    song="{{ playView[currentView] }}"
+    bind:close="onShowPlaylist"
+    bind:change="updateView"
+  />
+
+  <icon
+    hidden="{{ audioStore.isPlay }}"
+    class="iconfont icon-audioPlay mid play__icon--play"
+    bind:tap="toggle"
+  />
 </view>
 
 <van-toast id="van-toast" />
