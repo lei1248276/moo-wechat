@@ -1,0 +1,16 @@
+@import "miniprogram/styles/index";
+
+.song-info {
+  width: 80%;
+  bottom: 18%;
+  left: 50%;
+  transform: translate3d(-50%, -10%, 0);
+
+  &--tag {
+    font-weight: bold;
+    border: none;
+    margin: 0 20rpx 20rpx 0;
+    background: $yellow-1;
+    color: $black-1;
+  }
+}

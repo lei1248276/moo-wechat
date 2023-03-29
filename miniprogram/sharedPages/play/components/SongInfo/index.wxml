@@ -1,0 +1,23 @@
+<view class="song-info absolute">
+  <block wx:for="{{ tags }}" wx:key="item">
+    <van-button type="default" size="small" round custom-class="song-info--tag">
+      {{ item }}
+    </van-button>
+  </block>
+
+  <view
+    class="flex flex-col justify-between text-white-1 font-bold"
+    style="gap: 40rpx 0; margin-top: 20rpx"
+  >
+    <view class="flex justify-between item-center">
+      <view style="font-size: 48rpx">{{ name }}</view>
+      <icon class="iconfont icon-heart" catch:tap="onCollect" />
+    </view>
+    <view class="flex justify-between item-center">
+      <view class="flex-1 text-omit" style="font-size: 38rpx">
+        <text wx:for="{{ singers }}" wx:key="name">{{ item.name }}. </text>
+      </view>
+      <icon class="iconfont icon-menu" style="font-size: 66rpx" catch:tap="onMenu" />
+    </view>
+  </view>
+</view>
