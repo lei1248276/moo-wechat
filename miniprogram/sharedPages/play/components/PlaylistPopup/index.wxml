@@ -2,13 +2,14 @@
   show="{{ isShow }}"
   position="top"
   round
-  overlay-style="background-color: transparent; backdrop-filter: blur(15px);"
-  custom-style="height: 92%;background-color: rgba(0, 0, 0, .5);"
+  safe-area-inset-bottom="{{ false }}"
+  overlay-style="background-color: transparent; -webkit-backdrop-filter:blur(15rpx);"
+  custom-style="height: 88vh;background-color: rgba(0, 0, 0, .5);"
   bind:click-overlay="onClose"
   bind:after-enter="onShowed"
   bind:after-leave="onHidden"
 >
-  <view style="margin: 150rpx 50rpx 50rpx">
+  <view style="padding: calc(env(safe-area-inset-bottom) + 100rpx) 50rpx 50rpx">
     <view class="flex item-center" style="gap: 0 50rpx">
       <van-image src="{{ song.al.picUrl }}" width="300rpx" height="300rpx" radius="12rpx" />
 
@@ -20,7 +21,7 @@
       </view>
     </view>
 
-    <view class="flex justify-between item-center text-white-1" style="margin-top: 30rpx">
+    <view class="flex justify-between item-center text-white-1" style="padding-top: 30rpx">
       <icon class="iconfont icon-download" />
       <icon class="iconfont icon-send" />
       <icon class="iconfont icon-heart" />
@@ -29,7 +30,12 @@
   </view>
 
   <block wx:if="{{ isShowed }}">
-    <scroll-view style="height: 50%" scroll-y enable-passive scroll-anchoring>
+    <scroll-view
+      style="height: calc(100% - env(safe-area-inset-bottom) - 556rpx)"
+      scroll-y
+      enable-passive
+      scroll-anchoring
+    >
       <Playlist
         playlist="{{ playlist }}"
         songs="{{ songs }}"
