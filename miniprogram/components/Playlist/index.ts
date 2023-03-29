@@ -9,6 +9,7 @@ interface Props {
 }
 
 Component({
+  externalClasses: ['custom-class'],
   options: {
     styleIsolation: 'shared'
   },
@@ -20,6 +21,10 @@ Component({
     songs: {
       type: Array,
       value: []
+    },
+    customStyle: {
+      type: String,
+      value: ''
     }
   },
   behaviors: [audioStoreBehavior],
@@ -31,8 +36,14 @@ Component({
       const { index } = mark as { index: number }
       const { playlist, songs } = this.data
 
-      audioStore.setPlaylist(playlist)
-      audioStore.setSongs(songs)
+      if (audioStore.playlist !== playlist) {
+        audioStore.setPlaylist(playlist)
+      }
+
+      if (audioStore.songs !== songs || audioStore.songs.length !== songs.length) {
+        audioStore.setSongs(songs)
+      }
+
       audioStore.setCurrentSong(songs[index], index)
     }
   }
