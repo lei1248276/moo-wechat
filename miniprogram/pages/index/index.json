@@ -1,6 +1,8 @@
 {
+  "navigationStyle": "custom",
   "usingComponents": {
-    "Navbar": "./components/Navbar/index",
+    "NavBar": "/components/NavBar/index",
+    "NavTitle": "./components/NavTitle/index",
     "Home": "./home/index"
   }
 }

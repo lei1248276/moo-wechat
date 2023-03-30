@@ -1,3 +1,5 @@
+<NavBar leftArrow title="{{ title }}" />
+
 <scroll-view
   class="playlist-page bg-black-2"
   scroll-y

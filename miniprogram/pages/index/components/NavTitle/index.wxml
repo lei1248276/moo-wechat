@@ -1,4 +1,4 @@
-<view class="navbar fixed bg-black-2 text-white-1">
+<view class="nav-title bg-black-2 text-white-1">
   <view class="flex justify-between item-center" style="height: 100%">
     <text class="{{ !currentPage ? 'opacity-1' : 'opacity-0' }}" style="transition: opacity 0.8s"
       >DISCOVER
@@ -8,7 +8,7 @@
 
   <view class="flex">
     <view
-      class="navbar__dot {{ index === currentPage ? 'navbar__dot--active' : '' }}"
+      class="nav-title__dot {{ index === currentPage ? 'nav-title__dot--active' : '' }}"
       wx:for="{{ 2 }}"
       wx:key="index"
     >

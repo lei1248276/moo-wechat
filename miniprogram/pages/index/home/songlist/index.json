@@ -1,6 +1,7 @@
 {
-  "navigationBarTitleText": "歌单列表",
+  "navigationStyle": "custom",
   "usingComponents": {
+    "NavBar": "/components/NavBar/index",
     "Songlist": "/components/Songlist/index"
   }
 }

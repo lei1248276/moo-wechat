@@ -1,5 +1,7 @@
 <!--index.wxml-->
-<Navbar currentPage="{{ currentPage }}" />
+<NavBar />
+
+<NavTitle currentPage="{{ currentPage }}" />
 
 <swiper
   class="bg-black-2"

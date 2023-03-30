@@ -1,5 +1,7 @@
 {
+  "navigationStyle": "custom",
   "usingComponents": {
+    "NavBar": "/components/NavBar/index",
     "Cover": "./components/Cover/index",
     "Creator": "./components/Creator/index",
     "Playlist": "/components/Playlist/index"

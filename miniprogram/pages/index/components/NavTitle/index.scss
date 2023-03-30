@@ -1,11 +1,8 @@
 @import "miniprogram/styles/index";
 
-.navbar {
+.nav-title {
   font-size: 70rpx;
-  top: 0;
-  left: 0;
-  right: 0;
-  padding: 0 28rpx;
+  padding: 0 28rpx 20rpx;
 
   &__dot {
     @include wh(18rpx, 18rpx);

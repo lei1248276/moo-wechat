@@ -7,6 +7,7 @@ import Toast from '@/utils/toast'
 
 Page({
   data: {
+    title: '',
     playlist: {} as Playlist,
     songs: [] as Song[],
     isCollect: false
@@ -15,7 +16,7 @@ Page({
     const opener = this.getOpenerEventChannel()
     opener.on('acceptSonglist', async(songlist: Songlist) => {
       console.log('%c🚀 ~ method: acceptSonglist ~', 'color: #F25F5C;font-weight: bold;', songlist)
-      wx.setNavigationBarTitle({ title: songlist.name })
+      this.setData({ title: songlist.name })
 
       // *（tracks === songs）歌单歌曲列表，每个歌单会额外携带前20首歌曲
       // ! 歌单播放列表有可能为null，需要重新请求歌单
@@ -33,7 +34,7 @@ Page({
     opener.on('acceptPlaylist', (playlist: Playlist) => {
       console.log('%c🚀 ~ method: acceptPlaylist ~', 'color: #F25F5C;font-weight: bold;', playlist)
       const { name, tracks: songs } = playlist
-      wx.setNavigationBarTitle({ title: name })
+      this.setData({ title: name })
       this.setData({ playlist, songs })
     })
   },

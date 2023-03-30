@@ -1,3 +1,5 @@
+<NavBar title="歌单列表" leftArrow />
+
 <scroll-view
   class="songlist-page bg-black-2"
   scroll-y

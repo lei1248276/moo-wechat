@@ -1,0 +1,14 @@
+<van-nav-bar
+  title="{{ title }}"
+  placeholder
+  border="{{ false }}"
+  custom-class="nav-bar"
+  title-class="nav-bar__title"
+>
+  <icon
+    wx:if="{{ leftArrow }}"
+    slot="left"
+    class="iconfont icon-arrow text-grey-1 nav-bar__icon"
+    catch:tap="toBack"
+  />
+</van-nav-bar>

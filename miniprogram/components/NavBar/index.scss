@@ -1,0 +1,15 @@
+@import "miniprogram/styles/index";
+
+.nav-bar {
+  background-color: #1a191b;
+}
+
+.nav-bar__title {
+  color: $white-1;
+}
+
+.nav-bar__icon {
+  padding-left: 50rpx;
+  font-size: 32rpx;
+  transform: rotate(180deg);
+}
