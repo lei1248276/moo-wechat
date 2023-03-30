@@ -7,22 +7,19 @@ Component({
   },
   behaviors: [audioStoreBehavior],
   data: {
-    hidden: false,
     pivot: (450 / 2) - (130 / 2), // * 中心点
+    hidden: false, // * 控制播放器的显示
+    isShowPlay: false, // * 控制play播放页面的显示
 
-    _moved: -1 // * 最终滑动的距离
+    _moved: -1, // * 最终滑动的距离
+    _countDown: null as any
   },
   observers: {
-    'audioStore.isPlay'(this: any, isPlay) {
+    'audioStore.isPlay'(isPlay) {
       if (!audioStore.currentSongInfo) return
 
-      const countDown = this.countDown || (this.countDown = this.selectComponent('.control-count-down'))
+      const countDown = this.data._countDown || (this.data._countDown = this.selectComponent('.control-count-down'))
       isPlay ? countDown.start() : countDown.pause()
-    }
-  },
-  lifetimes: {
-    detached(this: any) {
-      this.countDown = null
     }
   },
   pageLifetimes: {
@@ -34,8 +31,11 @@ Component({
     }
   },
   methods: {
-    onRecord() {
-      audioStore.currentSongInfo && wx.navigateTo({ url: '/sharedPages/play/index' })
+    onHidePlay() {
+      this.setData({ isShowPlay: false })
+    },
+    onShowPlay() {
+      audioStore.currentSongInfo && this.setData({ isShowPlay: true })
     },
     onMoveChange({ detail: { x, source }}: WechatMiniprogram.MovableViewChange) {
       if (!source) return
@@ -51,13 +51,11 @@ Component({
       const limit = distance * 3 / 4 // * 触发的阈值
       const next = distance + limit // * 下一首
       const pre = distance - limit // * 上一首
-      console.log({ moved, pivot, distance, limit, next, pre })
+      // console.log({ moved, pivot, distance, limit, next, pre })
 
       if (moved > next) {
-        console.log('next: ')
         audioStore.setNextSong()
       } else if (moved < pre) {
-        console.log('pre: ')
         audioStore.setPreSong()
       }
     }

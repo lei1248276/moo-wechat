@@ -1,5 +1,5 @@
 <view
-  class="{{ hidden ? 'hidden' : '' }} play-controller box-border flex justify-between item-center bg-black-1"
+  class="play-controller box-border flex justify-between item-center bg-black-1 {{ hidden || isShowPlay ? 'hidden' : '' }}"
 >
   <van-count-down
     class="control-count-down"
@@ -11,9 +11,6 @@
     <movable-view
       direction="horizontal"
       style="width: 130rpx; height: 110rpx"
-      damping="{{ 33 }}"
-      friction="{{ 3 }}"
-      inertia
       x="{{ pivot }}rpx"
       bind:change="onMoveChange"
       bind:touchend="onMoveEnd"
@@ -25,7 +22,7 @@
         show-loading="{{ false }}"
         class="mid"
         image-class="{{ audioStore.isPlay ? 'play-controller--play' : 'play-controller--pause' }}"
-        bind:click="onRecord"
+        bind:click="onShowPlay"
       />
     </movable-view>
   </movable-area>
@@ -41,3 +38,13 @@
     bind:tap="toggle"
   ></view>
 </view>
+
+<page-container
+  show="{{ isShowPlay }}"
+  position="right"
+  overlay="{{ false }}"
+  custom-style="background-color: #1a191b; border: none"
+  bind:afterleave="onHidePlay"
+>
+  <Play wx:if="{{ isShowPlay }}" bind:back="onHidePlay" />
+</page-container>

@@ -2,8 +2,7 @@
   "pages": [
     "pages/index/index",
     "pages/index/home/songlist/index",
-    "sharedPages/playlist/index",
-    "sharedPages/play/index"
+    "sharedPages/playlist/index"
   ],
   "usingComponents": {
     "Subtitle": "/components/Subtitle/index",
