@@ -1,0 +1,13 @@
+@import "miniprogram/styles/index";
+
+.history-plays {
+  height: calc(100vh - 66px - env(safe-area-inset-bottom));
+  padding: 0 28rpx;
+
+  .history-plays__play-btn {
+    font-weight: bold;
+    border: none;
+    background: $yellow-1;
+    color: $black-1;
+  }
+}

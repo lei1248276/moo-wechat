@@ -1,0 +1,29 @@
+<NavBar title="最近播放" leftArrow />
+
+<view class="history-plays bg-black-2">
+  <Subtitle title-slot icon-slot>
+    <view slot="title">
+      <van-button custom-class="history-plays__play-btn" round type="default" size="small">
+        <icon class="iconfont icon-play" style="font-size: 42rpx !important" />
+      </van-button>
+      <text
+        class="text-grey-1 inline-block align-middle"
+        style="margin-left: 40rpx; font-size: 38rpx"
+        >{{ count }}</text
+      >
+    </view>
+  </Subtitle>
+
+  <scroll-view
+    scroll-y
+    enable-passive
+    scroll-anchoring
+    lower-threshold="100"
+    style="height: calc(100% - 146rpx)"
+    catch:scrolltolower="onScrollMore"
+  >
+    <Playlist songs="{{ historyPlays }}" />
+  </scroll-view>
+</view>
+
+<PlayController />

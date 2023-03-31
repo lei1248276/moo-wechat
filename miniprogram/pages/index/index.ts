@@ -1,8 +1,10 @@
 Page({
   data: {
-    currentPage: 'profile'
+    currentPage: 'home'
   },
-  onSwiper({ detail: { currentItemId }}: WechatMiniprogram.SwiperChange) {
+  onSwiper({ detail: { currentItemId }}: WechatMiniprogram.SwiperAnimationFinish) {
+    if (this.data.currentPage === currentItemId) return
+
     this.setData({ currentPage: currentItemId })
   }
 })

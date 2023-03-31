@@ -1,0 +1,7 @@
+{
+  "navigationStyle": "custom",
+  "usingComponents": {
+    "NavBar": "/components/NavBar/index",
+    "Playlist": "/components/Playlist/index"
+  }
+}
