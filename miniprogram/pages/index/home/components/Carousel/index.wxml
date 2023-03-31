@@ -3,7 +3,7 @@
 <swiper
   class="radius--hidden"
   indicator-dots
-  autoplay="{{ autoplay }}"
+  autoplay="{{ autoplay && !hidden }}"
   circular
   duration="200"
   interval="3000"

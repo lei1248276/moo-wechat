@@ -4,8 +4,8 @@ Component({
   },
   properties: {
     currentPage: {
-      type: Number,
-      value: 1
+      type: String,
+      value: 'home'
     }
   }
 })

@@ -6,10 +6,13 @@ Component({
     styleIsolation: 'shared'
   },
   properties: {
-
+    autoplay: {
+      type: Boolean,
+      value: true
+    }
   },
   data: {
-    autoplay: true,
+    hidden: false,
     bannerList: [] as Banner[]
   },
   lifetimes: {
@@ -19,10 +22,10 @@ Component({
   },
   pageLifetimes: {
     show() {
-      this.setData({ autoplay: true })
+      this.setData({ hidden: false })
     },
     hide() {
-      this.setData({ autoplay: false })
+      this.setData({ hidden: true })
     }
   },
   methods: {

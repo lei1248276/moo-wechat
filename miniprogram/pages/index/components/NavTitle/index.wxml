@@ -1,7 +1,7 @@
 <view class="nav-title bg-black-2 text-white-1">
   <view class="flex justify-between item-center">
-    <text>{{ !currentPage ? 'DISCOVER' : 'PROFILE' }}</text>
-    <icon class="iconfont {{ !currentPage ? 'icon-user' : 'icon-setting' }}" />
+    <text>{{ currentPage === 'home' ? 'DISCOVER' : 'PROFILE' }}</text>
+    <icon class="iconfont {{ currentPage === 'home' ? 'icon-user' : 'icon-setting' }}" />
   </view>
 
   <view class="flex">

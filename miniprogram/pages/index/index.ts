@@ -1,8 +1,8 @@
 Page({
   data: {
-    currentPage: 1
+    currentPage: 'profile'
   },
-  onSwiper(page: WechatMiniprogram.SwiperChange) {
-    this.setData({ currentPage: page.detail.current })
+  onSwiper({ detail: { currentItemId }}: WechatMiniprogram.SwiperChange) {
+    this.setData({ currentPage: currentItemId })
   }
 })
