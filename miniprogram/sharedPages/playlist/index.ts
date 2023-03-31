@@ -33,9 +33,8 @@ Page({
 
     opener.on('acceptPlaylist', (playlist: Playlist) => {
       console.log('%c🚀 ~ method: acceptPlaylist ~', 'color: #F25F5C;font-weight: bold;', playlist)
-      const { name, tracks: songs } = playlist
-      this.setData({ title: name })
-      this.setData({ playlist, songs })
+      const { name: title, tracks: songs } = playlist
+      this.setData({ playlist, songs, title })
     })
   },
   async onScrollMore() {

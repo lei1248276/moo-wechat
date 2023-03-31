@@ -1,6 +1,6 @@
 @import "miniprogram/styles/index";
 
 .songlist-page {
-  height: 100vh;
+  height: calc(100vh - 66px - env(safe-area-inset-bottom));
   overflow-anchor: none;
 }

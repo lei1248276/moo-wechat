@@ -2,7 +2,7 @@
   <Search />
 
   <scroll-view class="home-page-scroll-view" scroll-y enable-passive scroll-anchoring>
-    <view style="padding: 0 28rpx 200rpx">
+    <view style="padding: 0 28rpx 300rpx">
       <Carousel autoplay="{{ currentPage === 'home' }}" />
 
       <Recommend />

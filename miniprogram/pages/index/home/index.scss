@@ -1,9 +1,11 @@
 @import "miniprogram/styles/index";
 
 .home-page {
+  height: 100%;
+
   &-scroll-view {
-    height: calc(100vh - 220rpx);
-    margin-top: 20rpx;
+    height: 100%;
+    padding-top: 20rpx;
     overflow-anchor: none;
   }
 }

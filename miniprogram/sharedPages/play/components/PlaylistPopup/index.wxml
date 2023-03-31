@@ -3,7 +3,7 @@
   position="top"
   round
   safe-area-inset-bottom="{{ false }}"
-  overlay-style="background-color: transparent; -webkit-backdrop-filter:blur(15rpx);"
+  overlay-style="background-color: transparent; -webkit-backdrop-filter:blur(15rpx);backdrop-filter:blur(15rpx);"
   custom-style="height: 88vh;background-color: rgba(0, 0, 0, .5);"
   bind:click-overlay="onClose"
   bind:after-enter="onShowed"

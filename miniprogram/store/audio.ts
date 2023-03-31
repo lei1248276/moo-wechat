@@ -71,14 +71,13 @@ export const audioStore = observable({
     console.log('%c🚀 ~ method: setCurrentSong ~', 'color: #F25F5C;font-weight: bold;', urlInfo)
     if (!urlInfo.url) {
       Toast.fail('播放地址失效')
-      audioStore.audio.pause()
+      audioStore.audio.stop()
       audioStore.currentSongInfo = undefined
       return
     }
 
-    const songInfo = { song, urlInfo }
     audioStore.audio.src = urlInfo.url
-    audioStore.currentSongInfo = songInfo
+    audioStore.currentSongInfo = { song, urlInfo }
     audioStore.setHistoryPlay(song)
   }),
 
