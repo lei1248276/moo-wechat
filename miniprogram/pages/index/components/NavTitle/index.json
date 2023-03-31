@@ -1,6 +1,6 @@
 {
-    "component": true,
-    "usingComponents": {
-
-    }
+  "component": true,
+  "usingComponents": {
+    "van-transition": "@vant/weapp/transition/index"
+  }
 }

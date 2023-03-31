@@ -1,9 +1,7 @@
 <view class="nav-title bg-black-2 text-white-1">
-  <view class="flex justify-between item-center" style="height: 100%">
-    <text class="{{ !currentPage ? 'opacity-1' : 'opacity-0' }}" style="transition: opacity 0.8s"
-      >DISCOVER
-    </text>
-    <icon class="iconfont icon-user" />
+  <view class="flex justify-between item-center">
+    <text>{{ !currentPage ? 'DISCOVER' : 'PROFILE' }}</text>
+    <icon class="iconfont {{ !currentPage ? 'icon-user' : 'icon-setting' }}" />
   </view>
 
   <view class="flex">

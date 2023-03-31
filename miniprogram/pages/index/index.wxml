@@ -15,7 +15,7 @@
   </swiper-item>
 
   <swiper-item skip-hidden-item-layout item-id="profile">
-    <view style="color: #fff">world</view>
+    <Profile />
   </swiper-item>
 </swiper>
 

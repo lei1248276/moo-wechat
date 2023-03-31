@@ -3,6 +3,7 @@
   "usingComponents": {
     "NavBar": "/components/NavBar/index",
     "NavTitle": "./components/NavTitle/index",
-    "Home": "./home/index"
+    "Home": "./home/index",
+    "Profile": "./profile/index"
   }
 }

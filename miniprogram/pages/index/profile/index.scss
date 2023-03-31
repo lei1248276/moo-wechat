@@ -1,0 +1,13 @@
+@import "miniprogram/styles/index";
+
+.profile-page {
+  padding: 0 28rpx;
+
+  &__user {
+    height: 300rpx;
+    padding: 30rpx;
+    border-radius: 20rpx;
+    background-color: $black-1;
+    font-size: 38rpx;
+  }
+}
