@@ -20,9 +20,14 @@
   </view>
 
   <view class="flex flex-wrap justify-around item-center" style="gap: 40rpx 0; margin-top: 40rpx">
-    <Shelf description="收藏音乐" count="1" icon="heart" />
-    <Shelf description="收藏歌单" icon="playlist" />
-    <Shelf description="本地歌曲" icon="file" />
-    <Shelf description="最近播放" count="1" icon="time" />
+    <Shelf
+      wx:for="{{ shelf }}"
+      wx:key="description"
+      description="{{ item.description }}"
+      count="{{ item.count }}"
+      icon="{{ item.icon }}"
+      list="{{ item.list }}"
+      url="{{ item.url }}"
+    />
   </view>
 </view>

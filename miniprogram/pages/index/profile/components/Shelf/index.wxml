@@ -1,0 +1,23 @@
+<view class="shelf relative" catch:tap="toNavigate">
+  <view class="relative flex item-end" style="width: 88%; height: 60%; margin: 0 auto">
+    <block wx:for="{{ 3 }}" wx:key="index">
+      <image
+        wx:if="{{ list[index] }}"
+        src="{{ list[index] }}"
+        class="absolute shelf__pic shelf__pic-{{ index + 1 }}"
+      />
+      <view wx:else class="absolute shelf__pic-alt shelf__pic-{{ index + 1 }}">
+        <icon
+          wx:if="{{ index === 0 }}"
+          class="iconfont icon-{{ icon }} text-white-1 mid"
+          style="font-size: 80rpx"
+        />
+      </view>
+    </block>
+  </view>
+
+  <view class="shelf__bottom box-border bg-black-1 flex justify-between item-center font-bold">
+    <text class="text-white-1">{{ description }}</text>
+    <text class="text-grey-1">{{ count }}</text>
+  </view>
+</view>

@@ -1,0 +1,36 @@
+@import "miniprogram/styles/index";
+
+.shelf {
+  @include wh(330rpx, 220rpx);
+
+  &__pic {
+    @include wh(50%, 100%);
+  }
+  &__pic-alt {
+    @include wh(50%, 100%);
+    background-color: $grey-1;
+    box-shadow: 4rpx 0 20rpx rgba(0, 0, 0, 0.5);
+  }
+  &__pic-1 {
+    left: 0;
+    z-index: 3;
+  }
+  &__pic-2 {
+    height: 90%;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 2;
+  }
+  &__pic-3 {
+    height: 90%;
+    left: 100%;
+    transform: translateX(-100%);
+    z-index: 1;
+  }
+
+  &__bottom {
+    width: 100%;
+    border-radius: 20rpx;
+    padding: 12rpx 20rpx;
+  }
+}
