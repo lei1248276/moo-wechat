@@ -12,10 +12,12 @@ Page({
   onLoad() {
     this.fetchSonglist()
   },
-  onScrollMore() {
+  async onScrollMore() {
+    Toast.start()
     if (this.data.songlist.length >= this.data._total) return Toast.fail('没有更多了。。。')
 
-    this.fetchSonglist()
+    await this.fetchSonglist()
+    Toast.close()
   },
   async fetchSonglist() {
     const { songlist } = this.data

@@ -38,10 +38,12 @@ Page({
     })
   },
   async onScrollMore() {
+    Toast.start()
     const { playlist: { trackCount }, songs } = this.data
     if (songs.length >= trackCount) return Toast.fail('没有更多了')
 
     await this.fetchSongs()
+    Toast.close()
   },
   async fetchSongs() {
     const { playlist: { trackIds }, songs } = this.data
