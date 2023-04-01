@@ -10,11 +10,7 @@
       src="{{ item.picUrl }}"
       use-loading-slot
     >
-      <image
-        slot="loading"
-        src="/assets/alt.svg"
-        style="width: 100%; height: 100%; background: #010001"
-      />
+      <icon slot="loading" class="alt" />
     </van-image>
   </view>
 

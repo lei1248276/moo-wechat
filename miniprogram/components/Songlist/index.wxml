@@ -19,11 +19,7 @@
       lazy-load
       use-loading-slot
     >
-      <image
-        slot="loading"
-        src="/assets/alt.svg"
-        style="width: 100%; height: 100%; background: #010001"
-      />
+      <icon slot="loading" class="alt" />
     </van-image>
     <icon class="iconfont icon-music songlist-item__icon bg-white-1 text-grey-2"></icon>
     <text class="text-omit-2">{{ item.name }}</text>

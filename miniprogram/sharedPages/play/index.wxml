@@ -17,16 +17,10 @@
           src="{{ item.al.picUrl }}"
           width="100%"
           height="100%"
-          show-error="{{ false }}"
-          show-loading="{{ false }}"
           lazy-load
           use-loading-slot
         >
-          <image
-            slot="loading"
-            src="/assets/alt.svg"
-            style="width: 100%; height: 100%; background: #010001"
-          />
+          <icon slot="loading" class="alt" />
         </van-image>
 
         <block wx:if="{{ currentView === index }}">

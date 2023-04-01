@@ -10,11 +10,7 @@
       lazy-load
       use-loading-slot
     >
-      <image
-        slot="loading"
-        src="/assets/alt.svg"
-        style="width: 100%; height: 100%; background: #010001"
-      />
+      <icon slot="loading" class="alt" />
     </van-image>
     <van-image src="/assets/cd.png" width="50rpx" height="200rpx" class="y-mid" lazy-load />
   </view>
