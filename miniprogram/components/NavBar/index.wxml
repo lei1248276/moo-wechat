@@ -1,5 +1,6 @@
 <van-nav-bar
   title="{{ title }}"
+  fixed
   placeholder
   border="{{ false }}"
   custom-class="nav-bar"
