@@ -9,7 +9,11 @@
   catch:scrolltolower="onScrollMore"
 >
   <view style="padding: 0 28rpx 200rpx">
-    <Cover image="{{ playlist.coverImgUrl }}" description="{{ playlist.description }}" />
+    <Cover
+      playlistId="{{ playlist.id }}"
+      image="{{ playlist.coverImgUrl }}"
+      description="{{ playlist.description }}"
+    />
 
     <Creator userinfo="{{ playlist.creator }}" />
 

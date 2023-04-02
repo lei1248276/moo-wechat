@@ -51,13 +51,13 @@ App({
     })
   },
   onHide() {
-    wx.setStorage({
+    audioStore.collectSongs.length && wx.setStorage({
       key: 'collectSongs',
       data: audioStore.collectSongs,
       fail(err) { console.error(err) }
     })
 
-    wx.setStorage({
+    audioStore.collectPlaylist.length && wx.setStorage({
       key: 'collectPlaylist',
       data: audioStore.collectPlaylist,
       fail(err) { console.error(err) }

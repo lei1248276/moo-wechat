@@ -27,11 +27,12 @@ Page({
   },
   onDelete({ mark }: WechatMiniprogram.TouchEvent) {
     const { index } = mark as { index: number }
-    console.log('%c🚀 ~ method: onDelete ~', 'color: #F25F5C;font-weight: bold;', index)
-    audioStore.deleteCollectSong(index)
-    this.data._collectSongs.splice(index, 1)
-    this.data.collectSongs.splice(index, 1)
-    this.setData({ collectSongs: this.data.collectSongs })
+    const { collectSongs, _collectSongs, count } = this.data
+
+    const [song] = _collectSongs.splice(index, 1)
+    collectSongs.splice(index, 1)
+    this.setData({ collectSongs, count: count - 1 })
+    audioStore.deleteCollectSong(song.id)
   },
   onScrollMore() {
     const { collectSongs, _collectSongs } = this.data

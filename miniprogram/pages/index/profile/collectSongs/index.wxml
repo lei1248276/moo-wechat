@@ -39,7 +39,7 @@
           slot="right"
           class="bg-red-1 text-white-1 text-center"
           style="width: 110rpx; line-height: 140rpx; margin-left: 20rpx"
-          bind:tap="onDelete"
+          catch:tap="onDelete"
           >删除</view
         >
       </van-swipe-cell>

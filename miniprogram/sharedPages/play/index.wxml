@@ -28,7 +28,9 @@
 
           <SongInfo
             tags="{{ audioStore.playlist.tags }}"
-            song="{{ song }}"
+            name="{{ song.al.name }}"
+            singers="{{ song.ar }}"
+            songId="{{ song.id }}"
             catch:menu="onShowPlaylist"
           />
         </block>

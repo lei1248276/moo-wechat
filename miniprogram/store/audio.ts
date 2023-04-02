@@ -88,13 +88,28 @@ export const audioStore = observable({
       ? audioStore.collectSongs.unshift(...song)
       : audioStore.collectSongs.unshift(song)
   }),
-  deleteCollectSong: action(function(index: number) {
-    audioStore.collectSongs.splice(index, 1)
+  deleteCollectSong: action(function(id: number) {
+    const index = audioStore.collectSongs.findIndex(v => v.id === id)
+    if (index !== -1) {
+      audioStore.collectSongs.splice(index, 1)
+      return true
+    }
+
+    return false
   }),
   setCollectPlaylist: action(function(playlist: Playlist | Playlist[]) {
     Array.isArray(playlist)
       ? audioStore.collectPlaylist.unshift(...playlist)
       : audioStore.collectPlaylist.unshift(playlist)
+  }),
+  deleteCollectPlaylist: action(function(id: number) {
+    const index = audioStore.collectPlaylist.findIndex(v => v.id === id)
+    if (index !== -1) {
+      audioStore.collectPlaylist.splice(index, 1)
+      return true
+    }
+
+    return false
   }),
 
   toggle() {

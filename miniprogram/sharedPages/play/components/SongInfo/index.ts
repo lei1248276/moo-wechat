@@ -1,5 +1,4 @@
 import { audioStore } from '@/store/audio'
-import { Song } from '@/api/interface/Song'
 import Toast from '@/utils/toast'
 
 Component({
@@ -10,27 +9,42 @@ Component({
     tags: {
       type: Array
     },
-    song: {
-      type: Object
+    name: {
+      type: String
+    },
+    singers: {
+      type: Array
+    },
+    songId: {
+      type: Number
     }
   },
   data: {
-
+    isCollect: false
+  },
+  lifetimes: {
+    attached() {
+      if (audioStore.collectSongs.some(v => v.id === this.data.songId)) {
+        this.setData({ isCollect: true })
+      }
+    }
   },
   methods: {
     onMenu() {
       this.triggerEvent('menu')
     },
     onCollect() {
-      const song = this.data.song
-      const isCollect = audioStore.collectSongs.some((v) => v.id === song.id)
+      const { isCollect, songId } = this.data
 
       if (isCollect) {
-        Toast.fail('歌曲已存在')
+        audioStore.deleteCollectSong(songId) && Toast.success('歌曲已删除')
       } else {
         Toast.success('添加成功')
-        audioStore.setCollectSong(song as Song)
+        const song = audioStore.currentSongInfo!.song
+        audioStore.setCollectSong(song)
       }
+
+      this.setData({ isCollect: !isCollect })
     }
   }
 })
