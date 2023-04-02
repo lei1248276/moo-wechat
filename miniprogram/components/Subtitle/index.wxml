@@ -1,5 +1,6 @@
 <view
-  class="subtitle text-white-1 flex justify-between item-center"
+  class="subtitle text-white-1 flex justify-between item-center custom-class"
+  style="{{ customStyle }}"
   hover-stay-time="50"
   hover-class="{{ clickable ? 'hover-class' : '' }}"
   bind:tap="onSubtitle"

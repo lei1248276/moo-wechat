@@ -16,6 +16,15 @@ Page({
     this.setData({ count: audioStore.collectSongs.length })
     this.onScrollMore()
   },
+  onCollectList({ mark }: WechatMiniprogram.TouchEvent) {
+    const { index } = mark as { index: number }
+    const { collectSongs } = this.data
+    if (audioStore.songs !== collectSongs || audioStore.songs.length !== collectSongs.length) {
+      audioStore.setSongs(collectSongs)
+    }
+
+    audioStore.setCurrentSong(collectSongs[index], index)
+  },
   onDelete({ mark }: WechatMiniprogram.TouchEvent) {
     const { index } = mark as { index: number }
     console.log('%c🚀 ~ method: onDelete ~', 'color: #F25F5C;font-weight: bold;', index)

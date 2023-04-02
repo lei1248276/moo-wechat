@@ -1,7 +1,7 @@
 <NavBar title="收藏音乐" leftArrow />
 
 <view class="collect-songs bg-black-2">
-  <Subtitle title-slot icon-slot>
+  <Subtitle title-slot icon-slot custom-style="margin: 0 28rpx;">
     <view slot="title">
       <van-button custom-class="collect-songs__play-btn" round type="default" size="small">
         <icon class="iconfont icon-play" style="font-size: 42rpx !important" />
@@ -22,8 +22,14 @@
     style="height: calc(100% - 146rpx)"
     catch:scrolltolower="onScrollMore"
   >
-    <block wx:for="{{ collectSongs }}" wx:key="id">
-      <van-swipe-cell right-width="{{ 65 }}" mark:index="{{ index }}">
+    <view style="padding: 0 28rpx 200rpx">
+      <van-swipe-cell
+        wx:for="{{ collectSongs }}"
+        wx:key="id"
+        mark:index="{{ index }}"
+        right-width="{{ 65 }}"
+        bind:click="onCollectList"
+      >
         <Song
           song="{{ item }}"
           isPlay="{{ audioStore.isPlay }}"
@@ -37,7 +43,7 @@
           >删除</view
         >
       </van-swipe-cell>
-    </block>
+    </view>
   </scroll-view>
 </view>
 
