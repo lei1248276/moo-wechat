@@ -1,6 +1,5 @@
 {
   "component": true,
   "usingComponents": {
-    "Song": "/components/Song/index"
   }
 }

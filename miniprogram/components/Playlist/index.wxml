@@ -1,41 +1,10 @@
 <view class="playlist custom-class" bind:tap="onPlaylist" style="{{ customStyle }}">
-  <view
+  <Song
     wx:for="{{ songs }}"
-    wx:key="id"
+    wx:key="index"
     mark:index="{{ index }}"
-    class="song flex justify-center item-center"
-    hover-stay-time="100"
-    hover-class="hover-class"
-  >
-    <van-image
-      src="{{ item.al.picUrl }}"
-      width="140rpx"
-      height="140rpx"
-      radius="12rpx"
-      lazy-load
-      use-loading-slog
-      class="song__img"
-    >
-      <icon slot="loading" class="alt" />
-    </van-image>
-
-    <view class="flex-1 flex flex-col justify-around" style="height: 100%">
-      <text class="song-name text-omit text-white-1">{{ item.al.name }}</text>
-      <view class="song-singer text-omit text-grey-1">
-        <text wx:for="{{ item.ar }}" wx:key="name">{{ item.name }}. </text>
-      </view>
-    </view>
-
-    <view
-      wx:if="{{ audioStore.currentSongInfo && audioStore.currentSongInfo.song.id === item.id }}"
-      class="sound-wave flex item-end"
-    >
-      <i
-        wx:for="{{ 4 }}"
-        wx:key="index"
-        class="wave{{ index + 1 }} {{ audioStore.isPlay ? 'run' : 'paused' }}"
-      ></i>
-    </view>
-    <icon wx:else class="iconfont icon-more song__icon text-grey-1" />
-  </view>
+    song="{{ item }}"
+    isPlay="{{ audioStore.isPlay }}"
+    isRun="{{ audioStore.currentSongInfo && audioStore.currentSongInfo.song.id === item.id }}"
+  />
 </view>
