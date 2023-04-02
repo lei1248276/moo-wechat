@@ -7,7 +7,7 @@
   class="bg-black-2"
   style="height: calc(100vh - 136rpx - 46px - env(safe-area-inset-top))"
   duration="200"
-  bind:animationfinish="onSwiper"
+  bind:change="onSwiper"
 >
   <swiper-item skip-hidden-item-layout item-id="home">
     <Home currentPage="{{ currentPage }}" />

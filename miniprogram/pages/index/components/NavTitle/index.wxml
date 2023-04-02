@@ -6,9 +6,9 @@
 
   <view class="flex">
     <view
-      class="nav-title__dot {{ index === currentPage ? 'nav-title__dot--active' : '' }}"
-      wx:for="{{ 2 }}"
+      wx:for="{{ ['home', 'profile'] }}"
       wx:key="index"
+      class="nav-title__dot {{ item === currentPage ? 'nav-title__dot--active' : '' }}"
     >
     </view>
   </view>

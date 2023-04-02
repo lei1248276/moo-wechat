@@ -1,4 +1,5 @@
 import { audioStore } from '@/store/audio'
+import { sleep } from '@/utils/util'
 
 Component({
   options: {
@@ -11,8 +12,10 @@ Component({
     }
   },
   observers: {
-    currentPage(page) {
+    async currentPage(page) {
       if (page === 'profile') {
+        await sleep(333)
+
         const [
           collectSongs,
           collectPlaylist,
