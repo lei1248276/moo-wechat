@@ -27,3 +27,5 @@
 </view>
 
 <PlayController />
+
+<van-toast id="van-toast" />

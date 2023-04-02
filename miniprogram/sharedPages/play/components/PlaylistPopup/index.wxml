@@ -24,7 +24,7 @@
     <view class="flex justify-between item-center text-white-1" style="padding-top: 30rpx">
       <icon class="iconfont icon-download" />
       <icon class="iconfont icon-send" />
-      <icon class="iconfont icon-heart" />
+      <icon class="iconfont icon-message" />
       <icon class="iconfont icon-album" />
     </view>
   </view>

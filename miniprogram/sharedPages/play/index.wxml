@@ -10,11 +10,11 @@
     bind:tap="toggle"
     bind:longpress="onBack"
   >
-    <swiper-item wx:for="{{ playView }}" wx:key="index" skip-hidden-item-layout>
+    <swiper-item wx:for="{{ playView }}" wx:key="index" wx:for-item="song" skip-hidden-item-layout>
       <view class="play__view mid">
         <van-image
           image-class="play__pic relative"
-          src="{{ item.al.picUrl }}"
+          src="{{ song.al.picUrl }}"
           width="100%"
           height="100%"
           lazy-load
@@ -24,13 +24,12 @@
         </van-image>
 
         <block wx:if="{{ currentView === index }}">
-          <Lyric songId="{{ item.id }}" />
+          <Lyric songId="{{ song.id }}" />
 
           <SongInfo
             tags="{{ audioStore.playlist.tags }}"
-            name="{{ item.al.name }}"
-            singers="{{ item.ar }}"
-            bind:menu="onShowPlaylist"
+            song="{{ song }}"
+            catch:menu="onShowPlaylist"
           />
         </block>
       </view>

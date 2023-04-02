@@ -26,6 +26,17 @@
           "query": "id=581405341",
           "launchMode": "default",
           "scene": null
+        },
+        {
+          "name": "collectSongs",
+          "pathName": "pages/index/profile/collectSongs/index",
+          "query": "",
+          "launchMode": "default",
+          "scene": null,
+          "partialCompile": {
+            "enabled": true,
+            "pages": []
+          }
         }
       ]
     }

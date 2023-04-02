@@ -1,0 +1,46 @@
+<NavBar title="收藏音乐" leftArrow />
+
+<view class="collect-songs bg-black-2">
+  <Subtitle title-slot icon-slot>
+    <view slot="title">
+      <van-button custom-class="collect-songs__play-btn" round type="default" size="small">
+        <icon class="iconfont icon-play" style="font-size: 42rpx !important" />
+      </van-button>
+      <text
+        class="text-grey-1 inline-block align-middle"
+        style="margin-left: 40rpx; font-size: 38rpx"
+        >{{ count }}</text
+      >
+    </view>
+  </Subtitle>
+
+  <scroll-view
+    scroll-y
+    enable-passive
+    scroll-anchoring
+    lower-threshold="100"
+    style="height: calc(100% - 146rpx)"
+    catch:scrolltolower="onScrollMore"
+  >
+    <block wx:for="{{ collectSongs }}" wx:key="id">
+      <van-swipe-cell right-width="{{ 65 }}" mark:index="{{ index }}">
+        <Song
+          song="{{ item }}"
+          isPlay="{{ audioStore.isPlay }}"
+          isRun="{{ audioStore.currentSongInfo && audioStore.currentSongInfo.song.id === item.id }}"
+        />
+        <view
+          slot="right"
+          class="bg-red-1 text-white-1 text-center"
+          style="width: 110rpx; line-height: 140rpx; margin-left: 20rpx"
+          bind:tap="onDelete"
+          >删除</view
+        >
+      </van-swipe-cell>
+    </block>
+  </scroll-view>
+</view>
+
+<PlayController />
+
+<van-toast id="van-toast" />

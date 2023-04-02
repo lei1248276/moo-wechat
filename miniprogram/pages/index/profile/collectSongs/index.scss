@@ -1,0 +1,13 @@
+@import "miniprogram/styles/index";
+
+.collect-songs {
+  height: calc(100vh - 46px - env(safe-area-inset-top));
+  padding: 0 28rpx;
+
+  .collect-songs__play-btn {
+    font-weight: bold;
+    border: none;
+    background: $yellow-1;
+    color: $black-1;
+  }
+}

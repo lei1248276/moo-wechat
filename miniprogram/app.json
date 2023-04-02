@@ -2,6 +2,7 @@
   "pages": [
     "pages/index/index",
     "pages/index/home/songlist/index",
+    "pages/index/profile/collectSongs/index",
     "pages/index/profile/historyPlays/index",
     "sharedPages/playlist/index"
   ],

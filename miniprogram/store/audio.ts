@@ -22,6 +22,8 @@ export const audioStore = observable({
   currentSongInfo: undefined as undefined | SongInfo,
 
   historyPlays: [] as Song[],
+  collectSongs: [] as Song[],
+  collectPlaylist: [] as Playlist[],
 
   previousHooks: new Hooks(), // * 监听播放上一首的事件回调
   nextHooks: new Hooks(), // * 监听播放下一首的事件回调
@@ -38,9 +40,6 @@ export const audioStore = observable({
   }),
   setSongs: action(function(songs: Song[]) {
     audioStore.songs = songs
-  }),
-  setHistoryPlay: action(function(song: Song) {
-    audioStore.historyPlays.unshift(song)
   }),
 
   setPreSong: action(function() {
@@ -79,6 +78,23 @@ export const audioStore = observable({
     audioStore.audio.src = urlInfo.url
     audioStore.currentSongInfo = { song, urlInfo }
     audioStore.setHistoryPlay(song)
+  }),
+
+  setHistoryPlay: action(function(song: Song) {
+    audioStore.historyPlays.unshift(song)
+  }),
+  setCollectSong: action(function(song: Song | Song[]) {
+    Array.isArray(song)
+      ? audioStore.collectSongs.unshift(...song)
+      : audioStore.collectSongs.unshift(song)
+  }),
+  deleteCollectSong: action(function(index: number) {
+    audioStore.collectSongs.splice(index, 1)
+  }),
+  setCollectPlaylist: action(function(playlist: Playlist | Playlist[]) {
+    Array.isArray(playlist)
+      ? audioStore.collectPlaylist.unshift(...playlist)
+      : audioStore.collectPlaylist.unshift(playlist)
   }),
 
   toggle() {

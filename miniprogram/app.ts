@@ -4,6 +4,17 @@ import Toast from '@/utils/toast'
 
 App({
   onLaunch() {
+    wx.getStorage({
+      key: 'collectSongs',
+      success({ data }) { audioStore.setCollectSong(data) },
+      fail(err) { console.error(err) }
+    })
+    wx.getStorage({
+      key: 'collectPlaylist',
+      success({ data }) { audioStore.setCollectPlaylist(data) },
+      fail(err) { console.error(err) }
+    })
+
     const { audio } = audioStore
     audio.autoplay = true
 
@@ -37,6 +48,19 @@ App({
     audio.onError((err) => {
       Toast.fail('链接无效')
       console.error(err)
+    })
+  },
+  onHide() {
+    wx.setStorage({
+      key: 'collectSongs',
+      data: audioStore.collectSongs,
+      fail(err) { console.error(err) }
+    })
+
+    wx.setStorage({
+      key: 'collectPlaylist',
+      data: audioStore.collectPlaylist,
+      fail(err) { console.error(err) }
     })
   }
 })
