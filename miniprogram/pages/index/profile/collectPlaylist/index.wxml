@@ -1,0 +1,69 @@
+<NavBar title="收藏歌单" leftArrow />
+
+<view class="collect-playlist bg-black-2">
+  <Subtitle title-slot icon-slot custom-style="margin: 0 28rpx;">
+    <view slot="title">
+      <van-button custom-class="collect-playlist__play-btn" round type="default" size="small">
+        <icon class="iconfont icon-play" style="font-size: 42rpx !important" />
+      </van-button>
+      <text
+        class="text-grey-1 inline-block align-middle"
+        style="margin-left: 40rpx; font-size: 38rpx"
+        >{{ count }}
+      </text>
+    </view>
+  </Subtitle>
+
+  <scroll-view
+    scroll-y
+    enable-passive
+    scroll-anchoring
+    lower-threshold="100"
+    style="height: calc(100% - 146rpx)"
+    catch:scrolltolower="onScrollMore"
+  >
+    <view style="padding: 0 28rpx 200rpx">
+      <van-swipe-cell
+        wx:for="{{ collectPlaylist }}"
+        wx:for-item="playlist"
+        wx:key="id"
+        mark:index="{{ index }}"
+        right-width="{{ 65 }}"
+        bind:click="toPlaylist"
+      >
+        <view class="flex item-center" style="height: 200rpx; padding-bottom: 40rpx; gap: 0 40rpx">
+          <van-image
+            src="{{ playlist.coverImgUrl }}"
+            width="200rpx"
+            height="200rpx"
+            radius="16rpx"
+            lazy-load
+            use-loading-slot
+          >
+            <icon slot="loading" class="alt" />
+          </van-image>
+          <view class="flex flex-col justify-evenly text-bold" style="height: 100%">
+            <view class="text-omit-2 text-white-1" style="width: 450rpx; font-size: 36rpx"
+              >{{ playlist.name }}
+            </view>
+            <view class="text-grey-1" style="width: 450rpx; font-size: 34rpx"
+              >{{ playlist.creator.nickname }}
+            </view>
+          </view>
+        </view>
+
+        <view
+          slot="right"
+          class="bg-red-1 text-white-1 text-center"
+          style="width: 110rpx; line-height: 200rpx; margin-left: 20rpx"
+          catch:tap="onDelete"
+          >删除</view
+        >
+      </van-swipe-cell>
+    </view>
+  </scroll-view>
+</view>
+
+<PlayController />
+
+<van-toast id="van-toast" />

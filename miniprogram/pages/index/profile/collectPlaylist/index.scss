@@ -1,0 +1,12 @@
+@import "miniprogram/styles/index";
+
+.collect-playlist {
+  height: calc(100vh - 46px - env(safe-area-inset-top));
+
+  .collect-playlist__play-btn {
+    font-weight: bold;
+    border: none;
+    background: $yellow-1;
+    color: $black-1;
+  }
+}
