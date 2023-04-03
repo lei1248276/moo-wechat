@@ -5,7 +5,7 @@
   scroll-y
   enable-passive
   scroll-anchoring
-  lower-threshold="100"
+  lower-threshold="1000"
   catch:scrolltolower="onScrollMore"
 >
   <Songlist songlist="{{ songlist }}" custom-style="padding: 0 28rpx" />

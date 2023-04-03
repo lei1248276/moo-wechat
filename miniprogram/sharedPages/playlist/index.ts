@@ -2,7 +2,7 @@ import type { Songlist } from '@/api/interface/Songlist'
 import type { Playlist } from '@/api/interface/Playlist'
 import type { Song } from '@/api/interface/Song'
 import { getSongs, getPlaylist } from '@/api/playlist'
-import { spreadArray } from '@/utils/util'
+import { debounce, spreadArray } from '@/utils/util'
 import Toast from '@/utils/toast'
 
 Page({
@@ -37,14 +37,12 @@ Page({
       this.setData({ playlist, songs, title })
     })
   },
-  async onScrollMore() {
-    Toast.start()
+  onScrollMore: debounce(async function(this: any) {
     const { playlist: { trackCount }, songs } = this.data
     if (songs.length >= trackCount) return Toast.fail('没有更多了')
 
     await this.fetchSongs()
-    Toast.close()
-  },
+  }, 1000, true),
   async fetchSongs() {
     const { playlist: { trackIds }, songs } = this.data
 

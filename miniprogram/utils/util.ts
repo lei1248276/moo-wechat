@@ -13,3 +13,21 @@ export function spreadArray<T>(newArr: T[], oldArr: T[], oldArrName: string): Re
 export async function sleep(ms = 1000): Promise<void> {
   return new Promise(resolve => setTimeout(resolve, ms))
 }
+
+export function debounce(fn: Function, delay: number, immediate = false) {
+  let timer: null | number = null
+  let isImmediate = immediate
+
+  if (immediate) {
+    return function(this: any, ...arg: any[]) {
+      timer && clearTimeout(timer)
+      if (isImmediate) { fn.apply(this, arg); isImmediate = false }
+      timer = setTimeout(() => { isImmediate = true }, delay)
+    }
+  }
+
+  return function(this:any, ...arg: any[]) {
+    timer && clearTimeout(timer)
+    timer = setTimeout(() => { fn.apply(this, arg) }, delay)
+  }
+}

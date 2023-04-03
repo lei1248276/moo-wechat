@@ -18,7 +18,7 @@
     scroll-y
     enable-passive
     scroll-anchoring
-    lower-threshold="100"
+    lower-threshold="1000"
     style="height: calc(100% - 146rpx)"
     catch:scrolltolower="onScrollMore"
   >

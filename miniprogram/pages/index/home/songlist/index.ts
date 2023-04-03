@@ -1,6 +1,6 @@
 import { getSonglist } from '@/api/songlist'
 import type { Songlist } from '@/api/interface/Songlist'
-import { spreadArray } from '@/utils/util'
+import { debounce, spreadArray } from '@/utils/util'
 import Toast from '@/utils/toast'
 
 Page({
@@ -12,13 +12,11 @@ Page({
   onLoad() {
     this.fetchSonglist()
   },
-  async onScrollMore() {
-    Toast.start()
+  onScrollMore: debounce(async function(this: any) {
     if (this.data.songlist.length >= this.data._total) return Toast.fail('没有更多了。。。')
 
     await this.fetchSonglist()
-    Toast.close()
-  },
+  }, 1000, true),
   async fetchSonglist() {
     const { songlist } = this.data
     const { playlists, total } = await getSonglist(songlist.length, 20)
