@@ -13,6 +13,7 @@
       playlistId="{{ playlist.id }}"
       image="{{ playlist.coverImgUrl }}"
       description="{{ playlist.description }}"
+      isCollect="{{ !!playlist.isCollect }}"
     />
 
     <Creator userinfo="{{ playlist.creator }}" />

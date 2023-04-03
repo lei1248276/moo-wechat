@@ -85,12 +85,13 @@ export const audioStore = observable({
   }),
   setCollectSong: action(function(song: Song | Song[]) {
     Array.isArray(song)
-      ? audioStore.collectSongs.unshift(...song)
-      : audioStore.collectSongs.unshift(song)
+      ? audioStore.collectSongs.unshift(...song) && song.forEach(v => { v.isCollect = true })
+      : audioStore.collectSongs.unshift(song) && (song.isCollect = true)
   }),
   deleteCollectSong: action(function(id: number) {
     const index = audioStore.collectSongs.findIndex(v => v.id === id)
     if (index !== -1) {
+      delete audioStore.collectSongs[index].isCollect
       audioStore.collectSongs.splice(index, 1)
       return true
     }
@@ -99,12 +100,13 @@ export const audioStore = observable({
   }),
   setCollectPlaylist: action(function(playlist: Playlist | Playlist[]) {
     Array.isArray(playlist)
-      ? audioStore.collectPlaylist.unshift(...playlist)
-      : audioStore.collectPlaylist.unshift(playlist)
+      ? audioStore.collectPlaylist.unshift(...playlist) && playlist.forEach(v => { v.isCollect = true })
+      : audioStore.collectPlaylist.unshift(playlist) && (playlist.isCollect = true)
   }),
   deleteCollectPlaylist: action(function(id: number) {
     const index = audioStore.collectPlaylist.findIndex(v => v.id === id)
     if (index !== -1) {
+      delete audioStore.collectPlaylist[index].isCollect
       audioStore.collectPlaylist.splice(index, 1)
       return true
     }

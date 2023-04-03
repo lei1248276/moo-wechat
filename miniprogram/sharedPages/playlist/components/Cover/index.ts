@@ -15,17 +15,13 @@ Component({
     },
     playlistId: {
       type: Number
+    },
+    isCollect: {
+      type: Boolean
     }
   },
   data: {
-    isCollect: false
-  },
-  pageLifetimes: {
-    show() {
-      if (audioStore.collectPlaylist.some(v => v.id === this.data.playlistId)) {
-        this.setData({ isCollect: true })
-      }
-    }
+
   },
   methods: {
     onCollect() {

@@ -31,6 +31,7 @@
             name="{{ song.al.name }}"
             singers="{{ song.ar }}"
             songId="{{ song.id }}"
+            isCollect="{{ !!song.isCollect }}"
             catch:menu="onShowPlaylist"
           />
         </block>

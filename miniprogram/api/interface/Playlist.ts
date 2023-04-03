@@ -15,6 +15,7 @@ export interface PlaylistResponse {
 }
 
 export interface Playlist extends Songlist {
+  isCollect?: boolean // * 自定义
   id: number
   name: string
   coverImgId: number
