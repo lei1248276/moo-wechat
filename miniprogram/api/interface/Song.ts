@@ -5,7 +5,6 @@ export interface SongResponse {
 }
 
 export interface Song {
-  isCollect?: boolean // * 自定义
   name: string
   id: number
   pst: number
