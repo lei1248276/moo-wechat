@@ -8,7 +8,7 @@
   lower-threshold="100"
   catch:scrolltolower="onScrollMore"
 >
-  <view style="padding: 0 28rpx 200rpx">
+  <view wx:if="{{ playlist.id }}" style="padding: 0 28rpx 200rpx">
     <Cover
       playlistId="{{ playlist.id }}"
       image="{{ playlist.coverImgUrl }}"

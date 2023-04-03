@@ -8,6 +8,7 @@
     "sharedPages/playlist/index"
   ],
   "usingComponents": {
+    "NavBar": "/components/NavBar/index",
     "Subtitle": "/components/Subtitle/index",
     "PlayController": "/components/PlayController/index",
     "van-toast": "@vant/weapp/toast/index",

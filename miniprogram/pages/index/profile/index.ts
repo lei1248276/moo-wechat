@@ -49,7 +49,7 @@ Component({
   data: {
     shelf: [
       { description: '收藏音乐', count: 0, icon: 'heart', list: [], url: './profile/collectSongs/index' },
-      { description: '收藏歌单', count: 0, icon: 'playlist', list: [], url: '' },
+      { description: '收藏歌单', count: 0, icon: 'playlist', list: [], url: './profile/collectPlaylist/index' },
       { description: '本地歌曲', count: 0, icon: 'file', list: [], url: '' },
       { description: '最近播放', count: 0, icon: 'time', list: [], url: './profile/historyPlays/index' }
     ] as { description: string, count: number, icon: string, list: any[], url: string }[]

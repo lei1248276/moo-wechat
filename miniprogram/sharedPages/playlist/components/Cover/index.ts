@@ -20,8 +20,8 @@ Component({
   data: {
     isCollect: false
   },
-  pageLifetimes: {
-    show() {
+  lifetimes: {
+    attached() {
       if (audioStore.collectPlaylist.some(v => v.id === this.data.playlistId)) {
         this.setData({ isCollect: true })
       }
