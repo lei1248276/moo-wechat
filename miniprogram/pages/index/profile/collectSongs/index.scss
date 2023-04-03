@@ -1,7 +1,7 @@
 @import "miniprogram/styles/index";
 
 .collect-songs {
-  height: calc(100vh - 46px - env(safe-area-inset-top));
+  height: var(--safe-top);
 
   .collect-songs__play-btn {
     font-weight: bold;

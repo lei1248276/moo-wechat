@@ -3,7 +3,7 @@ import type { Banner } from '@/api/interface/Banner'
 
 Component({
   options: {
-    styleIsolation: 'shared'
+    styleIsolation: 'apply-shared'
   },
   properties: {
     autoplay: {

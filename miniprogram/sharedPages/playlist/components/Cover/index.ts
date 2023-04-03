@@ -4,7 +4,7 @@ import Toast from '@/utils/toast'
 
 Component({
   options: {
-    styleIsolation: 'shared'
+    styleIsolation: 'apply-shared'
   },
   properties: {
     image: {

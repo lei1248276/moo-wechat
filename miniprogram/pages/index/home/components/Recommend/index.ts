@@ -3,7 +3,7 @@ import type { Recommend } from '@/api/interface/Recommend'
 
 Component({
   options: {
-    styleIsolation: 'shared'
+    styleIsolation: 'apply-shared'
   },
   properties: {
 

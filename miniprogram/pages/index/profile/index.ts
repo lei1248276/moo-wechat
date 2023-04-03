@@ -3,7 +3,7 @@ import { sleep } from '@/utils/util'
 
 Component({
   options: {
-    styleIsolation: 'shared'
+    styleIsolation: 'apply-shared'
   },
   properties: {
     currentPage: {

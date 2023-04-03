@@ -3,7 +3,7 @@ import type { Songlist } from '@/api/interface/Songlist'
 
 Component({
   options: {
-    styleIsolation: 'shared'
+    styleIsolation: 'apply-shared'
   },
   properties: {
 

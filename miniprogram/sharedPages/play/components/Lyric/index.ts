@@ -3,7 +3,7 @@ import { getLyric } from '@/api/play'
 
 Component({
   options: {
-    styleIsolation: 'shared'
+    styleIsolation: 'apply-shared'
   },
   properties: {
     songId: {

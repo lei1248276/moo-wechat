@@ -1,3 +1,7 @@
+page {
+  --safe-top: calc(100vh - 46px - env(safe-area-inset-top));
+}
+
 $black-1: #010001;
 $black-2: #1a191b;
 $yellow-1: #fce939;

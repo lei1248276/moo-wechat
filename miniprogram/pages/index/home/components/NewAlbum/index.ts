@@ -3,7 +3,7 @@ import type { Album } from '@/api/interface/Album'
 
 Component({
   options: {
-    styleIsolation: 'shared'
+    styleIsolation: 'apply-shared'
   },
   properties: {
 

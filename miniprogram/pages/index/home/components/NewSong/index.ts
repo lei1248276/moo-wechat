@@ -4,7 +4,7 @@ import type { Playlist } from '@/api/interface/Playlist'
 
 Component({
   options: {
-    styleIsolation: 'shared'
+    styleIsolation: 'apply-shared'
   },
   properties: {
 

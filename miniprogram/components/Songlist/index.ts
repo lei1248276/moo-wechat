@@ -7,7 +7,7 @@ interface Props {
 Component({
   externalClasses: ['custom-class'],
   options: {
-    styleIsolation: 'shared'
+    styleIsolation: 'apply-shared'
   },
   properties: {
     songlist: {
