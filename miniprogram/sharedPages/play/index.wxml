@@ -40,11 +40,12 @@
   </swiper>
 
   <PlaylistPopup
-    wx:if="{{ audioStore.playlist && audioStore.songs }}"
+    wx:if="{{ audioStore.songs }}"
     isShow="{{ isShowPlaylist }}"
     playlist="{{ audioStore.playlist }}"
     songs="{{ audioStore.songs }}"
     song="{{ playView[currentView] }}"
+    currentIndex="{{ audioStore.currentSongIndex }}"
     bind:close="onShowPlaylist"
     bind:change="updateView"
   />

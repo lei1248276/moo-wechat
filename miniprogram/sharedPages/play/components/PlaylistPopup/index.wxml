@@ -35,6 +35,8 @@
       scroll-y
       enable-passive
       scroll-anchoring
+      scroll-with-animation
+      scroll-top="{{ currentIndex * 90 }}"
     >
       <Playlist
         playlist="{{ playlist }}"

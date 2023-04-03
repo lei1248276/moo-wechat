@@ -33,6 +33,7 @@ Component({
     },
     onShowPlaylist() {
       this.setData({ isShowPlaylist: !this.data.isShowPlaylist })
+      console.log('%c🚀 ~ method: onShowPlaylist ~', 'color: #F25F5C;font-weight: bold;', this.data.isShowPlaylist)
     },
     onChangeView({ detail: { current: currentView, source }}: WechatMiniprogram.SwiperAnimationFinish) {
       const oldView = this.data.currentView

@@ -18,6 +18,9 @@ Component({
     playlist: {
       type: Object,
       value: {}
+    },
+    currentIndex: {
+      type: Number
     }
   },
   data: {
