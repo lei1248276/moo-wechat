@@ -33,7 +33,7 @@ Page({
     const [playlist] = _collectPlaylist.splice(index, 1)
     collectPlaylist.splice(index, 1)
     this.setData({ collectPlaylist, count: count - 1 })
-    audioStore.deleteCollectPlaylist(playlist.id)
+    audioStore.deleteCollectPlaylist(playlist)
   },
   onScrollMore() {
     const { collectPlaylist, _collectPlaylist } = this.data

@@ -34,14 +34,15 @@ Component({
       this.triggerEvent('menu')
     },
     onCollect() {
-      const { isCollect, songId } = this.data
+      const { isCollect } = this.data
+      const song = audioStore.currentSongInfo!.song
 
       if (isCollect) {
-        audioStore.deleteCollectSong(songId) && Toast.success('歌曲已删除')
+        audioStore.deleteCollectSong(song)
+        Toast.success('歌曲已删除')
       } else {
-        Toast.success('添加成功')
-        const song = audioStore.currentSongInfo!.song
         audioStore.setCollectSong(song)
+        Toast.success('添加成功')
       }
 
       this.setData({ isCollect: !isCollect })

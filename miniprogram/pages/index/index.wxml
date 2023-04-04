@@ -14,7 +14,7 @@
   </swiper-item>
 
   <swiper-item skip-hidden-item-layout item-id="profile">
-    <Profile currentPage="{{ currentPage }}" />
+    <Profile />
   </swiper-item>
 </swiper>
 

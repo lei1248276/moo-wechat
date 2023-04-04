@@ -29,13 +29,14 @@ Component({
   },
   methods: {
     onCollect() {
-      const { isCollect, playlistId } = this.data
+      const { isCollect } = this.data
+      const page = getCurrentPages().pop()
+      const playlist = page!.data.playlist as Playlist
 
       if (isCollect) {
-        audioStore.deleteCollectPlaylist(playlistId) && Toast.success('已删除歌单')
+        audioStore.deleteCollectPlaylist(playlist)
+        Toast.success('已删除歌单')
       } else {
-        const page = getCurrentPages().pop()
-        const playlist = page!.data.playlist as Playlist
         audioStore.setCollectPlaylist(playlist)
         Toast.success('添加成功')
       }
