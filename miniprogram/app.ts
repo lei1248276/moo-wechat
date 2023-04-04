@@ -6,12 +6,12 @@ App({
   onLaunch() {
     wx.getStorage({
       key: 'collectSongs',
-      success({ data }) { audioStore.setCollectSong(data) },
+      success({ data }) { audioStore.collectSongs.replace(data) },
       fail(err) { console.error(err) }
     })
     wx.getStorage({
       key: 'collectPlaylist',
-      success({ data }) { audioStore.setCollectPlaylist(data) },
+      success({ data }) { audioStore.collectPlaylist.replace(data) },
       fail(err) { console.error(err) }
     })
 
@@ -45,6 +45,11 @@ App({
       audioStore.setNextSong()
     })
 
+    audio.onTimeUpdate(() => {
+      const time = Number(audio.currentTime.toFixed())
+      if (audioStore.currentTime !== time) audioStore.setCurrentTime(time)
+    })
+
     audio.onError((err) => {
       Toast.fail('链接无效')
       console.error(err)
@@ -53,13 +58,13 @@ App({
   onHide() {
     audioStore.collectSongs.length && wx.setStorage({
       key: 'collectSongs',
-      data: audioStore.collectSongs,
+      data: audioStore.collectSongs.slice(),
       fail(err) { console.error(err) }
     })
 
     audioStore.collectPlaylist.length && wx.setStorage({
       key: 'collectPlaylist',
-      data: audioStore.collectPlaylist,
+      data: audioStore.collectPlaylist.slice(),
       fail(err) { console.error(err) }
     })
   }

@@ -12,21 +12,21 @@ interface SongInfo {
 }
 
 export const audioStore = observable({
+  previousHooks: new Hooks(), // * 监听播放上一首的事件回调
+  nextHooks: new Hooks(), // * 监听播放下一首的事件回调
   audio: wx.createInnerAudioContext(),
   isPlay: false,
   duration: 0,
+  currentTime: 0,
 
   playlist: undefined as undefined | Playlist,
   songs: undefined as undefined | Song[],
   currentSongIndex: -1,
   currentSongInfo: undefined as undefined | SongInfo,
 
-  historyPlays: [] as Song[],
-  collectSongs: [] as Song[],
-  collectPlaylist: [] as Playlist[],
-
-  previousHooks: new Hooks(), // * 监听播放上一首的事件回调
-  nextHooks: new Hooks(), // * 监听播放下一首的事件回调
+  historyPlays: observable.array([] as Song[], { deep: false }),
+  collectSongs: observable.array([] as Song[], { deep: false }),
+  collectPlaylist: observable.array([] as Playlist[], { deep: false }),
 
   setIsPlay: action(function(isPlay: boolean) {
     audioStore.isPlay = isPlay
@@ -35,6 +35,10 @@ export const audioStore = observable({
     // * 因为音源问题duration可能相同，值相同会导致倒计时不会刷新
     audioStore.duration = time === audioStore.duration ? time + Math.random() : time
   }),
+  setCurrentTime: action(function(time: number) {
+    audioStore.currentTime = time
+  }),
+
   setPlaylist: action(function(playlist: Playlist) {
     audioStore.playlist = playlist
   }),
@@ -83,33 +87,17 @@ export const audioStore = observable({
   setHistoryPlay: action(function(song: Song) {
     audioStore.historyPlays.unshift(song)
   }),
-  setCollectSong: action(function(song: Song | Song[]) {
-    Array.isArray(song)
-      ? audioStore.collectSongs.unshift(...song)
-      : audioStore.collectSongs.unshift(song)
+  setCollectSong: action(function(song: Song) {
+    audioStore.collectSongs.unshift(song)
   }),
-  deleteCollectSong: action(function(id: number) {
-    const index = audioStore.collectSongs.findIndex(v => v.id === id)
-    if (index !== -1) {
-      audioStore.collectSongs.splice(index, 1)
-      return true
-    }
-
-    return false
+  deleteCollectSong: action(function(song: Song) {
+    audioStore.collectSongs.remove(song)
   }),
-  setCollectPlaylist: action(function(playlist: Playlist | Playlist[]) {
-    Array.isArray(playlist)
-      ? audioStore.collectPlaylist.unshift(...playlist)
-      : audioStore.collectPlaylist.unshift(playlist)
+  setCollectPlaylist: action(function(playlist: Playlist) {
+    audioStore.collectPlaylist.unshift(playlist)
   }),
-  deleteCollectPlaylist: action(function(id: number) {
-    const index = audioStore.collectPlaylist.findIndex(v => v.id === id)
-    if (index !== -1) {
-      audioStore.collectPlaylist.splice(index, 1)
-      return true
-    }
-
-    return false
+  deleteCollectPlaylist: action(function(playlist: Playlist) {
+    audioStore.collectPlaylist.remove(playlist)
   }),
 
   toggle() {
@@ -117,4 +105,4 @@ export const audioStore = observable({
 
     audioStore.isPlay ? audioStore.audio.pause() : audioStore.audio.play()
   }
-})
+}, undefined, { deep: false })
