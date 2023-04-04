@@ -3,9 +3,8 @@ import { audioStore } from '@/store/audio'
 
 export const audioStoreBehavior = BehaviorWithStore({
   storeBindings: [{
-    namespace: 'audioStore',
     store: audioStore,
-    fields: ['currentSongInfo', 'currentSongIndex', 'isPlay', 'duration', 'songs', 'playlist'],
+    fields: ['currentSongInfo', 'currentSongIndex', 'isPlay', 'duration', 'songs', 'playlist', 'currentTime'],
     actions: ['toggle']
   }]
 })

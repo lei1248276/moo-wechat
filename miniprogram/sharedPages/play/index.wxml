@@ -27,7 +27,7 @@
           <Lyric songId="{{ song.id }}" />
 
           <SongInfo
-            tags="{{ audioStore.playlist.tags }}"
+            tags="{{ playlist.tags }}"
             name="{{ song.al.name }}"
             singers="{{ song.ar }}"
             songId="{{ song.id }}"
@@ -39,18 +39,18 @@
   </swiper>
 
   <PlaylistPopup
-    wx:if="{{ audioStore.songs }}"
+    wx:if="{{ songs }}"
     isShow="{{ isShowPlaylist }}"
-    playlist="{{ audioStore.playlist }}"
-    songs="{{ audioStore.songs }}"
+    playlist="{{ playlist }}"
+    songs="{{ songs }}"
     song="{{ playView[currentView] }}"
-    currentIndex="{{ audioStore.currentSongIndex }}"
+    currentIndex="{{ currentSongIndex }}"
     bind:close="onShowPlaylist"
     bind:change="updateView"
   />
 
   <icon
-    hidden="{{ audioStore.isPlay }}"
+    hidden="{{ isPlay }}"
     class="iconfont icon-audioPlay mid play__icon--play"
     bind:tap="toggle"
   />

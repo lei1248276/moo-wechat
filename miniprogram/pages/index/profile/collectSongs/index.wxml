@@ -32,8 +32,8 @@
       >
         <Song
           song="{{ item }}"
-          isPlay="{{ audioStore.isPlay }}"
-          isRun="{{ audioStore.currentSongInfo && audioStore.currentSongInfo.song.id === item.id }}"
+          isPlay="{{ isPlay }}"
+          isRun="{{ currentSongInfo && currentSongInfo.song.id === item.id }}"
         />
         <view
           slot="right"

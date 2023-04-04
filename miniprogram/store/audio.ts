@@ -1,10 +1,12 @@
-import { observable, action } from 'mobx-miniprogram'
+import { observable, action, configure, runInAction } from 'mobx-miniprogram'
 import { Playlist } from '@/api/interface/Playlist'
 import { Song } from '@/api/interface/Song'
 import { SongUrl } from '@/api/interface/SongUrl'
 import { getSongUrl } from '@/api/play'
 import Toast from '@/utils/toast'
 import Hooks from '@/utils/hooks'
+
+configure({ enforceActions: 'observed' })
 
 interface SongInfo {
   song: Song
@@ -19,10 +21,10 @@ export const audioStore = observable({
   duration: 0,
   currentTime: 0,
 
-  playlist: undefined as undefined | Playlist,
-  songs: undefined as undefined | Song[],
+  playlist: null as null | Playlist,
+  songs: null as null | Song[],
+  currentSongInfo: null as null | SongInfo,
   currentSongIndex: -1,
-  currentSongInfo: undefined as undefined | SongInfo,
 
   historyPlays: observable.array([] as Song[], { deep: false }),
   collectSongs: observable.array([] as Song[], { deep: false }),
@@ -75,12 +77,12 @@ export const audioStore = observable({
     if (!urlInfo.url) {
       Toast.fail('播放地址失效')
       audioStore.audio.stop()
-      audioStore.currentSongInfo = undefined
+      audioStore.currentSongInfo = null
       return
     }
 
     audioStore.audio.src = urlInfo.url
-    audioStore.currentSongInfo = { song, urlInfo }
+    runInAction(() => { audioStore.currentSongInfo = { song, urlInfo } })
     audioStore.setHistoryPlay(song)
   }),
 
