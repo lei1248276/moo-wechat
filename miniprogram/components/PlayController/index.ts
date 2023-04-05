@@ -1,5 +1,13 @@
-import { audioStoreBehavior } from '@/behavior/audioStore'
 import { audioStore } from '@/store/audio'
+import { BehaviorWithStore } from 'mobx-miniprogram-bindings'
+
+const audioStoreBehavior = BehaviorWithStore({
+  storeBindings: {
+    store: audioStore,
+    fields: ['isPlay'],
+    actions: ['toggle']
+  }
+})
 
 Component({
   options: {

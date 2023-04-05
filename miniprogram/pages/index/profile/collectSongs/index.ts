@@ -1,7 +1,15 @@
 import { audioStore } from '@/store/audio'
-import { audioStoreBehavior } from '@/behavior/audioStore'
 import type { Song } from '@/api/interface/Song'
 import { spreadArray } from '@/utils/util'
+import { BehaviorWithStore } from 'mobx-miniprogram-bindings'
+
+const audioStoreBehavior = BehaviorWithStore({
+  storeBindings: {
+    store: audioStore,
+    fields: ['currentSongInfo', 'isPlay'],
+    actions: []
+  }
+})
 
 Page({
   behaviors: [audioStoreBehavior],

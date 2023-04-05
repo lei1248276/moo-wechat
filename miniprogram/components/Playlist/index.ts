@@ -1,12 +1,20 @@
-import { audioStoreBehavior } from '@/behavior/audioStore'
 import { audioStore } from '@/store/audio'
 import { Playlist } from '@/api/interface/Playlist'
 import { Song } from '@/api/interface/Song'
+import { BehaviorWithStore } from 'mobx-miniprogram-bindings'
 
 interface Props {
   playlist: Playlist
   songs: Song[]
 }
+
+const audioStoreBehavior = BehaviorWithStore({
+  storeBindings: {
+    store: audioStore,
+    fields: ['currentSongInfo', 'isPlay'],
+    actions: []
+  }
+})
 
 Component({
   externalClasses: ['custom-class'],
