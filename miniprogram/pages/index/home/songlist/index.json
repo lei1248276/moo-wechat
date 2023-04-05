@@ -1,5 +1,6 @@
 {
   "navigationStyle": "custom",
+  "disableScroll": true,
   "usingComponents": {
     "Songlist": "/components/Songlist/index"
   }

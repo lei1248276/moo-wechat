@@ -3,7 +3,6 @@ import type { Playlist } from '@/api/interface/Playlist'
 import type { Song } from '@/api/interface/Song'
 import { getSongs, getPlaylist } from '@/api/playlist'
 import { debounce, spreadArray } from '@/utils/util'
-import Toast from '@/utils/toast'
 
 Page({
   data: {
@@ -39,7 +38,7 @@ Page({
   },
   onScrollMore: debounce(async function(this: any) {
     const { playlist: { trackCount }, songs } = this.data
-    if (songs.length >= trackCount) return Toast.fail('没有更多了')
+    if (songs.length >= trackCount) return
 
     await this.fetchSongs()
   }, 1000, true),

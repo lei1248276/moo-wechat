@@ -1,7 +1,9 @@
 <NavBar title="歌单列表" leftArrow />
 
 <scroll-view
-  class="songlist-page bg-black-2"
+  class="bg-black-2"
+  style="height: var(--safe-top)"
+  enable-flex
   scroll-y
   enable-passive
   scroll-anchoring

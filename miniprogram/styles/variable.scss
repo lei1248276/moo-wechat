@@ -1,5 +1,5 @@
 page {
-  --safe-top: calc(100vh - 46px - env(safe-area-inset-top));
+  --safe-top: calc(46px - env(safe-area-inset-top));
 }
 
 $black-1: #010001;

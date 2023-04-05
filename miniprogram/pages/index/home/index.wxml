@@ -1,8 +1,8 @@
-<view class="home-page bg-black-2">
+<view class="home-page h-full bg-black-2">
   <Search />
 
-  <scroll-view class="home-page-scroll-view" scroll-y enable-passive scroll-anchoring>
-    <view style="padding: 0 28rpx 300rpx">
+  <scroll-view class="h-full" scroll-y enable-flex enable-passive scroll-anchoring>
+    <view style="padding: 0 28rpx calc(400rpx + env(safe-area-inset-bottom))">
       <Carousel autoplay="{{ currentPage === 'home' }}" />
 
       <Recommend />

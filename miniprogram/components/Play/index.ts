@@ -5,12 +5,15 @@ import { BehaviorWithStore } from 'mobx-miniprogram-bindings'
 const audioStoreBehavior = BehaviorWithStore({
   storeBindings: {
     store: audioStore,
-    fields: ['isPlay', 'playlist', 'songs'],
+    fields: ['isPlay', 'playlist', 'songs', 'currentSongIndex'],
     actions: ['toggle']
   }
 })
 
 Component({
+  options: {
+    styleIsolation: 'apply-shared'
+  },
   behaviors: [audioStoreBehavior],
   data: {
     currentView: 1, // * 当前显示的view索引

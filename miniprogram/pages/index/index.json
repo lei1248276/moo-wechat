@@ -1,5 +1,6 @@
 {
   "navigationStyle": "custom",
+  "disableScroll": true,
   "usingComponents": {
     "NavTitle": "./components/NavTitle/index",
     "Home": "./home/index",

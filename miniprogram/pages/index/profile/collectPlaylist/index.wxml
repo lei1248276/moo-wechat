@@ -42,7 +42,7 @@
           >
             <icon slot="loading" class="alt" />
           </van-image>
-          <view class="flex flex-col justify-evenly text-bold" style="height: 100%">
+          <view class="h-full flex flex-col justify-evenly text-bold">
             <view class="text-omit-2 text-white-1" style="width: 450rpx; font-size: 36rpx"
               >{{ playlist.name }}
             </view>

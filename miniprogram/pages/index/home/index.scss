@@ -1,12 +1,1 @@
 @import "miniprogram/styles/index";
-
-.home-page {
-  height: 100%;
-
-  &-scroll-view {
-    box-sizing: border-box;
-    height: 100%;
-    padding-top: 20rpx;
-    overflow-anchor: none;
-  }
-}

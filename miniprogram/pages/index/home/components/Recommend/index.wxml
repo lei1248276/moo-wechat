@@ -1,5 +1,5 @@
 <view class="recommend flex item-center bg-black-1">
-  <view class="flex-1 relative flex justify-start" style="height: 100%">
+  <view class="flex-1 relative flex justify-start h-full">
     <van-image
       wx:for="{{ recommendList }}"
       wx:key="id"

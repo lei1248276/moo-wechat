@@ -1,7 +1,7 @@
 @import "miniprogram/styles/index";
 
 .collect-playlist {
-  height: var(--safe-top);
+  height: calc(100vh - var(--safe-top));
 
   .collect-playlist__play-btn {
     font-weight: bold;

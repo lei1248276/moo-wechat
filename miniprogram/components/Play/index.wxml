@@ -1,7 +1,6 @@
 <view class="play relative bg-black-2">
   <swiper
-    class="bg-black-2"
-    style="height: 100%"
+    class="bg-black-2 h-full"
     vertical
     circular
     duration="200"

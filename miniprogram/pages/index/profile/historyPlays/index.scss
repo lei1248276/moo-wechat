@@ -1,7 +1,7 @@
 @import "miniprogram/styles/index";
 
 .history-plays {
-  height: var(--safe-top);
+  height: calc(100vh - var(--safe-top));
   padding: 0 28rpx;
 
   .history-plays__play-btn {

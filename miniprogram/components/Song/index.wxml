@@ -11,7 +11,7 @@
     <icon slot="loading" class="alt" />
   </van-image>
 
-  <view class="flex-1 flex flex-col justify-around" style="height: 100%">
+  <view class="flex-1 flex flex-col justify-around h-full">
     <text class="song-name text-omit text-white-1">{{ song.al.name }}</text>
     <view class="song-singer text-omit text-grey-1">
       <text wx:for="{{ song.ar }}" wx:key="name">{{ item.name }}. </text>

@@ -2,7 +2,7 @@
 
 .song {
   @include wh(auto, 140rpx);
-  margin-bottom: 40rpx;
+  padding-bottom: 40rpx;
 
   &__img {
     flex-shrink: 0;
