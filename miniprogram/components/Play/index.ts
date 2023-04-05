@@ -1,4 +1,4 @@
-import { audioStore } from '@/store/audio'
+import { audioStore } from '@/store/index'
 import { Song } from '@/api/interface/Song'
 import { BehaviorWithStore } from 'mobx-miniprogram-bindings'
 
@@ -11,12 +11,12 @@ const audioStoreBehavior = BehaviorWithStore({
 })
 
 Component({
+  behaviors: [audioStoreBehavior],
   data: {
     currentView: 1, // * 当前显示的view索引
     playView: [] as Song[], // * 播放view对应playlist中的指针
     isShowPlaylist: false
   },
-  behaviors: [audioStoreBehavior],
   lifetimes: {
     attached() {
     // * 初始化view

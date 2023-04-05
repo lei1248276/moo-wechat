@@ -1,12 +1,11 @@
-import { observable, action, configure, runInAction } from 'mobx-miniprogram'
+import { observable, action, runInAction } from 'mobx-miniprogram'
 import { Playlist } from '@/api/interface/Playlist'
 import { Song } from '@/api/interface/Song'
 import { SongUrl } from '@/api/interface/SongUrl'
 import { getSongUrl } from '@/api/play'
 import Toast from '@/utils/toast'
 import Hooks from '@/utils/hooks'
-
-configure({ enforceActions: 'observed' })
+import { cacheStore } from '@/store/index'
 
 interface SongInfo {
   song: Song
@@ -18,34 +17,20 @@ export const audioStore = observable({
   nextHooks: new Hooks(), // * 监听播放下一首的事件回调
   audio: wx.createInnerAudioContext(),
   isPlay: false,
-  duration: 0,
-  currentTime: 0,
+  duration: 0, // * 当前歌曲时长
+  currentTime: 0, // * 当前歌曲播放时间
 
   playlist: null as null | Playlist,
   songs: null as null | Song[],
   currentSongInfo: null as null | SongInfo,
   currentSongIndex: -1,
 
-  historyPlays: observable.array([] as Song[], { deep: false }),
-  collectSongs: observable.array([] as Song[], { deep: false }),
-  collectPlaylist: observable.array([] as Playlist[], { deep: false }),
+  setIsPlay: action(function(isPlay: boolean) { audioStore.isPlay = isPlay }),
+  setDuration: action(function(time: number) { audioStore.duration = time }),
+  setCurrentTime: action(function(time: number) { audioStore.currentTime = time }),
 
-  setIsPlay: action(function(isPlay: boolean) {
-    audioStore.isPlay = isPlay
-  }),
-  setDuration: action(function(time: number) {
-    audioStore.duration = time
-  }),
-  setCurrentTime: action(function(time: number) {
-    audioStore.currentTime = time
-  }),
-
-  setPlaylist: action(function(playlist: Playlist) {
-    audioStore.playlist = playlist
-  }),
-  setSongs: action(function(songs: Song[]) {
-    audioStore.songs = songs
-  }),
+  setPlaylist: action(function(playlist: Playlist) { audioStore.playlist = playlist }),
+  setSongs: action(function(songs: Song[]) { audioStore.songs = songs }),
 
   setPreSong: action(function() {
     if (!audioStore.songs) return
@@ -82,27 +67,7 @@ export const audioStore = observable({
 
     audioStore.audio.src = urlInfo.url
     runInAction(() => { audioStore.currentSongInfo = { song, urlInfo } })
-    audioStore.setHistoryPlay(song)
-  }),
-
-  setHistoryPlay: action(function(song: Song) {
-    audioStore.historyPlays.unshift(song)
-  }),
-  setCollectSong: action(function(song: Song | Song[]) {
-    Array.isArray(song)
-      ? audioStore.collectSongs.replace(song)
-      : audioStore.collectSongs.unshift(song)
-  }),
-  deleteCollectSong: action(function(song: Song) {
-    audioStore.collectSongs.remove(song)
-  }),
-  setCollectPlaylist: action(function(playlist: Playlist | Playlist[]) {
-    Array.isArray(playlist)
-      ? audioStore.collectPlaylist.replace(playlist)
-      : audioStore.collectPlaylist.unshift(playlist)
-  }),
-  deleteCollectPlaylist: action(function(playlist: Playlist) {
-    audioStore.collectPlaylist.remove(playlist)
+    cacheStore.setHistoryPlay(song)
   }),
 
   toggle() {

@@ -55,5 +55,3 @@
     bind:tap="toggle"
   />
 </view>
-
-<van-toast id="van-toast" />

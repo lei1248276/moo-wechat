@@ -1,4 +1,4 @@
-import { audioStore } from '@/store/audio'
+import { audioStore, cacheStore } from '@/store/index'
 import { sleep } from '@/utils/util'
 import Toast from '@/utils/toast'
 
@@ -6,12 +6,12 @@ App({
   onLaunch() {
     wx.getStorage({
       key: 'collectSongs',
-      success({ data }) { audioStore.setCollectSong(data) },
+      success({ data }) { cacheStore.setCollectSong(data) },
       fail(err) { console.error(err) }
     })
     wx.getStorage({
       key: 'collectPlaylist',
-      success({ data }) { audioStore.setCollectPlaylist(data) },
+      success({ data }) { cacheStore.setCollectPlaylist(data) },
       fail(err) { console.error(err) }
     })
 
@@ -53,15 +53,15 @@ App({
     })
   },
   onHide() {
-    audioStore.collectSongs.length && wx.setStorage({
+    cacheStore.collectSongs.length && wx.setStorage({
       key: 'collectSongs',
-      data: audioStore.collectSongs.slice(),
+      data: cacheStore.collectSongs.slice(),
       fail(err) { console.error(err) }
     })
 
-    audioStore.collectPlaylist.length && wx.setStorage({
+    cacheStore.collectPlaylist.length && wx.setStorage({
       key: 'collectPlaylist',
-      data: audioStore.collectPlaylist.slice(),
+      data: cacheStore.collectPlaylist.slice(),
       fail(err) { console.error(err) }
     })
   }

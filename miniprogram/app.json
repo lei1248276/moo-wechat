@@ -25,7 +25,6 @@
   "sitemapLocation": "sitemap.json",
   "requiredBackgroundModes": ["audio"],
   "resolveAlias": {
-    "@/*": "/*",
     "@/utils/*": "utils/*",
     "@/api/*": "api/*",
     "@/store/*": "store/*"

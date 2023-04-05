@@ -1,4 +1,4 @@
-import { audioStore } from '@/store/audio'
+import { cacheStore } from '@/store/index'
 import type { Playlist } from '@/api/interface/Playlist'
 import { spreadArray } from '@/utils/util'
 
@@ -10,8 +10,8 @@ Page({
     _collectPlaylist: [] as Playlist[]
   },
   onLoad() {
-    this.data._collectPlaylist = audioStore.collectPlaylist
-    this.setData({ count: audioStore.collectPlaylist.length })
+    this.data._collectPlaylist = cacheStore.collectPlaylist
+    this.setData({ count: cacheStore.collectPlaylist.length })
     this.onScrollMore()
   },
   toPlaylist({ mark }: WechatMiniprogram.TouchEvent) {
@@ -33,7 +33,7 @@ Page({
     const [playlist] = _collectPlaylist.splice(index, 1)
     collectPlaylist.splice(index, 1)
     this.setData({ collectPlaylist, count: count - 1 })
-    audioStore.deleteCollectPlaylist(playlist)
+    cacheStore.deleteCollectPlaylist(playlist)
   },
   onScrollMore() {
     const { collectPlaylist, _collectPlaylist } = this.data

@@ -1,4 +1,4 @@
-import { audioStore } from '@/store/audio'
+import { cacheStore } from '@/store/index'
 import { autorun } from 'mobx-miniprogram'
 
 Component({
@@ -17,22 +17,22 @@ Component({
     attached() {
       autorun(() => {
         this.setData({
-          'shelf[0].count': audioStore.collectSongs.length,
-          'shelf[0].list': audioStore.collectSongs.slice(0, 3).map((song) => song.al.picUrl)
+          'shelf[0].count': cacheStore.collectSongs.length,
+          'shelf[0].list': cacheStore.collectSongs.slice(0, 3).map((song) => song.al.picUrl)
         })
       })
 
       autorun(() => {
         this.setData({
-          'shelf[1].count': audioStore.collectPlaylist.length,
-          'shelf[1].list': audioStore.collectPlaylist.slice(0, 3).map((playlist) => playlist.coverImgUrl)
+          'shelf[1].count': cacheStore.collectPlaylist.length,
+          'shelf[1].list': cacheStore.collectPlaylist.slice(0, 3).map((playlist) => playlist.coverImgUrl)
         })
       })
 
       autorun(() => {
         this.setData({
-          'shelf[3].count': audioStore.historyPlays.length,
-          'shelf[3].list': audioStore.historyPlays.slice(0, 3).map((song) => song.al.picUrl)
+          'shelf[3].count': cacheStore.historyPlays.length,
+          'shelf[3].list': cacheStore.historyPlays.slice(0, 3).map((song) => song.al.picUrl)
         })
       })
     }

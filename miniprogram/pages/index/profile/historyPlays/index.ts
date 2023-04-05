@@ -1,4 +1,4 @@
-import { audioStore } from '@/store/audio'
+import { cacheStore } from '@/store/index'
 import type { Song } from '@/api/interface/Song'
 import { spreadArray } from '@/utils/util'
 
@@ -10,8 +10,8 @@ Page({
     _historyPlays: [] as Song[]
   },
   onLoad() {
-    this.data._historyPlays = audioStore.historyPlays
-    this.setData({ count: audioStore.historyPlays.length })
+    this.data._historyPlays = cacheStore.historyPlays
+    this.setData({ count: cacheStore.historyPlays.length })
     this.onScrollMore()
   },
   onScrollMore() {

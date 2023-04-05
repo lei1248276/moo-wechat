@@ -1,4 +1,4 @@
-import { audioStore } from '@/store/audio'
+import { audioStore, cacheStore } from '@/store/index'
 import type { Song } from '@/api/interface/Song'
 import { spreadArray } from '@/utils/util'
 import { BehaviorWithStore } from 'mobx-miniprogram-bindings'
@@ -20,8 +20,8 @@ Page({
     _collectSongs: [] as Song[]
   },
   onLoad() {
-    this.data._collectSongs = audioStore.collectSongs
-    this.setData({ count: audioStore.collectSongs.length })
+    this.data._collectSongs = cacheStore.collectSongs
+    this.setData({ count: cacheStore.collectSongs.length })
     this.onScrollMore()
   },
   onCollectList({ mark }: WechatMiniprogram.TouchEvent) {
@@ -40,7 +40,7 @@ Page({
     const [song] = _collectSongs.splice(index, 1)
     collectSongs.splice(index, 1)
     this.setData({ collectSongs, count: count - 1 })
-    audioStore.deleteCollectSong(song)
+    cacheStore.deleteCollectSong(song)
   },
   onScrollMore() {
     const { collectSongs, _collectSongs } = this.data

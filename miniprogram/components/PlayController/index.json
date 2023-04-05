@@ -3,6 +3,6 @@
   "pureDataPattern": "^_",
   "usingComponents": {
     "Countdown": "./components/Countdown/index",
-    "Play": "/sharedPages/play/index"
+    "Play": "/components/Play/index"
   }
 }

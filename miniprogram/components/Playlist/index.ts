@@ -1,4 +1,4 @@
-import { audioStore } from '@/store/audio'
+import { audioStore } from '@/store/index'
 import { Playlist } from '@/api/interface/Playlist'
 import { Song } from '@/api/interface/Song'
 import { BehaviorWithStore } from 'mobx-miniprogram-bindings'

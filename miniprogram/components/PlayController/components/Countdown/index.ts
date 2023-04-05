@@ -1,4 +1,4 @@
-import { audioStore } from '@/store/audio'
+import { audioStore } from '@/store/index'
 import { autorun } from 'mobx-miniprogram'
 
 Component({

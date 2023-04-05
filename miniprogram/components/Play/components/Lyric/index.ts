@@ -1,4 +1,4 @@
-import { audioStore } from '@/store/audio'
+import { audioStore } from '@/store/index'
 import { getLyric } from '@/api/play'
 import { autorun } from 'mobx-miniprogram'
 

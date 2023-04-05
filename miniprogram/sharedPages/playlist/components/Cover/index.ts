@@ -1,5 +1,5 @@
 import { Playlist } from '@/api/interface/Playlist'
-import { audioStore } from '@/store/audio'
+import { cacheStore } from '@/store/index'
 import Toast from '@/utils/toast'
 
 Component({
@@ -22,7 +22,7 @@ Component({
   },
   lifetimes: {
     attached() {
-      if (audioStore.collectPlaylist.some(v => v.id === this.data.playlistId)) {
+      if (cacheStore.collectPlaylist.some(v => v.id === this.data.playlistId)) {
         this.setData({ isCollect: true })
       }
     }
@@ -34,10 +34,10 @@ Component({
       const playlist = page!.data.playlist as Playlist
 
       if (isCollect) {
-        audioStore.deleteCollectPlaylist(playlist)
+        cacheStore.deleteCollectPlaylist(playlist)
         Toast.success('已删除歌单')
       } else {
-        audioStore.setCollectPlaylist(playlist)
+        cacheStore.setCollectPlaylist(playlist)
         Toast.success('添加成功')
       }
 
