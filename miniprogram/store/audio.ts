@@ -34,7 +34,7 @@ export const audioStore = observable({
     audioStore.isPlay = isPlay
   }),
   setDuration: action(function(time: number) {
-    audioStore.duration = Math.floor(time)
+    audioStore.duration = time
   }),
   setCurrentTime: action(function(time: number) {
     audioStore.currentTime = time

@@ -1,5 +1,5 @@
 import { audioStore } from '@/store/audio'
-import { reaction } from 'mobx-miniprogram'
+import { autorun } from 'mobx-miniprogram'
 
 Component({
   externalClasses: ['custom-class'],
@@ -13,33 +13,34 @@ Component({
   },
   data: {
     minute: '00',
-    seconds: '00'
+    seconds: '00',
+
+    _disposer: () => {}
   },
   pageLifetimes: {
     show() {
-      this.disposer = reaction(
-        () => audioStore.currentTime,
-        (time) => {
-          if (!audioStore.duration) return
+      this.data._disposer = autorun(() => {
+        if (!audioStore.duration) return
 
-          time = audioStore.duration - time
-          let minute = Math.floor(time / 60) + ''
-          let seconds = time % 60 + ''
-          minute.length === 1 && (minute = '0' + minute)
-          seconds.length === 1 && (seconds = '0' + seconds)
-          // console.log({ time, minute, seconds })
+        const time = Math.floor(audioStore.duration - audioStore.currentTime)
+        let minute = Math.floor(time / 60) + ''
+        let seconds = time % 60 + ''
+        minute.length === 1 && (minute = '0' + minute)
+        seconds.length === 1 && (seconds = '0' + seconds)
 
-          this.setData({ minute, seconds })
-        }
-      )
+        if (seconds === this.data.seconds) return
+        // console.log({ time, minute, seconds })
+
+        this.setData({ minute, seconds })
+      })
     },
     hide() {
-      this.disposer()
+      this.data._disposer()
     }
   },
   lifetimes: {
     detached() {
-      this.disposer()
+      this.data._disposer()
     }
   }
 })

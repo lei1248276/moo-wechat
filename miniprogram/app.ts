@@ -19,10 +19,8 @@ App({
     audio.autoplay = true
 
     audio.onCanplay(async() => {
-      // ! BUG：audio.duration需要多次获取，默认定时获取"3次duration"
+      // ! BUG：audio.duration需要多次获取，默认定时获取"2次duration"
       // ! https://developers.weixin.qq.com/community/develop/doc/0000cee069c3883778aa183a051400?highLine=InnerAudioContext%2520duration
-      console.log('%c🚀 ~ method: onCanplay ~', 'color: #F25F5C;font-weight: bold;', audio.duration)
-      await sleep(333)
       console.log('%c🚀 ~ method: onCanplay ~', 'color: #F25F5C;font-weight: bold;', audio.duration)
       await sleep(333)
       console.log('%c🚀 ~ method: onCanplay ~', 'color: #F25F5C;font-weight: bold;', audio.duration)
@@ -46,8 +44,7 @@ App({
     })
 
     audio.onTimeUpdate(() => {
-      const time = Math.floor(audio.currentTime)
-      if (audioStore.currentTime !== time) audioStore.setCurrentTime(time)
+      audioStore.setCurrentTime(audio.currentTime)
     })
 
     audio.onError((err) => {

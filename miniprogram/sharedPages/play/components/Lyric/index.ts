@@ -1,5 +1,6 @@
 import { audioStore } from '@/store/audio'
 import { getLyric } from '@/api/play'
+import { autorun } from 'mobx-miniprogram'
 
 Component({
   options: {
@@ -13,22 +14,21 @@ Component({
   data: {
     lyric: '',
 
-    _matches: [] as { time: number, lyric: string }[]
+    _matches: [] as { time: number, lyric: string }[],
+    _disposer: () => {}
   },
-  observers: {
-    async songId() {
-      audioStore.audio.offTimeUpdate()
+  lifetimes: {
+    async attached() {
       await this.fetchLyric()
 
-      const audio = audioStore.audio
       const _matches = this.data._matches
       let index = 0
-      audio.onTimeUpdate(() => {
+      this.data._disposer = autorun(() => {
         while (index < _matches.length) {
-          if (_matches[index].time > audio.currentTime) return
+          if (_matches[index].time > audioStore.currentTime) return
 
           // * 避免重复setData
-          if (_matches[index + 1] && _matches[index + 1].time < audio.currentTime) {
+          if (_matches[index + 1] && _matches[index + 1].time < audioStore.currentTime) {
             index++
             continue
           }
@@ -36,11 +36,9 @@ Component({
           this.setData({ lyric: _matches[index++].lyric })
         }
       })
-    }
-  },
-  lifetimes: {
+    },
     detached() {
-      audioStore.audio.offTimeUpdate()
+      this.data._disposer()
     }
   },
   methods: {
