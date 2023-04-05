@@ -89,14 +89,18 @@ export const audioStore = observable({
   setHistoryPlay: action(function(song: Song) {
     audioStore.historyPlays.unshift(song)
   }),
-  setCollectSong: action(function(song: Song) {
-    audioStore.collectSongs.unshift(song)
+  setCollectSong: action(function(song: Song | Song[]) {
+    Array.isArray(song)
+      ? audioStore.collectSongs.replace(song)
+      : audioStore.collectSongs.unshift(song)
   }),
   deleteCollectSong: action(function(song: Song) {
     audioStore.collectSongs.remove(song)
   }),
-  setCollectPlaylist: action(function(playlist: Playlist) {
-    audioStore.collectPlaylist.unshift(playlist)
+  setCollectPlaylist: action(function(playlist: Playlist | Playlist[]) {
+    Array.isArray(playlist)
+      ? audioStore.collectPlaylist.replace(playlist)
+      : audioStore.collectPlaylist.unshift(playlist)
   }),
   deleteCollectPlaylist: action(function(playlist: Playlist) {
     audioStore.collectPlaylist.remove(playlist)

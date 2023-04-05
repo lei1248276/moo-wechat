@@ -6,12 +6,12 @@ App({
   onLaunch() {
     wx.getStorage({
       key: 'collectSongs',
-      success({ data }) { audioStore.collectSongs.replace(data) },
+      success({ data }) { audioStore.setCollectSong(data) },
       fail(err) { console.error(err) }
     })
     wx.getStorage({
       key: 'collectPlaylist',
-      success({ data }) { audioStore.collectPlaylist.replace(data) },
+      success({ data }) { audioStore.setCollectPlaylist(data) },
       fail(err) { console.error(err) }
     })
 
