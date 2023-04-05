@@ -1,15 +1,17 @@
 <van-nav-bar
   title="{{ title }}"
   fixed
-  placeholder
+  placeholder="{{ placeholder }}"
   border="{{ false }}"
   custom-class="nav-bar"
   title-class="nav-bar__title"
+  custom-style="{{ customStyle }}"
 >
   <icon
     wx:if="{{ leftArrow }}"
     slot="left"
-    class="iconfont icon-arrow text-grey-1 nav-bar__icon"
+    class="iconfont icon-arrow text-grey-1 text-bold nav-bar__icon"
+    style="{{ iconStyle }}"
     catch:tap="toBack"
   />
 </van-nav-bar>

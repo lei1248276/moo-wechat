@@ -3,6 +3,12 @@ Component({
     styleIsolation: 'apply-shared'
   },
   properties: {
+    customStyle: {
+      type: String
+    },
+    iconStyle: {
+      type: String
+    },
     title: {
       type: String,
       value: 'MOO'
@@ -10,6 +16,10 @@ Component({
     leftArrow: {
       type: Boolean,
       value: false
+    },
+    placeholder: {
+      type: Boolean,
+      value: true
     }
   },
   data: {
@@ -18,6 +28,7 @@ Component({
   methods: {
     toBack() {
       wx.navigateBack()
+      this.triggerEvent('back')
     }
   }
 })

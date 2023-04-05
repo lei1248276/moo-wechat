@@ -1,4 +1,13 @@
 <view class="play relative bg-black-2">
+  <NavBar
+    title=""
+    leftArrow
+    placeholder="{{ false }}"
+    custom-style="background: transparent;"
+    icon-style="color: #fffeff;"
+    bind:back="onBack"
+  />
+
   <swiper
     class="bg-black-2 h-full"
     vertical
@@ -7,7 +16,6 @@
     current="{{ currentView }}"
     bind:animationfinish="onChangeView"
     bind:tap="toggle"
-    bind:longpress="onBack"
   >
     <swiper-item wx:for="{{ playView }}" wx:key="index" wx:for-item="song" skip-hidden-item-layout>
       <view class="play__view mid">
