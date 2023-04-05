@@ -9,11 +9,6 @@
   left: 6%;
   z-index: 999;
 
-  .van-count-down {
-    @include font-color(48rpx, $grey-1);
-    font-weight: bold;
-  }
-
   &--play {
     animation: audioPlay 5s linear infinite;
     animation-play-state: running;

@@ -34,8 +34,7 @@ export const audioStore = observable({
     audioStore.isPlay = isPlay
   }),
   setDuration: action(function(time: number) {
-    // * 因为音源问题duration可能相同，值相同会导致倒计时不会刷新
-    audioStore.duration = time === audioStore.duration ? time + Math.random() : time
+    audioStore.duration = Math.floor(time)
   }),
   setCurrentTime: action(function(time: number) {
     audioStore.currentTime = time

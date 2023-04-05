@@ -1,0 +1,1 @@
+<view class="text-grey-1 font-bold" style="font-size: 48rpx">{{ minute }}:{{ seconds }}</view>

@@ -46,7 +46,7 @@ App({
     })
 
     audio.onTimeUpdate(() => {
-      const time = Number(audio.currentTime.toFixed())
+      const time = Math.floor(audio.currentTime)
       if (audioStore.currentTime !== time) audioStore.setCurrentTime(time)
     })
 

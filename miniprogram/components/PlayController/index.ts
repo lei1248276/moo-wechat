@@ -3,32 +3,14 @@ import { audioStore } from '@/store/audio'
 
 Component({
   options: {
-    styleIsolation: 'shared'
+    styleIsolation: 'apply-shared'
   },
   behaviors: [audioStoreBehavior],
   data: {
     pivot: (450 / 2) - (130 / 2), // * 中心点
-    hidden: false, // * 控制播放器的显示
     isShowPlay: false, // * 控制play播放页面的显示
 
-    _moved: -1, // * 最终滑动的距离
-    _countDown: null as any
-  },
-  observers: {
-    'audioStore.isPlay'(isPlay) {
-      if (!audioStore.currentSongInfo) return
-
-      const countDown = this.data._countDown || (this.data._countDown = this.selectComponent('.control-count-down'))
-      isPlay ? countDown.start() : countDown.pause()
-    }
-  },
-  pageLifetimes: {
-    show() {
-      this.setData({ hidden: false })
-    },
-    hide() {
-      this.setData({ hidden: true })
-    }
+    _moved: -1 // * 最终滑动的距离
   },
   methods: {
     onHidePlay() {

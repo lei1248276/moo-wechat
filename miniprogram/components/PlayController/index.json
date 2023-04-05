@@ -2,7 +2,7 @@
   "component": true,
   "pureDataPattern": "^_",
   "usingComponents": {
-    "van-count-down": "@vant/weapp/count-down/index",
+    "Countdown": "./components/Countdown/index",
     "Play": "/sharedPages/play/index"
   }
 }

@@ -1,11 +1,5 @@
-<view
-  class="play-controller box-border flex justify-between item-center bg-black-1 {{ hidden || isShowPlay ? 'hidden' : '' }}"
->
-  <van-count-down
-    class="control-count-down"
-    time="{{ audioStore.duration ? audioStore.duration * 1000 : 1000 }}"
-    format="mm:ss"
-  />
+<view class="play-controller box-border flex justify-between item-center bg-black-1">
+  <Countdown />
 
   <movable-area class="absolute" style="width: 450rpx; height: 110rpx; left: 0; top: 0">
     <movable-view
@@ -21,15 +15,13 @@
         height="130rpx"
         show-loading="{{ false }}"
         class="mid"
-        image-class="{{ audioStore.isPlay ? 'play-controller--play' : 'play-controller--pause' }}"
+        image-class="{{ isPlay ? 'play-controller--play' : 'play-controller--pause' }}"
         bind:click="onShowPlay"
       />
     </movable-view>
   </movable-area>
 
-  <icon
-    class="iconfont {{ audioStore.isPlay ? 'icon-audioPause' : 'icon-audioPlay'}} text-white-1"
-  />
+  <icon class="iconfont {{ isPlay ? 'icon-audioPause' : 'icon-audioPlay'}} text-white-1" />
 
   <!-- ! 隐形的占位事件触发元素，因为icon图层被movable区域覆盖 -->
   <view
