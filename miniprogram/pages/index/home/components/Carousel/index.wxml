@@ -5,7 +5,7 @@
   indicator-dots
   autoplay="{{ autoplay && !hidden }}"
   circular
-  duration="200"
+  duration="400"
   interval="3000"
   indicator-color="#ABA8A8"
   indicator-active-color="#fff"

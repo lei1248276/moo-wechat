@@ -1,4 +1,4 @@
-<view class="profile-page">
+<view class="profile-page w-screen h-full box-border">
   <view class="profile-page__user box-border flex flex-col justify-between font-bold">
     <view class="text-white-1">
       <icon class="iconfont icon-user" style="margin-right: 20rpx" />

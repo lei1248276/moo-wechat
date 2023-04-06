@@ -1,19 +1,17 @@
 <!--index.wxml-->
 <NavBar />
 
-<view class="flex flex-col w-screen h-screen">
-  <NavTitle currentPage="{{ currentPage }}" />
+<NavTitle currentPage="{{ currentPage }}" />
 
-  <swiper class="bg-black-2 h-full" duration="200" bind:change="onSwiper">
-    <swiper-item skip-hidden-item-layout item-id="home">
-      <Home currentPage="{{ currentPage }}" />
-    </swiper-item>
+<swiper class="bg-black-2 h-screen" duration="400" bind:change="onSwiper">
+  <swiper-item skip-hidden-item-layout item-id="home">
+    <Home currentPage="{{ currentPage }}" />
+  </swiper-item>
 
-    <swiper-item skip-hidden-item-layout item-id="profile">
-      <Profile />
-    </swiper-item>
-  </swiper>
-</view>
+  <swiper-item skip-hidden-item-layout item-id="profile">
+    <Profile />
+  </swiper-item>
+</swiper>
 
 <PlayController />
 
