@@ -18,7 +18,7 @@ Component({
   },
   methods: {
     async fetchNewSonglist() {
-      const { playlists } = await getNewSonglist(0, 4)
+      const { playlists } = await getNewSonglist(Math.floor(Math.random() * 100), 4)
       console.log('%c🚀 ~ method: fetchNewSonglist ~', 'color: #F25F5C;font-weight: bold;', playlists)
 
       this.setData({ newSonglist: playlists })

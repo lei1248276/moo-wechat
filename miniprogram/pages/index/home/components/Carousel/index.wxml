@@ -21,7 +21,7 @@
       height="100%"
       radius="14rpx"
       lazy-load
-      src="{{ item.imageUrl }}"
+      src="{{ item.pic }}"
       use-loading-slot
     >
       <icon slot="loading" class="alt" />

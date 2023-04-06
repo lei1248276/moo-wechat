@@ -11,10 +11,10 @@
 >
   <view style="padding: calc(env(safe-area-inset-bottom) + 100rpx) 50rpx 50rpx">
     <view class="flex item-center" style="gap: 0 50rpx">
-      <van-image src="{{ song.al.picUrl }}" width="300rpx" height="300rpx" radius="12rpx" />
+      <van-image src="{{ song.al.picUrl || '' }}" width="300rpx" height="300rpx" radius="12rpx" />
 
       <view>
-        <view class="text-white-1" style="font-size: 48rpx">{{ song.al.name }}</view>
+        <view class="text-white-1" style="font-size: 48rpx">{{ song.name }}</view>
         <view class="flex-1 text-grey-1" style="font-size: 38rpx">
           <block wx:for="{{ song.ar }}" wx:key="name">{{ item.name }}. </block>
         </view>
