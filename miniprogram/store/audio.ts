@@ -65,7 +65,7 @@ export const audioStore = observable({
       return
     }
 
-    audioStore.audio.src = urlInfo.url
+    // audioStore.audio.src = urlInfo.url
     runInAction(() => { audioStore.currentSongInfo = { song, urlInfo } })
     cacheStore.setHistoryPlay(song)
   }),

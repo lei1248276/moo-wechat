@@ -17,7 +17,7 @@ Component({
     _matches: [] as { time: number, lyric: string }[],
     _disposer: () => {}
   },
-  lifetimes: {
+  /* lifetimes: {
     async attached() {
       await this.fetchLyric()
 
@@ -40,7 +40,7 @@ Component({
     detached() {
       this.data._disposer()
     }
-  },
+  },*/
   methods: {
     transLyric(lyric: string) {
       const regex = /\[(\d{2}:\d{2}\.\d{2,})\]([^[]+)/g

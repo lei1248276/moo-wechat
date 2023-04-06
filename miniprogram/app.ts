@@ -16,7 +16,7 @@ App({
     })
 
     const { audio } = audioStore
-    audio.autoplay = true
+    // audio.autoplay = true
 
     audio.onCanplay(async() => {
       // ! BUG：audio.duration需要多次获取，默认定时获取"2次duration"
