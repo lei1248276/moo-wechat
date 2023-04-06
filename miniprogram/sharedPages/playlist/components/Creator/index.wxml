@@ -1,5 +1,5 @@
 <view class="text-grey-1" style="margin-bottom: 20rpx">
-  <view class="flex item-center" style="margin-bottom: 20rpx">
+  <view class="flex items-center" style="margin-bottom: 20rpx">
     <van-image
       src="{{ userinfo.avatarUrl }}"
       width="80rpx"

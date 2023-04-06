@@ -1,8 +1,7 @@
 @import "miniprogram/styles/index";
 
 .new-album {
-  @include wh(100%, 100%);
-  gap: 30rpx;
+  gap: 0 50rpx;
   margin-bottom: 40rpx;
 
   &-name {

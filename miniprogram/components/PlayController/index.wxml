@@ -1,4 +1,4 @@
-<view class="play-controller box-border flex justify-between item-center bg-black-1">
+<view class="play-controller box-border flex justify-between items-center bg-black-1">
   <Countdown />
 
   <movable-area class="absolute" style="width: 450rpx; height: 110rpx; left: 0; top: 0">

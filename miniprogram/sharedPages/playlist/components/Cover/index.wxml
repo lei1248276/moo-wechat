@@ -10,7 +10,7 @@
   <icon slot="loading" class="alt" />
 </van-image>
 
-<view class="flex justify-between item-center" style="margin-bottom: 20rpx">
+<view class="flex justify-between items-center" style="margin-bottom: 20rpx">
   <view class="cover__description text-white-1">{{ description }}</view>
   <icon
     class="iconfont icon-heart {{ isCollect ? 'text-red-1' : 'text-grey-1' }}"

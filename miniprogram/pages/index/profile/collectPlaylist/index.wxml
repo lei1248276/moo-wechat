@@ -31,7 +31,7 @@
         right-width="{{ 65 }}"
         bind:click="toPlaylist"
       >
-        <view class="flex item-center" style="height: 200rpx; padding-bottom: 40rpx; gap: 0 40rpx">
+        <view class="flex items-center" style="height: 200rpx; padding-bottom: 40rpx; gap: 0 40rpx">
           <van-image
             src="{{ playlist.coverImgUrl }}"
             width="200rpx"

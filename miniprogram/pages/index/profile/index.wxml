@@ -4,7 +4,7 @@
       <icon class="iconfont icon-user" style="margin-right: 20rpx" />
       <text class="name">Jaye</text>
     </view>
-    <!--<view class="flex justify-between item-center text-grey-1">
+    <!--<view class="flex justify-between items-center text-grey-1">
       <view class="text">
         <text>关注</text>
         <text class="count">0</text>
@@ -19,7 +19,7 @@
     </view>-->
   </view>
 
-  <view class="flex flex-wrap justify-around item-center" style="gap: 40rpx 0; margin-top: 40rpx">
+  <view class="flex flex-wrap justify-around items-center" style="gap: 40rpx 0; margin-top: 40rpx">
     <Shelf
       wx:for="{{ shelf }}"
       wx:key="description"

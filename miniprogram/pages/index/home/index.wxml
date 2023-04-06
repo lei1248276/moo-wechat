@@ -1,19 +1,20 @@
-<view class="home-page h-full bg-black-2">
+<view class="home-page h-full bg-black-2 flex flex-col items-stretch">
   <Search />
 
-  <scroll-view class="h-full" scroll-y enable-flex enable-passive scroll-anchoring>
-    <view style="padding: 0 28rpx calc(400rpx + env(safe-area-inset-bottom))">
-      <Carousel autoplay="{{ currentPage === 'home' }}" />
+  <view
+    class="overflow-y-scroll"
+    style="padding: 0 28rpx calc(300rpx + env(safe-area-inset-bottom))"
+  >
+    <Carousel autoplay="{{ currentPage === 'home' }}" />
 
-      <Recommend />
+    <Recommend />
 
-      <NewSonglist />
+    <NewSonglist />
 
-      <NewSong />
+    <NewSong />
 
-      <NewAlbum />
+    <NewAlbum />
 
-      <SearchTags />
-    </view>
-  </scroll-view>
+    <SearchTags />
+  </view>
 </view>

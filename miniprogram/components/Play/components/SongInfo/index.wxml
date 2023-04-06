@@ -9,11 +9,11 @@
     class="flex flex-col justify-between text-white-1 font-bold"
     style="gap: 40rpx 0; margin-top: 20rpx"
   >
-    <view class="flex justify-between item-center">
+    <view class="flex justify-between items-center">
       <view style="font-size: 48rpx; margin-right: 20rpx">{{ name }}</view>
       <icon class="iconfont icon-heart {{ isCollect ? 'text-red-1' : '' }}" catch:tap="onCollect" />
     </view>
-    <view class="flex justify-between item-center">
+    <view class="flex justify-between items-center">
       <view class="flex-1 text-omit" style="font-size: 38rpx; margin-right: 20rpx">
         <block wx:for="{{ singers }}" wx:key="name">{{ item.name }}. </block>
       </view>

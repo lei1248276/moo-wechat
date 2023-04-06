@@ -1,4 +1,4 @@
-<view class="song flex justify-center item-center" hover-stay-time="100" hover-class="hover-class">
+<view class="song flex justify-center items-center" hover-stay-time="100" hover-class="hover-class">
   <van-image
     src="{{ song.al.picUrl || '' }}"
     width="140rpx"
@@ -18,7 +18,7 @@
     </view>
   </view>
 
-  <view wx:if="{{ isRun }}" class="sound-wave flex item-end">
+  <view wx:if="{{ isRun }}" class="sound-wave flex items-end">
     <i
       wx:for="{{ 4 }}"
       wx:key="index"

@@ -73,6 +73,15 @@
 .overflow-hidden {
   overflow: hidden;
 }
+.overflow-scroll {
+  overflow: scroll;
+}
+.overflow-x-scroll {
+  overflow-x: scroll;
+}
+.overflow-y-scroll {
+  overflow-y: scroll;
+}
 
 .hidden {
   display: none !important;
@@ -138,13 +147,13 @@
   align-content: space-evenly;
 }
 
-.item-start {
+.items-start {
   align-items: flex-start;
 }
-.item-center {
+.items-center {
   align-items: center;
 }
-.item-end {
+.items-end {
   align-items: flex-end;
 }
 .items-stretch {

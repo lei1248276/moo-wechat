@@ -1,5 +1,5 @@
 <view class="shelf relative" catch:tap="toNavigate">
-  <view class="relative flex item-end" style="width: 88%; height: 60%; margin: 0 auto">
+  <view class="relative flex items-end" style="width: 88%; height: 60%; margin: 0 auto">
     <block wx:for="{{ 3 }}" wx:key="index">
       <image
         wx:if="{{ list[index] }}"
@@ -16,7 +16,7 @@
     </block>
   </view>
 
-  <view class="shelf__bottom box-border bg-black-1 flex justify-between item-center font-bold">
+  <view class="shelf__bottom box-border bg-black-1 flex justify-between items-center font-bold">
     <text class="text-white-1">{{ description }}</text>
     <text class="text-grey-1">{{ count }}</text>
   </view>
