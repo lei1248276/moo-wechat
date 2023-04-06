@@ -3,6 +3,7 @@ import toast from './toast'
 
 const simpleAxios = SimpleAxios.create({
   baseURL: 'https://netease-music-api.fe-mm.com'
+  // baseURL: 'https://netease-cloud-music-api-jaye.vercel.app'
 })
 
 simpleAxios.interceptors.request.use(

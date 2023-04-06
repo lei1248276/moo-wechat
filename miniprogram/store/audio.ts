@@ -15,7 +15,7 @@ interface SongInfo {
 export const audioStore = observable({
   previousHooks: new Hooks(), // * 监听播放上一首的事件回调
   nextHooks: new Hooks(), // * 监听播放下一首的事件回调
-  audio: wx.createInnerAudioContext(),
+  audio: wx.getBackgroundAudioManager(),
   isPlay: false,
   duration: 0, // * 当前歌曲时长
   currentTime: 0, // * 当前歌曲播放时间
@@ -65,11 +65,20 @@ export const audioStore = observable({
       return
     }
 
-    audioStore.audio.src = urlInfo.url
-    runInAction(() => { audioStore.currentSongInfo = { song, urlInfo } })
+    const songInfo = { song, urlInfo }
+    audioStore.setAudioInfo(songInfo)
+    runInAction(() => { audioStore.currentSongInfo = songInfo })
     cacheStore.setHistoryPlay(song)
   }),
 
+  setAudioInfo({ song, urlInfo: { url }}: SongInfo) {
+    const audio = audioStore.audio
+    audio.title = song.name
+    audio.epname = song.al.name
+    audio.singer = song.ar.reduce((acc, { name }) => (acc += name + '. '), '')
+    audio.coverImgUrl = song.al.picUrl
+    audio.src = url
+  },
   toggle() {
     if (!audioStore.currentSongInfo) return
 

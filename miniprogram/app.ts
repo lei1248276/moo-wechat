@@ -15,9 +15,7 @@ App({
       fail(err) { console.error(err) }
     })
 
-    const { audio } = audioStore
-    audio.autoplay = true
-
+    const audio = audioStore.audio
     audio.onCanplay(async() => {
       // ! BUG：audio.duration需要多次获取，默认定时获取"2次duration"
       // ! https://developers.weixin.qq.com/community/develop/doc/0000cee069c3883778aa183a051400?highLine=InnerAudioContext%2520duration
@@ -47,9 +45,26 @@ App({
       audioStore.setCurrentTime(audio.currentTime)
     })
 
+    audio.onNext(() => {
+      console.log('onNext: ')
+      audioStore.setNextSong()
+    })
+
+    audio.onPrev(() => {
+      console.log('onPrev: ')
+      audioStore.setPreSong()
+    })
+
     audio.onError((err) => {
       Toast.fail('链接无效')
       console.error(err)
+    })
+  },
+  onShow() {
+    const audio = audioStore.audio
+    // * 因为切后台回调会自动销毁，重新监听（只会存在一个监听）
+    audio.onTimeUpdate(() => {
+      audioStore.setCurrentTime(audio.currentTime)
     })
   },
   onHide() {
