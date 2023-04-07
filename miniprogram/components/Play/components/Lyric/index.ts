@@ -2,6 +2,11 @@ import { audioStore } from '@/store/index'
 import { getLyric } from '@/api/play'
 import { autorun } from 'mobx-miniprogram'
 
+interface Matches {
+  time: number
+  lyric: string
+}
+
 Component({
   options: {
     styleIsolation: 'apply-shared'
@@ -13,28 +18,27 @@ Component({
   },
   data: {
     lyric: '',
+    transLyric: '',
 
-    _matches: [] as { time: number, lyric: string }[],
+    _lrcMatches: [] as Matches[],
+    _transLrcMatches: [] as Matches[],
     _disposer: () => {}
   },
   lifetimes: {
     async attached() {
       await this.fetchLyric()
 
-      const _matches = this.data._matches
-      let index = 0
+      const _lrcMatches = this.data._lrcMatches
+      const _transLrcMatches = this.data._transLrcMatches
+      const lrcIndex = { index: 0 }
+      const transLrcIndex = { index: 0 }
+
       this.data._disposer = autorun(() => {
-        while (index < _matches.length) {
-          if (_matches[index].time > audioStore.currentTime) return
+        const lyric = this.matchLyric(_lrcMatches, lrcIndex, audioStore.currentTime)
+        lyric && this.setData({ lyric })
 
-          // * 避免重复setData
-          if (_matches[index + 1] && _matches[index + 1].time < audioStore.currentTime) {
-            index++
-            continue
-          }
-
-          this.setData({ lyric: _matches[index++].lyric })
-        }
+        const transLyric = this.matchLyric(_transLrcMatches, transLrcIndex, audioStore.currentTime)
+        transLyric && this.setData({ transLyric })
       })
     },
     detached() {
@@ -42,10 +46,25 @@ Component({
     }
   },
   methods: {
+    matchLyric(matches: Matches[], matchIndex: {index: number}, currentTime: number) {
+      while (matchIndex.index < matches.length) {
+        if (matches[matchIndex.index].time > currentTime) return
+
+        // * 避免重复setData
+        const nextMatch = matches[matchIndex.index + 1]
+        if (nextMatch && nextMatch.time < currentTime) {
+          matchIndex.index++
+          continue
+        }
+
+        return matches[matchIndex.index++].lyric
+      }
+      return
+    },
     transLyric(lyric: string) {
       const regex = /\[(\d{2}:\d{2}\.\d{2,})\]([^[]+)/g
 
-      const matches = []
+      const matches: Matches[] = []
       let match
       while ((match = regex.exec(lyric)) !== null) {
         const [m, s] = match[1].split(':')
@@ -55,12 +74,13 @@ Component({
         })
       }
 
-      this.data._matches = matches
+      return matches
     },
     async fetchLyric() {
-      const { lrc } = await getLyric(this.data.songId)
-      console.log('%c🚀 ~ method: fetchLyric ~', 'color: #F25F5C;font-weight: bold;', lrc)
-      this.transLyric(lrc.lyric)
+      const data = await getLyric(this.data.songId)
+      console.log('%c🚀 ~ method: fetchLyric ~', 'color: #F25F5C;font-weight: bold;', data)
+      this.data._lrcMatches = this.transLyric(data.lrc.lyric)
+      this.data._transLrcMatches = this.transLyric(data.tlyric.lyric)
     }
   }
 })
