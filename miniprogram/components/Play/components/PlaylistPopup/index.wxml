@@ -4,12 +4,12 @@
   round
   safe-area-inset-bottom="{{ false }}"
   overlay-style="background-color: transparent; -webkit-backdrop-filter:blur(15rpx);backdrop-filter:blur(15rpx);"
-  custom-style="height: 88vh;background-color: rgba(0, 0, 0, .5);"
+  custom-style="height: 80vh;background-color: rgba(0, 0, 0, .5);"
   bind:click-overlay="onClose"
   bind:after-enter="onShowed"
   bind:after-leave="onHidden"
 >
-  <view style="padding: calc(env(safe-area-inset-bottom) + 100rpx) 50rpx 50rpx">
+  <view style="padding: calc(100rpx + env(safe-area-inset-top)) 50rpx 50rpx">
     <view class="flex items-center" style="gap: 0 50rpx">
       <van-image src="{{ song.al.picUrl || '' }}" width="300rpx" height="300rpx" radius="12rpx" />
 
@@ -31,7 +31,7 @@
 
   <block wx:if="{{ isShowed }}">
     <scroll-view
-      style="height: calc(100% - 556rpx - env(safe-area-inset-bottom))"
+      style="height: calc(100% - 556rpx)"
       scroll-y
       enable-passive
       scroll-anchoring
