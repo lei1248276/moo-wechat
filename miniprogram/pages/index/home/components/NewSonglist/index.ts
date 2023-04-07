@@ -1,5 +1,6 @@
 import { getNewSonglist } from '@/api/home'
 import type { Songlist } from '@/api/interface/Songlist'
+import { rangeRandom } from '@/utils/util'
 
 Component({
   options: {
@@ -18,7 +19,7 @@ Component({
   },
   methods: {
     async fetchNewSonglist() {
-      const { playlists } = await getNewSonglist(Math.floor(Math.random() * 100), 4)
+      const { playlists } = await getNewSonglist(rangeRandom(0, 100), 4)
       console.log('%c🚀 ~ method: fetchNewSonglist ~', 'color: #F25F5C;font-weight: bold;', playlists)
 
       this.setData({ newSonglist: playlists })

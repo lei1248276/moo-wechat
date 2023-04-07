@@ -1,8 +1,1 @@
 @import "miniprogram/styles/index";
-
-.home {
-  &__scroll-view {
-    height: 60vh;
-    padding: 0 28rpx calc(200rpx + env(safe-area-inset-bottom));
-  }
-}

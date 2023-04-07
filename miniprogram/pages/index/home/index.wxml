@@ -1,15 +1,29 @@
 <Search />
 
-<view class="home__scroll-view overflow-y-scroll">
-  <Carousel autoplay="{{ currentPage === 'home' }}" />
+<scroll-view
+  class="box-border"
+  style="height: calc(100vh - 136rpx - 86rpx - var(--safe-top)); padding: 0 28rpx"
+  scroll-y
+  enable-passive
+  scroll-anchoring
+  enable-back-to-top
+  enhanced
+  show-scrollbar="{{ false }}"
+  refresher-enabled
+  refresher-triggered="{{ refreshTrigger }}"
+  bind:refresherrefresh="onRefresh"
+>
+  <Carousel id="carousel" autoplay="{{ currentPage === 'home' }}" />
 
-  <Recommend />
+  <Recommend id="recommend" />
 
-  <NewSonglist />
+  <NewSonglist id="new-songlist" />
 
   <NewSong />
 
   <NewAlbum />
 
   <SearchTags />
-</view>
+
+  <view style="padding-bottom: calc(300rpx + env(safe-area-inset-bottom))"> </view>
+</scroll-view>
