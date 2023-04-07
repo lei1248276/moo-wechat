@@ -7,6 +7,9 @@
 - eslint
 - typescript
 
+#### 扫码体验（因资质问题，正式版无法播放音乐）
+![MOO](miniprogram/assets/MOO.jpg)
+
 
 ![home](https://moo.osrc.com/static/home.gif)
 ![playlist](https://moo.osrc.com/static/playlist.gif)
