@@ -31,12 +31,12 @@
 
   <block wx:if="{{ isShowed }}">
     <scroll-view
-      style="height: calc(100% - env(safe-area-inset-bottom) - 556rpx)"
+      style="height: calc(100% - 556rpx - env(safe-area-inset-bottom))"
       scroll-y
       enable-passive
       scroll-anchoring
       scroll-with-animation
-      scroll-top="{{ currentIndex * 90 }}"
+      scroll-top="{{ currentIndex * 180 }}rpx"
     >
       <Playlist
         playlist="{{ playlist }}"
