@@ -3,7 +3,7 @@
 
 <NavTitle currentPage="{{ currentPage }}" />
 
-<swiper class="bg-black-2 h-screen" duration="400" bind:change="onSwiper">
+<swiper class="bg-black-2 h-screen" duration="300" bind:change="onSwiper">
   <swiper-item skip-hidden-item-layout item-id="home">
     <Home currentPage="{{ currentPage }}" />
   </swiper-item>

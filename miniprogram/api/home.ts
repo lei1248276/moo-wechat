@@ -12,7 +12,7 @@ export function getBanner(type: 0 | 1 | 2 | 3 = 2) {
 }
 
 // * 获取推荐歌单
-export function getRecommend(limit = 3) {
+export function getRecommend(limit: number) {
   return simpleAxios.get<RecommendResponse>(`/personalized?limit=${limit}`)
 }
 

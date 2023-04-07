@@ -1,13 +1,13 @@
 <view class="recommend flex items-center bg-black-1">
   <view class="flex-1 relative flex justify-start h-full">
     <van-image
-      wx:for="{{ recommendList }}"
-      wx:key="id"
+      wx:for="{{ 3 }}"
+      wx:key="index"
       width="180rpx"
       height="100%"
       radius="8rpx"
-      class="recommend__img recommend__img__{{ index + 1 }}"
-      src="{{ item.picUrl }}"
+      class="recommend__img recommend__img-{{ index + 1 }}"
+      src="{{ recommendList[index].picUrl }}"
       use-loading-slot
     >
       <icon slot="loading" class="alt" />
@@ -16,7 +16,7 @@
 
   <view class="text-yellow-1 flex-1 flex justify-evenly items-center" style="margin-right: 10rpx">
     <view>
-      <view class="text-white-1" style="font-weight: bold; font-size: 38rpx">MOO Radio</view>
+      <view class="text-white-1 font-bold" style="font-size: 38rpx">MOO Radio</view>
       <text class="text-grey-1" style="font-size: 30rpx; letter-spacing: 8rpx">个性好歌推荐</text>
     </view>
     <icon

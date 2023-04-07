@@ -9,15 +9,15 @@
     @include wh(180rpx, 100%);
     position: absolute;
     bottom: 0;
-    &__1 {
+    &-1 {
       left: 0%;
     }
-    &__2 {
+    &-2 {
       height: 120%;
       left: 20%;
       z-index: 999;
     }
-    &__3 {
+    &-3 {
       left: 40%;
     }
   }
