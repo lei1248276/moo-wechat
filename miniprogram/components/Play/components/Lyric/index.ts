@@ -43,7 +43,7 @@ Component({
   },
   methods: {
     matchLyric(matches: Matches[], currentTime: number) {
-      if (matches[0].time > currentTime) return
+      if (!matches[0] || matches[0].time > currentTime) return
 
       // * 避免重复setData（针对播放中进入场景）
       while (matches[1]) {
@@ -75,12 +75,15 @@ Component({
       const { lrc, tlyric, needDesc } = await getLyric(this.data.songId)
       console.log('%c🚀 ~ method: fetchLyric ~', 'color: #F25F5C;font-weight: bold;', lrc, tlyric)
 
-      // * 纯音乐（直接显示描述）
-      if (needDesc) {
+      if (!lrc.lyric) {
+        return null
+      } else if (needDesc) { // * 纯音乐（直接显示描述）
         this.setData({ lyrics: this.transLyric(lrc.lyric).map(({ lyric }) => lyric) })
         return null
       } else {
-        return [this.transLyric(lrc.lyric).concat(tlyric ? this.transLyric(tlyric.lyric) : [])]
+        return tlyric && tlyric.lyric
+          ? [this.transLyric(lrc.lyric), this.transLyric(tlyric.lyric)]
+          : [this.transLyric(lrc.lyric)]
       }
     }
   }
