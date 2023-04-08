@@ -1,6 +1,6 @@
 import { audioStore } from '@/store/index'
 import { getLyric } from '@/api/play'
-import { autorun } from 'mobx-miniprogram'
+import { reaction } from 'mobx-miniprogram'
 
 interface Matches {
   time: number
@@ -17,49 +17,44 @@ Component({
     }
   },
   data: {
-    lyric: '',
-    transLyric: '',
+    lyrics: [] as string[],
 
-    _lrcMatches: [] as Matches[],
-    _transLrcMatches: [] as Matches[],
     _disposer: () => {}
   },
   lifetimes: {
     async attached() {
-      await this.fetchLyric()
+      const lyricMatches = await this.fetchLyric()
+      if (!lyricMatches) return
 
-      const _lrcMatches = this.data._lrcMatches
-      const _transLrcMatches = this.data._transLrcMatches
-      const lrcIndex = { index: 0 }
-      const transLrcIndex = { index: 0 }
+      this.data._disposer = reaction(
+        () => audioStore.currentTime,
+        (currentTime) => {
+          const lyrics = lyricMatches
+            .map(matches => this.matchLyric(matches, currentTime))
+            .filter(v => typeof v === 'string')
 
-      this.data._disposer = autorun(() => {
-        const lyric = this.matchLyric(_lrcMatches, lrcIndex, audioStore.currentTime)
-        lyric && this.setData({ lyric })
-
-        const transLyric = this.matchLyric(_transLrcMatches, transLrcIndex, audioStore.currentTime)
-        transLyric && this.setData({ transLyric })
-      })
+          lyrics.length && this.setData({ lyrics: lyrics as string[] })
+        }
+      )
     },
     detached() {
       this.data._disposer()
     }
   },
   methods: {
-    matchLyric(matches: Matches[], matchIndex: {index: number}, currentTime: number) {
-      while (matchIndex.index < matches.length) {
-        if (matches[matchIndex.index].time > currentTime) return
+    matchLyric(matches: Matches[], currentTime: number) {
+      if (matches[0].time > currentTime) return
 
-        // * 避免重复setData
-        const nextMatch = matches[matchIndex.index + 1]
-        if (nextMatch && nextMatch.time < currentTime) {
-          matchIndex.index++
+      // * 避免重复setData（针对播放中进入场景）
+      while (matches[1]) {
+        if (matches[1].time < currentTime) {
+          matches.shift()
           continue
         }
-
-        return matches[matchIndex.index++].lyric
+        break
       }
-      return
+
+      return matches.shift()!.lyric
     },
     transLyric(lyric: string) {
       const regex = /\[(\d{2}:\d{2}\.\d{2,})\]([^[]+)/g
@@ -76,11 +71,17 @@ Component({
 
       return matches
     },
-    async fetchLyric() {
-      const data = await getLyric(this.data.songId)
-      console.log('%c🚀 ~ method: fetchLyric ~', 'color: #F25F5C;font-weight: bold;', data)
-      this.data._lrcMatches = this.transLyric(data.lrc.lyric)
-      this.data._transLrcMatches = this.transLyric(data.tlyric.lyric)
+    async fetchLyric(): Promise<Array<Matches[]> | null> {
+      const { lrc, tlyric, needDesc } = await getLyric(this.data.songId)
+      console.log('%c🚀 ~ method: fetchLyric ~', 'color: #F25F5C;font-weight: bold;', lrc, tlyric)
+
+      // * 纯音乐（直接显示描述）
+      if (needDesc) {
+        this.setData({ lyrics: this.transLyric(lrc.lyric).map(({ lyric }) => lyric) })
+        return null
+      } else {
+        return [this.transLyric(lrc.lyric).concat(tlyric ? this.transLyric(tlyric.lyric) : [])]
+      }
     }
   }
 })

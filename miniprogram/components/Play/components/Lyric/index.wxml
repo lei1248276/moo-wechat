@@ -1,4 +1,3 @@
 <view class="lyric text-white-1 mid text-center" style="top: 30%; font-size: 50rpx; width: 80%">
-  <view>{{ lyric }}</view>
-  <view>{{ transLyric }}</view>
+  <view wx:for="{{ lyrics }}" wx:key="index">{{ item }}</view>
 </view>

@@ -4,10 +4,11 @@ export interface LyricResponse {
   qfy: boolean
   transUser: TransUser
   lyricUser: LyricUser
+  needDesc?: boolean
   lrc: Lrc
-  klyric: Klyric
-  tlyric: Tlyric
-  romalrc: Romalrc
+  klyric?: Klyric
+  tlyric?: Tlyric
+  romalrc?: Romalrc
   code: number
 }
 
