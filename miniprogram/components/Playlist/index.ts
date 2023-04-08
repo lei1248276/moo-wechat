@@ -52,7 +52,8 @@ Component({
         audioStore.setSongs(songs)
       }
 
-      audioStore.setCurrentSong(songs[index], index)
+      audioStore.setCurrentSong(songs[index])
+      audioStore.setCurrentIndex(index)
     }
   }
 })

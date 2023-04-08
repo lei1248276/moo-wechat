@@ -17,7 +17,7 @@
     bind:animationfinish="onChangeView"
     bind:tap="toggle"
   >
-    <swiper-item wx:for="{{ playView }}" wx:key="index" wx:for-item="song" skip-hidden-item-layout>
+    <swiper-item wx:for="{{ playView }}" wx:key="id" wx:for-item="song" skip-hidden-item-layout>
       <view class="play__view mid">
         <van-image
           image-class="play__pic relative"

@@ -29,7 +29,7 @@ export const audioStore = observable({
   setDuration: action(function(time: number) { audioStore.duration = time }),
   setCurrentTime: action(function(time: number) { audioStore.currentTime = time }),
 
-  setPlaylist: action(function(playlist: Playlist) { audioStore.playlist = playlist }),
+  setPlaylist: action(function(playlist: Playlist | null) { audioStore.playlist = playlist }),
   setSongs: action(function(songs: Song[]) { audioStore.songs = songs }),
 
   setPreSong: action(function() {
@@ -38,7 +38,8 @@ export const audioStore = observable({
     const last = audioStore.songs.length - 1
     const currentIndex = audioStore.currentSongIndex
     const preIndex = currentIndex === 0 ? last : currentIndex - 1
-    audioStore.setCurrentSong(audioStore.songs[preIndex], preIndex)
+    audioStore.setCurrentSong(audioStore.songs[preIndex])
+    audioStore.setCurrentIndex(preIndex)
     audioStore.previousHooks.emit()
   }),
   setNextSong: action(function() {
@@ -47,21 +48,25 @@ export const audioStore = observable({
     const last = audioStore.songs.length - 1
     const currentIndex = audioStore.currentSongIndex
     const nextIndex = currentIndex === last ? 0 : currentIndex + 1
-    audioStore.setCurrentSong(audioStore.songs[nextIndex], nextIndex)
+    audioStore.setCurrentSong(audioStore.songs[nextIndex])
+    audioStore.setCurrentIndex(nextIndex)
     audioStore.nextHooks.emit()
   }),
-  setCurrentSong: action(async function(song: Song, songIndex: number) {
-    if (audioStore.currentSongInfo && audioStore.currentSongInfo.song.id === song.id) {
-      return (audioStore.audio.seek(0), audioStore.audio.play())
+  setCurrentIndex: action(function(index: number) {
+    audioStore.currentSongIndex = index
+  }),
+
+  async setCurrentSong(song: Song) {
+    const { currentSongInfo, audio } = audioStore
+    if (currentSongInfo && currentSongInfo.song.id === song.id) {
+      return (audio.seek(0), audio.play())
     }
 
-    audioStore.currentSongIndex = songIndex
     const { data: [urlInfo] } = await getSongUrl(song.id)
     console.log('%c🚀 ~ method: setCurrentSong ~', 'color: #F25F5C;font-weight: bold;', urlInfo)
     if (!urlInfo.url) {
-      Toast.fail('播放地址失效')
-      audioStore.audio.stop()
-      audioStore.currentSongInfo = null
+      (audio.stop(), Toast.fail('播放地址失效'))
+      runInAction(() => { audioStore.currentSongInfo = null })
       return
     }
 
@@ -69,8 +74,7 @@ export const audioStore = observable({
     audioStore.setAudioInfo(songInfo)
     runInAction(() => { audioStore.currentSongInfo = songInfo })
     cacheStore.setHistoryPlay(song)
-  }),
-
+  },
   setAudioInfo({ song, urlInfo: { url }}: SongInfo) {
     const audio = audioStore.audio
     audio.title = song.name

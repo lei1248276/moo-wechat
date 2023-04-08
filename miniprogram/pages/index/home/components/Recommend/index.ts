@@ -30,7 +30,8 @@ Component({
 
       audioStore.setPlaylist(playlist)
       audioStore.setSongs(playlist.tracks)
-      audioStore.setCurrentSong(playlist.tracks[0], 0)
+      audioStore.setCurrentSong(playlist.tracks[0])
+      audioStore.setCurrentIndex(0)
 
       this.setData({ isPlay: false })
     },

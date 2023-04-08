@@ -1,29 +1,26 @@
 <Search />
 
 <scroll-view
-  class="box-border"
-  style="height: calc(100vh - 136rpx - 86rpx - var(--safe-top)); padding: 0 28rpx"
+  style="height: calc(100vh - 136rpx - 86rpx - var(--safe-top))"
   scroll-y
   enable-passive
   scroll-anchoring
   enable-back-to-top
-  enhanced
-  show-scrollbar="{{ false }}"
   refresher-enabled
   refresher-triggered="{{ refreshTrigger }}"
   bind:refresherrefresh="onRefresh"
 >
-  <Carousel id="carousel" autoplay="{{ currentPage === 'home' }}" />
+  <view style="padding: 0 28rpx calc(300rpx + env(safe-area-inset-bottom))">
+    <Carousel id="carousel" autoplay="{{ currentPage === 'home' }}" />
 
-  <Recommend id="recommend" />
+    <Recommend id="recommend" />
 
-  <NewSonglist id="new-songlist" />
+    <NewSonglist id="new-songlist" />
 
-  <NewSong />
+    <NewSong />
 
-  <NewAlbum />
+    <NewAlbum />
 
-  <SearchTags />
-
-  <view style="padding-bottom: calc(300rpx + env(safe-area-inset-bottom))"> </view>
+    <SearchTags />
+  </view>
 </scroll-view>

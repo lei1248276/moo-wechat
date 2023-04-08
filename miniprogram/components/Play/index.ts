@@ -23,6 +23,7 @@ Component({
   lifetimes: {
     attached() {
     // * 初始化view
+      console.log('%c🚀 ~ method: updateView ~', 'color: #F25F5C;font-weight: bold;', '初始化view')
       this.updateView()
 
       // * 添加一个监听下一首的回调hook

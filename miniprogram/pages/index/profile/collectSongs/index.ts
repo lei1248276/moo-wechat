@@ -27,11 +27,17 @@ Page({
   onCollectList({ mark }: WechatMiniprogram.TouchEvent) {
     const { index } = mark as { index: number }
     const { collectSongs } = this.data
+
+    if (audioStore.playlist) {
+      audioStore.setPlaylist(null)
+    }
+
     if (audioStore.songs !== collectSongs || audioStore.songs.length !== collectSongs.length) {
       audioStore.setSongs(collectSongs)
     }
 
-    audioStore.setCurrentSong(collectSongs[index], index)
+    audioStore.setCurrentSong(collectSongs[index])
+    audioStore.setCurrentIndex(index)
   },
   onDelete({ mark }: WechatMiniprogram.TouchEvent) {
     const { index } = mark as { index: number }
